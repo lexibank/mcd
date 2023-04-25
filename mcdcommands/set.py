@@ -46,7 +46,7 @@ def run(args):
                         form['Form'],
                         glosses[form['Parameter_ID']]['Name'],
                         unmarkdown(form['Comment'] or ''),
-                        cldf.sources[cog['Source'][0]].refkey(year_brackets=None) if cog['Source'] else ''
+                        '; '.join(cldf.sources[src].refkey(year_brackets=None) for src in form['Source']) if form['Source'] else '',
                     ])
 
     cf_members = collections.defaultdict(list)

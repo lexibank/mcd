@@ -13,7 +13,7 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "2059977",
+            "dc:created": "487c9f9",
             "dc:title": "Repository"
         },
         {
@@ -157,7 +157,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#LanguageTable",
-            "dc:extent": 55,
+            "dc:extent": 56,
             "tableSchema": {
                 "columns": [
                     {

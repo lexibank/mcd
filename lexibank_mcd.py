@@ -5,10 +5,11 @@ import pathlib
 import attr
 import pylexibank
 from clldutils.misc import slug
+from clldutils.markup import MarkdownLink
 from pycldf.sources import Sources
 
 from acdparser import parse
-from acdparser.models import LANGS, UNKNOWN_LANGS
+from acdparser.models import LANGS, UNKNOWN_LANGS, is_proto
 
 
 @attr.s
@@ -54,11 +55,12 @@ class Dataset(pylexibank.Dataset):
     def cmd_download(self, args):
         pass
 
-    def cmd_readme(self, args):
-        """
-        $ cldfbench cldfviz.map --output map.png --format png cldf/cldf-metadata.json --no-legend --pacific-centered --height 10 --width 15 --extent '"-40",50,20,-25' --language-labels --with-ocean
-        """
-        pylexibank.Dataset.cmd_readme(self, args)
+    #def cmd_readme(self, args):
+    #    """
+    #    $ cldfbench cldfviz.map --output map.png --format png cldf/cldf-metadata.json --no-legend --pacific-centered --height 10 --width 15 --extent '"-40",50,20,-25' --language-labels --with-ocean
+    #    """
+    #    # FIXME: Maybe just use cldfbench.Dataset here?
+    #    pylexibank.Dataset.cmd_readme(self, args)
 
     def cmd_makecldf(self, args):
         args.writer.cldf.add_component(
@@ -91,13 +93,14 @@ class Dataset(pylexibank.Dataset):
         lmap = {}
         forms = collections.defaultdict(dict)
         for lang, _, _ in LANGS:
-            if lang.startswith('Proto-'):
+            if is_proto(lang):
                 d = l2gl[slug(lang)]
                 d['is_proto'] = True
                 args.writer.add_language(**d)
                 lmap[lang] = slug(lang)
 
         for lang in langs:
+            assert all(ref.key in smap for ref in lang.refs)
             args.writer.add_language(**l2gl[str(lang.id)])
             lmap[lang.name] = str(lang.id)
             for form in lang.forms:
@@ -116,6 +119,7 @@ class Dataset(pylexibank.Dataset):
                     Value=form.form,
                     Form=form.form,
                     Comment=form.comment,
+                    Source=[str(ref) for ref in lang.refs],
                 )
                 forms[lang.name][form.form, form.gloss.lookup] = lex
 
@@ -142,7 +146,6 @@ class Dataset(pylexibank.Dataset):
                 Comment=cset.note.markdown if cset.note else None,
             ))
             for form in cset.forms:
-                src = []
                 if form.language in UNKNOWN_LANGS:
                     #print('+++', lname)
                     continue
@@ -159,14 +162,10 @@ class Dataset(pylexibank.Dataset):
                         Parameter_ID=cid,
                         Value=form.form,
                         Form=form.form,
+                        Comment=form.comment,
+                        Source=[str(ref) for ref in form.gloss.refs],
                     )
                     forms[form.language][form.form, form.gloss.lookup] = lex
-                if form.gloss.ref:
-                    key = slug(form.gloss.ref.key)
-                    if key not in smap:
-                        print('###', form.gloss.ref.label, form.gloss.ref.key, key)
-                    else:
-                        src = [key]
                 try:
                     cid = form.gloss.lookup
                     cid = {
@@ -178,7 +177,8 @@ class Dataset(pylexibank.Dataset):
                     args.writer.add_cognate(
                         lexeme=forms[form.language][form.form, cid],
                         Cognateset_ID=cset.id,
-                        Source=src,
+                        Source=[str(ref) for ref in form.gloss.refs],
+                        # Comment?
                     )
                 except KeyError:
                     # If gloss contains brackets, try to match without brackets!
@@ -187,7 +187,7 @@ class Dataset(pylexibank.Dataset):
                         args.writer.add_cognate(
                             lexeme=forms[form.language][form.form, cid],
                             Cognateset_ID=cset.id,
-                            Source=src,
+                            Source=[str(ref) for ref in form.gloss.refs if ref.key in smap],
                             Comment=form.gloss.markdown.partition('(')[2].replace(')', '').strip(),
                         )
                     else:
@@ -219,12 +219,11 @@ class Dataset(pylexibank.Dataset):
                     if (form.form, form.gloss.lookup) not in forms[form.language]:
                         print('+++', form.language, form.form, form.gloss.plain, slug(form.gloss.plain) or 'none')
                     else:
-                        key = slug(form.gloss.ref.key) if form.gloss.ref else None
                         args.writer.objects['cfitems.csv'].append((dict(
                             ID='{}-{}'.format(cfid, idx + 1),
                             Cfset_ID=cfid,
                             Form_ID=forms[form.language][form.form, form.gloss.lookup]['ID'],
-                            Source=[key] if key in smap else [],
+                            Source=[str(ref) for ref in form.gloss.refs if ref.key in smap],
                         )))
 
         form2id = collections.defaultdict(list)
@@ -237,15 +236,15 @@ class Dataset(pylexibank.Dataset):
 
         for cs in args.writer.objects['CognatesetTable']:
             if cs['Comment']:
-                cs['Comment'] = cldf_markdown(cs['Comment'], lmap, form2id)
+                cs['Comment'] = cldf_markdown(cs['Comment'], lmap, form2id, smap)
 
         for cs in args.writer.objects['FormTable']:
             if cs['Comment']:
-                cs['Comment'] = cldf_markdown(cs['Comment'], lmap, form2id)
+                cs['Comment'] = cldf_markdown(cs['Comment'], lmap, form2id, smap)
 
 
 
-def cldf_markdown(s, lmap, forms):
+def cldf_markdown(s, lmap, forms, sources):
     """
     In
     - Parameter.Description
@@ -275,7 +274,7 @@ def cldf_markdown(s, lmap, forms):
                         res += ' (?)'
                     assert len(forms[lname, form]) == 1
                     res += ' [{}{}](FormTable#cldf:{})'.format(
-                        '&ast;' if lname.startswith('Proto') else '',
+                        '&ast;' if is_proto(lname) else '',
                         form,
                         forms[lname, form][0],
                     )
@@ -287,4 +286,15 @@ def cldf_markdown(s, lmap, forms):
             res = m.group('content')
         return res
 
-    return re.sub('__language__(?P<content>.*?)__', repl, s)
+    res = re.sub('__language__(?P<content>.*?)__', repl, s)
+
+    def bib(md):
+        if md.url.startswith('bib-'):
+            bid = md.url.partition('-')[2]
+            if bid not in sources:
+                print('Missing source: {}; {}'.format(bid, md.label))
+                return md.label
+            md.url = 'Sources#cldf:{}'.format(bid)
+        return md
+
+    return MarkdownLink.replace(res, bib)
