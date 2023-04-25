@@ -54,6 +54,12 @@ class Dataset(pylexibank.Dataset):
     def cmd_download(self, args):
         pass
 
+    def cmd_readme(self, args):
+        """
+        $ cldfbench cldfviz.map --output map.png --format png cldf/cldf-metadata.json --no-legend --pacific-centered --height 10 --width 15 --extent '"-40",50,20,-25' --language-labels --with-ocean
+        """
+        pylexibank.Dataset.cmd_readme(self, args)
+
     def cmd_makecldf(self, args):
         args.writer.cldf.add_component(
             'CognatesetTable',
