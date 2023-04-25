@@ -21,18 +21,18 @@ This dataset is licensed under a CC-BY-4.0 license
 ![Source: 82%](https://img.shields.io/badge/Source-82%25-yellowgreen.svg "Source: 82%")
 
 - **Varieties:** 56 (linked to 47 different Glottocodes)
-- **Concepts:** 8,151 (linked to 0 different Concepticon concept sets)
-- **Lexemes:** 14,324
-- **Sources:** 214
+- **Concepts:** 8,144 (linked to 0 different Concepticon concept sets)
+- **Lexemes:** 14,321
+- **Sources:** 215
 - **Synonymy:** 1.01
-- **Cognacy:** 13,041 cognates in 991 cognate sets (26 singletons)
+- **Cognacy:** 13,039 cognates in 991 cognate sets (26 singletons)
 - **Cognate Diversity:** -1.16
 
 ## Possible Improvements:
 
 
 
-- Entries missing sources: 2581/14324 (18.02%)
+- Entries missing sources: 2581/14321 (18.02%)
 
 # Contributors
 

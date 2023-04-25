@@ -28,7 +28,7 @@ def run(args):
     for cs in cldf.iter_rows('CognatesetTable'):
         if cs['ID'] == str(args.cset_id):
             print('{}\t*{}\t{}\n'.format(
-                langs[cs['Language_ID']]['Name'],
+                langs[cs['Language_ID']]['Name'] + (' (?)' if cs['doubt'] else ''),
                 forms[cs['Form_ID']]['Form'].replace(' or ', ' or *'),
                 glosses[forms[cs['Form_ID']]['Parameter_ID']]['Name']
             ))
@@ -43,10 +43,10 @@ def run(args):
                 if form['Language_ID'] != cs['Language_ID']:
                     witnesses.append([
                         langs[form['Language_ID']]['Name'],
-                        form['Form'],
+                        ('*' if langs[form['Language_ID']]['is_proto'] else '') + form['Form'],
                         glosses[form['Parameter_ID']]['Name'],
                         unmarkdown(form['Comment'] or ''),
-                        '; '.join(cldf.sources[src].refkey(year_brackets=None) for src in form['Source']) if form['Source'] else '',
+                        '; '.join(cldf.sources[src].refkey(year_brackets=None) for src in form['Source'] + cog['Source']),
                     ])
 
     cf_members = collections.defaultdict(list)

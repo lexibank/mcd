@@ -1,6 +1,5 @@
-import collections
-import itertools
 import pathlib
+import collections
 
 import attr
 import pylexibank
@@ -68,6 +67,7 @@ class Dataset(pylexibank.Dataset):
             {'name': 'Language_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#languageReference'},
             {'name': 'Form_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#formReference'},
             {'name': 'Comment', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#comment'},
+            {'name': 'doubt', 'datatype': 'boolean'},
         )
         args.writer.cldf.add_table(
             'cf.csv',
@@ -104,7 +104,7 @@ class Dataset(pylexibank.Dataset):
             args.writer.add_language(**l2gl[str(lang.id)])
             lmap[lang.name] = str(lang.id)
             for form in lang.forms:
-                cid = slug(form.gloss.markdown) or 'none'
+                cid = slug(form.gloss.markdown.replace('__language_', '')) or 'none'
                 if cid not in concepts:
                     args.writer.add_concept(
                         ID=cid,
@@ -144,17 +144,18 @@ class Dataset(pylexibank.Dataset):
                 Language_ID=lmap[cset.proto_lang],
                 Form_ID=pform['ID'],
                 Comment=cset.note.markdown if cset.note else None,
+                doubt=cset.doubt,
             ))
             for form in cset.forms:
                 if form.language in UNKNOWN_LANGS:
                     #print('+++', lname)
                     continue
                 if form.is_proto:
-                    cid = slug(form.gloss.plain) or 'none'
+                    cid = slug(form.gloss.markdown.replace('__language_', '')) or 'none'
                     if cid not in concepts:
                         args.writer.add_concept(
                             ID=cid,
-                            Name=form.gloss.plain,
+                            Name=form.gloss.markdown,
                         )
                         concepts.add(cid)
                     lex = args.writer.add_form(
@@ -182,7 +183,7 @@ class Dataset(pylexibank.Dataset):
                     )
                 except KeyError:
                     # If gloss contains brackets, try to match without brackets!
-                    cid = slug(form.gloss.plain.partition('(')[0].strip()) or 'none'
+                    cid = slug(form.gloss.markdown.partition('(')[0].strip()) or 'none'
                     if (form.form, cid) in forms[form.language]:
                         args.writer.add_cognate(
                             lexeme=forms[form.language][form.form, cid],
@@ -191,7 +192,7 @@ class Dataset(pylexibank.Dataset):
                             Comment=form.gloss.markdown.partition('(')[2].replace(')', '').strip(),
                         )
                     else:
-                        print('---', form.language, form.form, form.gloss.plain, form.gloss.lookup)
+                        print('---', form.language, form.form, form.gloss.markdown, form.gloss.lookup)
             for j, (header, comment, fs) in enumerate(cset.cf_forms):
                 cfid = '{}-{}'.format(cset.id, j + 1)
                 args.writer.objects['cf.csv'].append((dict(
@@ -202,11 +203,11 @@ class Dataset(pylexibank.Dataset):
                 )))
                 for idx, form in enumerate(fs):
                     if form.is_proto:
-                        cid = slug(form.gloss.plain) or 'none'
+                        cid = slug(form.gloss.markdown) or 'none'
                         if cid not in concepts:
                             args.writer.add_concept(
                                 ID=cid,
-                                Name=form.gloss.plain,
+                                Name=form.gloss.markdown,
                             )
                             concepts.add(cid)
                         lex = args.writer.add_form(
@@ -217,7 +218,7 @@ class Dataset(pylexibank.Dataset):
                         )
                         forms[form.language][form.form, form.gloss.lookup] = lex
                     if (form.form, form.gloss.lookup) not in forms[form.language]:
-                        print('+++', form.language, form.form, form.gloss.plain, slug(form.gloss.plain) or 'none')
+                        print('+++', form.language, form.form, form.gloss.markdown, slug(form.gloss.markdown) or 'none')
                     else:
                         args.writer.objects['cfitems.csv'].append((dict(
                             ID='{}-{}'.format(cfid, idx + 1),

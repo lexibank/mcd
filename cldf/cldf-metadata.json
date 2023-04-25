@@ -13,7 +13,7 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "487c9f9",
+            "dc:created": "2615942",
             "dc:title": "Repository"
         },
         {
@@ -54,7 +54,7 @@
     "tables": [
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#FormTable",
-            "dc:extent": 14324,
+            "dc:extent": 14321,
             "tableSchema": {
                 "columns": [
                     {
@@ -227,7 +227,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ParameterTable",
-            "dc:extent": 8151,
+            "dc:extent": 8144,
             "tableSchema": {
                 "columns": [
                     {
@@ -263,7 +263,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#CognateTable",
-            "dc:extent": 13041,
+            "dc:extent": 13039,
             "tableSchema": {
                 "columns": [
                     {
@@ -388,6 +388,10 @@
                     {
                         "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#comment",
                         "name": "Comment"
+                    },
+                    {
+                        "datatype": "boolean",
+                        "name": "doubt"
                     }
                 ],
                 "foreignKeys": [
