@@ -1,0 +1,16 @@
+{
+    "id": "mcd",
+    "title": "Micronesian Comparative Dictionary",
+    "description": null,
+    "license": "CC-BY-4.0",
+    "url": null,
+    "citation": "Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions\u20141. Oceanic Linguistics Vol. 42, Num. 1, pp. 1-110",
+    "aboutUrl": null,
+    "conceptlist": [],
+    "lingpy_schema": null,
+    "derived_from": null,
+    "related": null,
+    "source": null,
+    "patron": null,
+    "version": "3.4.1.dev0"
+}

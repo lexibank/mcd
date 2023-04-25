@@ -1,0 +1,56 @@
+ID,Name,Glottocode,Glottolog_Name,ISO639P3code,Macroarea,Latitude,Longitude,Family,is_proto
+protokimbe,Proto-Kimbe,,,,,,,,true
+protocentralmicronesian,Proto-Central Micronesian,cent2276,Central Micronesian,,,4.573797919000071,168.68539472700002,Austronesian,true
+protolakalai,Proto-Lakalai,,,,,,,,true
+protowesternmicronesian,Proto-Western Micronesian,west2844,Western Micronesian,,,6.965277411000045,158.27662194100003,Austronesian,true
+protowesternmalayopolynesian,Proto-Western-Malayo-Polynesian,,,,,,,,true
+protoeasternoceanic,Proto-Eastern Oceanic,,,,,,,,true
+protopolynesian,Proto-Polynesian,poly1242,Polynesian,,,-16.676853122999944,177.56072024800005,Austronesian,true
+protomalayopolynesian,Proto-Malayo-Polynesian,mala1545,Malayo-Polynesian,,,6.029445705000057,121.93775475400003,Austronesian,true
+protochuukic,Proto-Chuukic,truk1243,Trukic,,,9.412054755000042,138.06812584700003,Austronesian,true
+protomicronesian,Proto-Micronesian,micr1243,Micronesian,,,5.599310614000046,168.10108483200008,Austronesian,true
+protonakanai,Proto-Nakanai,,,,,,,,true
+protopohnpeicchuukic,Proto-Pohnpeic-Chuukic,pona1247,Chuukic-Ponapeic,,,7.38117096600007,149.18083743600005,Austronesian,true
+protopohnpeic,Proto-Pohnpeic,pona1248,Ponapeic,,,6.869086005000042,158.33863366000003,Austronesian,true
+protowillaumez,Proto-Willaumez,will1243,Willaumez linkage,,,-5.472179224730346,150.56670596620697,Austronesian,true
+protoaustronesian,Proto-Austronesian,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,true
+protooceanic,Proto-Oceanic,ocea1241,Oceanic,,,-7.59343840899993,158.75171959700003,Austronesian,true
+1,'Āre'āre,area1240,'Are'are,alu,Papunesia,-9.20699,161.158,Austronesian,false
+2,Arosi,aros1241,Arosi,aia,Papunesia,-10.2441,161.432,Austronesian,false
+3,Bugotu,bugh1239,Bughotu,bgt,Papunesia,-8.47948,159.802,Austronesian,false
+5,Chamorro,cham1312,Chamorro,cha,Papunesia,13.438011,144.74474,Austronesian,false
+4,Chuukese,chuu1238,Chuukese,chk,Papunesia,7.346993,151.598607,Austronesian,false
+8,Fijian,fiji1243,Fijian,fij,Papunesia,-18.0,178.33,Austronesian,false
+10,Gilbertese,gilb1244,Gilbertese,gil,Papunesia,0.179,173.64,Austronesian,false
+9,Jabêm,yabe1254,Yabem,jae,Papunesia,-6.67052,147.81,Austronesian,false
+11,Kosraean,kosr1238,Kosraean,kos,Papunesia,5.31,162.98,Austronesian,false
+12,Kwaio,kwai1243,Kwaio,kwd,Papunesia,-8.93744,160.965,Austronesian,false
+13,Lakalai,naka1262,Nakanai,nak,Papunesia,-5.59931,150.888,Austronesian,false
+14,Lau,lauu1247,Lau,llu,Papunesia,-8.51018,160.872,Austronesian,false
+17,Marshallese,mars1254,Marshallese,mah,Papunesia,8.72,167.73,Austronesian,false
+16,Mokilese,moki1238,Mokilese,mkj,Papunesia,6.65651,159.776,Austronesian,false
+18,Mortlockese,mort1237,Mortlockese,mrl,Papunesia,5.50735,153.710778,Austronesian,false
+20,Ngatchikese,,,,,,,,false
+19,Nggela,gela1263,Gela,nlg,Papunesia,-9.04587,160.186,Austronesian,false
+15,Old Mapian,mapi1250,Mapia,mpy,Papunesia,0.908889,134.304722,Austronesian,false
+21,Palauan,pala1344,Palauan,pau,Papunesia,7.34138,134.476678,Austronesian,false
+31,Pingilapese,ping1243,Pingelapese,pif,Papunesia,6.20743,160.711,Austronesian,false
+33,Pohnpeian,pohn1238,Pohnpeian,pon,Papunesia,6.87212,158.223,Austronesian,false
+38,Pulo-Annan,pulo1240,Pulo Anna,,Papunesia,5.328596,132.221282,Austronesian,false
+39,Puluwatese,pulu1242,Puluwatese,puw,Papunesia,7.35695,149.2005,Austronesian,false
+42,Rotuman,rotu1241,Rotuman,rtm,Papunesia,-12.5008,177.066,Austronesian,false
+43,Roviana,rovi1238,Roviana,rug,Papunesia,-8.20493,157.408,Austronesian,false
+44,Sa’a,saaa1240,Sa'a,apb,Papunesia,-9.60258,161.467,Austronesian,false
+6,Saipan Carolinian,caro1242,Carolinian,cal,Papunesia,15.205,145.765,Austronesian,false
+7,Saipan Carolinian·T,caro1242,Carolinian,cal,Papunesia,15.205,145.765,Austronesian,false
+45,Samoan,samo1305,Samoan,smo,Papunesia,-13.92,-171.83,Austronesian,false
+47,Satawalese,sata1237,Satawalese,stw,Papunesia,7.36084,147.038,Austronesian,false
+46,Sonsorolese,sons1243,Sonsorolese,,Papunesia,5.328596,132.221282,Austronesian,false
+48,Tagalog,taga1270,Tagalog,tgl,Papunesia,14.06,121.747,Austronesian,false
+49,Tobi,tobi1238,Tobian,tox,Papunesia,3.004528,131.171295,Austronesian,false
+50,Tokelau,toke1240,Tokelau,tkl,Papunesia,-9.227642,-171.780833,Austronesian,false
+51,Tongan,tong1325,Tonga (Tonga Islands),ton,Papunesia,-21.17,-175.25,Austronesian,false
+53,Ulawan,,,,,,,,false
+54,Ulithian,ulit1238,Ulithian,uli,Papunesia,9.961388,139.603611,Austronesian,false
+55,Woleaian,wole1240,Woleaian,woe,Papunesia,7.37957,143.916,Austronesian,false
+56,Yapese,yape1248,Yapese,yap,Papunesia,9.55811,138.125,Austronesian,false
