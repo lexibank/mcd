@@ -7,8 +7,8 @@ from clldutils.misc import slug
 from clldutils.markup import MarkdownLink
 from pycldf.sources import Sources
 
-from acdparser import parse
-from acdparser.models import LANGS, UNKNOWN_LANGS, is_proto
+from crawler import crawl
+from parser import EtymonParser, LanguageParser, LANGS, UNKNOWN_LANGS, is_proto
 
 
 @attr.s
@@ -52,14 +52,7 @@ class Dataset(pylexibank.Dataset):
     )
 
     def cmd_download(self, args):
-        pass
-
-    #def cmd_readme(self, args):
-    #    """
-    #    $ cldfbench cldfviz.map --output map.png --format png cldf/cldf-metadata.json --no-legend --pacific-centered --height 10 --width 15 --extent '"-40",50,20,-25' --language-labels --with-ocean
-    #    """
-    #    # FIXME: Maybe just use cldfbench.Dataset here?
-    #    pylexibank.Dataset.cmd_readme(self, args)
+        crawl(self.raw_dir)
 
     def cmd_makecldf(self, args):
         args.writer.cldf.add_component(
@@ -84,7 +77,7 @@ class Dataset(pylexibank.Dataset):
             {'name': 'Source', 'separator': ';', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#source'},
         )
 
-        cognates, langs = parse(self.raw_dir)
+        cognates, langs = list(EtymonParser(self.raw_dir)), list(LanguageParser(self.raw_dir))
         args.writer.cldf.sources = Sources.from_file(self.etc_dir / 'sources.bib')
         smap = set(args.writer.cldf.sources.keys())
         l2gl = {l['ID']: l for l in self.languages}

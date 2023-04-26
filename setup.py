@@ -23,6 +23,11 @@ setup(
         ]
     },
     install_requires=[
+        'requests',
+        'lxml',
+        'attrs',
+        'clldutils',
+        'beautifulsoup4',
         'pylexibank>=3.4.1.dev0',
     ],
     extras_require={

@@ -1,0 +1,50 @@
+{
+    "title": "Micronesian Comparative Dictionary",
+    "access_right": "open",
+    "keywords": [
+        "cldf:Wordlist",
+        "linguistics"
+    ],
+    "creators": [
+        {
+            "name": "Byron W. Bender"
+        },
+        {
+            "name": "Ward H. Goodenough"
+        },
+        {
+            "name": "Frederick H. Jackson"
+        },
+        {
+            "name": "Jeffrey C. Marck"
+        },
+        {
+            "name": "Kenneth L. Rehg"
+        },
+        {
+            "name": "Ho-min Sohn"
+        },
+        {
+            "name": "Stephen Trussel"
+        },
+        {
+            "name": "Judith W. Wang"
+        }
+    ],
+    "contributors": [
+        {
+            "name": "Robert Forkel",
+            "type": "DataCurator"
+        }
+    ],
+    "communities": [
+        {
+            "identifier": "lexibank"
+        }
+    ],
+    "upload_type": "dataset",
+    "description": "<p>Cite the source of the dataset as:</p>\n\n<blockquote>\n<p>Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions\u20141. Oceanic Linguistics Vol. 42, Num. 1, pp. 1-110</p>\n</blockquote>",
+    "license": {
+        "id": "CC-BY-4.0"
+    }
+}
