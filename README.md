@@ -54,6 +54,30 @@ Work for the future includes a careful review of evidence of loanwords from Mars
 
 In order to facilitate comparison, the velar nasal symbol (ŋ ) is used in the protolanguages PMc, POc, PCk, and UAn (Dempwolff’s Uraustronesisch), and in the nuclear languages being compared in lieu of the ng, g, §, and so forth used in their orthographies. The w of labiovelars in the various languages is made superscript, and this is substituted for the primes of p' and m' used by Marck (1977, 1994) and Jackson (1983). We use ñ to represent the palatal nasal of PPC, PMc, POc, and UAn; we use R to represent the retroflex continuant of Puluwatese, Crn Carolinian, and Satawalese, but otherwise as standardly used in PEO, POc, PMP or UAn, and PAn. We use á, é, ó, and ú to represent the low front unrounded, the mid central unrounded, the low back rounded, and the high central unrounded or rounded vowels of the various Chuukic languages. We use ε for the lax mid front vowel of Pohnpeian and Pingelapese; Mokilese e and ε are both written as e, following Harrison and Salich (1977). We use ɔ for the lax mid back rounded vowel that is written oa in all of the Pohnpeic languages. For Marshallese, we use the phonemic transcription of Abo et al. (1976), but substitute bʷ for b, mʷ for ṃ, ŋ for g, kʷ for q, and we use superscript w to show the rounding of ṃʷ, ŋʷ, ḷʷ, and rʷ. For Kosraean, we have rewritten the digraph vowels to make their phonetic value more transparent, as shown in table 1. Our orthography for POc is that of Ross (1988), to which we add S to his s. Our orthography for PCk is that of Jackson (1983), to which we add y. Our orthography for PMc is that of Jackson (1986), except that we substitute s for his d and S for his z, and we add y and Z. The symbol # marks an entry that we consider to be an analogical.
 
+<table>
+<tbody>
+    <tr><td colspan="8" align="center">TABLE 1.	KOSRAEAN VOWEL SYMBOLS</td></tr>
+    <tr>
+        <th colspan="4">Lee 1976</th>
+        <th colspan="4">our replacements</th></tr>
+    <tr>
+        <td>&nbsp;</td><td align="center">front</td><td align="center">central</td><td align="center">back</td>
+        <td>&nbsp;</td><td align="center">front</td><td align="center">central</td><td align="center">back</td></tr>
+    <tr>
+        <td>high</td><td>i</td><td>ih</td><td>u</td>
+        <td>high</td><td>i</td><td>ɨ</td><td>u</td></tr>
+    <tr>
+        <td>upper mid</td><td>e</td><td>uc</td><td>o</td>
+        <td>upper mid</td><td>e</td><td>ə</td><td>o</td></tr>
+    <tr>
+        <td>lower mid</td><td>ac</td><td>uh</td><td>oh</td>
+        <td>lower mid</td><td>ε</td><td>ʌ</td><td>ɔ</td></tr>
+    <tr>
+        <td>low</td><td>ah</td><td>a</td><td>oa</td>
+        <td>low</td><td>æ</td><td>a</td><td>ɒ</td></tr>
+</tbody>
+</table>
+
 ![](consonant_correspondences.jpg)
 ![](consonant_correspondences_2.jpg)
 
@@ -64,12 +88,12 @@ In order to facilitate comparison, the velar nasal symbol (ŋ ) is used in the p
 [![CLDF validation](https://github.com/lexibank/mcd/workflows/CLDF-validation/badge.svg)](https://github.com/lexibank/mcd/actions?query=workflow%3ACLDF-validation)
 ![Glottolog: 96%](https://img.shields.io/badge/Glottolog-96%25-green.svg "Glottolog: 96%")
 ![Concepticon: 0%](https://img.shields.io/badge/Concepticon-0%25-red.svg "Concepticon: 0%")
-![Source: 82%](https://img.shields.io/badge/Source-82%25-yellowgreen.svg "Source: 82%")
+![Source: 89%](https://img.shields.io/badge/Source-89%25-yellowgreen.svg "Source: 89%")
 
-- **Varieties:** 56 (linked to 47 different Glottocodes)
+- **Varieties:** 56 (linked to 48 different Glottocodes)
 - **Concepts:** 8,144 (linked to 0 different Concepticon concept sets)
 - **Lexemes:** 14,321
-- **Sources:** 215
+- **Sources:** 216
 - **Synonymy:** 1.01
 - **Cognacy:** 13,039 cognates in 991 cognate sets (26 singletons)
 - **Cognate Diversity:** -1.16
@@ -78,7 +102,7 @@ In order to facilitate comparison, the velar nasal symbol (ŋ ) is used in the p
 
 
 
-- Entries missing sources: 2581/14321 (18.02%)
+- Entries missing sources: 1590/14321 (11.10%)
 
 # Contributors
 

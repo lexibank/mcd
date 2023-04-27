@@ -28,6 +28,7 @@ class Gloss(pylexibank.Concept):
 
 @attr.s
 class Language(pylexibank.Language):
+    abbr = attr.ib(default=None)
     is_proto = attr.ib(
         default=False,
         metadata=dict(datatype='boolean')
@@ -57,35 +58,65 @@ class Dataset(pylexibank.Dataset):
     def cmd_makecldf(self, args):
         args.writer.cldf.add_component(
             'CognatesetTable',
+            # Description: gloss
+            # reconstruction
+            {
+                'name': 'Name',
+                'dc:description': 'The reconstructed proto-form(s).',
+                'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#name'},
             {'name': 'Language_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#languageReference'},
             {'name': 'Form_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#formReference'},
             {'name': 'Comment', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#comment'},
-            {'name': 'doubt', 'datatype': 'boolean'},
+            {
+                'name': 'doubt',
+                'dc:description': 'Flag indicating (un)certainty of the reconstruction.',
+                'datatype': 'boolean'},
         )
-        args.writer.cldf.add_table(
+        args.writer.cldf['CognatesetTable', 'Description'].common_props['dc:description'] = \
+            'The reconstructed meaning.'
+        t = args.writer.cldf.add_table(
             'cf.csv',
             {'name': 'ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#id'},
-            {'name': 'Name', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#name'},
+            {
+                'name': 'Name',
+                'dc:description': 'The title of a table of related forms.',
+                'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#name'},
             {'name': 'Comment', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#comment'},
             {'name': 'Cognateset_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference'},
         )
-        args.writer.cldf.add_table(
+        t.common_props['dc:description'] = \
+            'MCD does not categorize items which were considered but eventually excluded as witness ' \
+            'for a reconstruction as ACD does (into loans, "noise" and "near" cognates). Instead, MCD ' \
+            'lists such forms in (a series of) tables related to a cognate set. These tables are listed ' \
+            'in `cf.csv`.'
+        t = args.writer.cldf.add_table(
             'cfitems.csv',
             {'name': 'ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#id'},
             {'name': 'Cfset_ID'},
             {'name': 'Form_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#formReference'},
             {'name': 'Source', 'separator': ';', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#source'},
         )
-
+        t.common_props['dc:description'] = \
+            'Items in tables related to cognate sets are listed here.'
         cognates, langs = list(EtymonParser(self.raw_dir)), list(LanguageParser(self.raw_dir))
         args.writer.cldf.sources = Sources.from_file(self.etc_dir / 'sources.bib')
         smap = set(args.writer.cldf.sources.keys())
         l2gl = {l['ID']: l for l in self.languages}
 
         concepts = set()
+
+        def add_concept(form):
+            if form.gloss.cid not in concepts:
+                args.writer.add_concept(ID=form.gloss.cid, Name=form.gloss.markdown)
+                concepts.add(form.gloss.cid)
+
         lmap = {}
         forms = collections.defaultdict(dict)
-        for lang, _, _ in LANGS:
+        for lang, abbr, _ in LANGS:
+            if abbr:
+                for l in l2gl.values():
+                    if l['Name'] == lang:
+                        l['abbr'] = abbr
             if is_proto(lang):
                 d = l2gl[slug(lang)]
                 d['is_proto'] = True
@@ -97,18 +128,11 @@ class Dataset(pylexibank.Dataset):
             args.writer.add_language(**l2gl[str(lang.id)])
             lmap[lang.name] = str(lang.id)
             for form in lang.forms:
-                cid = slug(form.gloss.markdown.replace('__language_', '')) or 'none'
-                if cid not in concepts:
-                    args.writer.add_concept(
-                        ID=cid,
-                        Name=form.gloss.markdown,
-                        #Description=form.gloss.markdown,
-                    )
-                    concepts.add(cid)
+                add_concept(form)
                 assert not form.gloss.comment
                 lex = args.writer.add_form(
                     Language_ID=lang.id,
-                    Parameter_ID=cid,
+                    Parameter_ID=form.gloss.cid,
                     Value=form.form,
                     Form=form.form,
                     Comment=form.comment,
@@ -119,7 +143,7 @@ class Dataset(pylexibank.Dataset):
         for cset in cognates:
             cid = slug(cset.gloss) or 'none'
             if cid not in concepts:
-                args.writer.add_concept(ID=cid, Name=cset.gloss)  # FIXME: Add tags from finder list!
+                args.writer.add_concept(ID=cid, Name=cset.gloss)
                 concepts.add(cid)
             # Add the reconstruction as form of the proto language:
             pform = args.writer.add_form(
@@ -127,33 +151,30 @@ class Dataset(pylexibank.Dataset):
                 Parameter_ID=cid,
                 Value=cset.key,
                 Form=cset.key,
+                Source=['mcd']
             )
             forms[cset.proto_lang][cset.key, cid] = pform
             # And add this reconstruction to the cognate set:
-            args.writer.add_cognate(lexeme=pform, Cognateset_ID=cset.id)
+            args.writer.add_cognate(lexeme=pform, Cognateset_ID=cset.id, Doubt=cset.doubt)
 
             args.writer.objects['CognatesetTable'].append(dict(
                 ID=cset.id,
                 Language_ID=lmap[cset.proto_lang],
                 Form_ID=pform['ID'],
                 Comment=cset.note.markdown if cset.note else None,
+                Name=cset.reconstruction,
+                Description=cset.gloss,
+                Source=['mcd'],
                 doubt=cset.doubt,
             ))
             for form in cset.forms:
                 if form.language in UNKNOWN_LANGS:
-                    #print('+++', lname)
                     continue
                 if form.is_proto:
-                    cid = slug(form.gloss.markdown.replace('__language_', '')) or 'none'
-                    if cid not in concepts:
-                        args.writer.add_concept(
-                            ID=cid,
-                            Name=form.gloss.markdown,
-                        )
-                        concepts.add(cid)
+                    add_concept(form)
                     lex = args.writer.add_form(
                         Language_ID=lmap[form.language],
-                        Parameter_ID=cid,
+                        Parameter_ID=form.gloss.cid,
                         Value=form.form,
                         Form=form.form,
                         Comment=form.comment,
@@ -172,12 +193,14 @@ class Dataset(pylexibank.Dataset):
                         lexeme=forms[form.language][form.form, cid],
                         Cognateset_ID=cset.id,
                         Source=[str(ref) for ref in form.gloss.refs],
+                        Doubt=form.doubt,
                         # Comment?
                     )
                 except KeyError:
                     # If gloss contains brackets, try to match without brackets!
                     cid = slug(form.gloss.markdown.partition('(')[0].strip()) or 'none'
                     if (form.form, cid) in forms[form.language]:
+                        print('***', 'yay')
                         args.writer.add_cognate(
                             lexeme=forms[form.language][form.form, cid],
                             Cognateset_ID=cset.id,
@@ -196,16 +219,10 @@ class Dataset(pylexibank.Dataset):
                 )))
                 for idx, form in enumerate(fs):
                     if form.is_proto:
-                        cid = slug(form.gloss.markdown) or 'none'
-                        if cid not in concepts:
-                            args.writer.add_concept(
-                                ID=cid,
-                                Name=form.gloss.markdown,
-                            )
-                            concepts.add(cid)
+                        add_concept(form)
                         lex = args.writer.add_form(
                             Language_ID=lmap[form.language],
-                            Parameter_ID=cid,
+                            Parameter_ID=form.gloss.cid,
                             Value=form.form,
                             Form=form.form,
                         )

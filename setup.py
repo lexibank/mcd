@@ -23,6 +23,7 @@ setup(
         ]
     },
     install_requires=[
+        'termcolor',
         'requests',
         'lxml',
         'attrs',

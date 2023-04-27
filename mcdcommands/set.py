@@ -3,6 +3,7 @@
 """
 import collections
 
+from termcolor import colored
 from clldutils.clilib import Table, add_format
 from clldutils.markup import MarkdownLink
 
@@ -10,7 +11,7 @@ from lexibank_mcd import Dataset
 
 
 def register(parser):
-    parser.add_argument('cset_id', type=int)
+    parser.add_argument('cset')
     add_format(parser, 'simple')
 
 
@@ -26,11 +27,11 @@ def run(args):
     glosses = {l['ID']: l for l in cldf.iter_rows('ParameterTable')}
 
     for cs in cldf.iter_rows('CognatesetTable'):
-        if cs['ID'] == str(args.cset_id):
-            print('{}\t*{}\t{}\n'.format(
-                langs[cs['Language_ID']]['Name'] + (' (?)' if cs['doubt'] else ''),
-                forms[cs['Form_ID']]['Form'].replace(' or ', ' or *'),
-                glosses[forms[cs['Form_ID']]['Parameter_ID']]['Name']
+        if cs['ID'] == args.cset or cs['Name'] == args.cset or cs['Name'] == args.cset.replace('*', ''):
+            print('\n{}\t{}\t{}\n'.format(
+                colored(langs[cs['Language_ID']]['Name'] + (' (?)' if cs['doubt'] else ''), 'blue', attrs=['bold']),
+                colored('*' + forms[cs['Form_ID']]['Form'].replace(' or ', ' or *'), 'red', attrs=['bold']),
+                colored(glosses[forms[cs['Form_ID']]['Parameter_ID']]['Name'], 'black')
             ))
             break
     else:
@@ -40,13 +41,14 @@ def run(args):
         for cog in cldf.iter_rows('CognateTable'):
             if cog['Cognateset_ID'] == cs['ID']:
                 form = forms[cog['Form_ID']]
+                is_proto = langs[form['Language_ID']]['is_proto']
                 if form['Language_ID'] != cs['Language_ID']:
                     witnesses.append([
-                        langs[form['Language_ID']]['Name'],
-                        ('*' if langs[form['Language_ID']]['is_proto'] else '') + form['Form'],
+                        colored(langs[form['Language_ID']]['Name'], 'red' if is_proto else 'green'),
+                        colored(('*' if is_proto else '') + form['Form'], 'red' if is_proto else 'blue'),
                         glosses[form['Parameter_ID']]['Name'],
                         unmarkdown(form['Comment'] or ''),
-                        '; '.join(cldf.sources[src].refkey(year_brackets=None) for src in form['Source'] + cog['Source']),
+                        '; '.join(cldf.sources[src.split('[')[0]].refkey(year_brackets=None) for src in form['Source'] + cog['Source']),
                     ])
 
     cf_members = collections.defaultdict(list)
@@ -64,7 +66,7 @@ def run(args):
                             langs[form['Language_ID']]['Name'],
                             form['Form'],
                             glosses[form['Parameter_ID']]['Name'],
-                            cldf.sources[cfitem['Source'][0]].refkey(year_brackets=None) if cfitem['Source'] else ''
+                            cldf.sources[cfitem['Source'][0].split('[')[0]].refkey(year_brackets=None) if cfitem['Source'] else ''
                         ])
             if cf['Comment']:
                 print(unmarkdown(cf['Comment']))

@@ -4,23 +4,30 @@ import itertools
 
 import attr
 from bs4 import Tag, NavigableString, BeautifulSoup as bs
-from clldutils.misc import slug
+from clldutils.misc import slug, lazyproperty
 
 __all__ = ['LANGS', 'NORM_LANG', 'UNKNOWN_LANGS', 'EtymonParser', 'LanguageParser']
 
 
 LANGS = {
     ("'Āre'āre", None, "’Āre’āre"),
+    ('Fijian', 'Fij', None),
     ('Marshallese', 'Mrs', None),
     ('Mortlockese', 'Mtk', None),
     ('Samoan', 'Sam', None),
     ('Gilbertese', 'Kir', 'Kiribati'),
     ('Chuukese', 'Chk', 'Trukese'),
-    ('Kosraean', None, 'Kusaiean'),
+    ('Kosraean', 'Ksr', 'Kusaiean'),
     ('Pohnpeian', 'Pon', 'Ponapeian'),
     ('Lakalai', None, 'West Nakanai'),
+    ('Pingilapese', 'Png', 'Pingelapese'),
     ('Saipan Carolinian', 'Crl', None),
+    ('Saipan Carolinian·T', 'Crn', None),
+    ('Sonsorolese', 'Sns', None),
+    ('Tobi', 'Tob', None),
+    ('Ulawan', 'Ula', None),
     ('Ulithian', 'Uli', None),
+    ('Woleaian', 'Wol', None),
     ('Proto-Austronesian', 'PAN', None),
     ('Uraustronesisch', None, None),
     ('Proto-Central Micronesian', 'PCMc', 'Proto–Central Micronesian'),
@@ -289,6 +296,10 @@ class Gloss(Item):
     lookup = attr.ib(default='')
     comment = attr.ib(default='')
 
+    @lazyproperty
+    def cid(self):
+        return slug(self.markdown.replace('__language_', '')) or 'none'
+
     @classmethod
     def match(cls, e):
         return isinstance(e, Tag) and e.name == 'span' and \
@@ -350,6 +361,7 @@ class Note(Item):
 @attr.s
 class Etymon(Item):
     id = attr.ib(default=None)
+    reconstruction = attr.ib(default=None)
     key = attr.ib(default=None)
     gloss = attr.ib(default=None)
     proto_lang = attr.ib(default=None)
@@ -369,7 +381,8 @@ class Etymon(Item):
                 except ValueError:
                     pass
         assert self.id
-        self.key = self.html.find('span', class_='pwd').text.strip().replace(' *', ' ')
+        self.reconstruction = self.html.find('span', class_='pwd').get_text().strip()
+        self.key = self.reconstruction.replace(' *', ' ')
         if self.key.startswith('*'):
             self.key = self.key[1:].strip()
         self.gloss = self.html.find('span', class_='mpgloss').get_text().strip()

@@ -13,7 +13,7 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "0fee2ef",
+            "dc:created": "df01944",
             "dc:title": "Repository"
         },
         {
@@ -215,6 +215,10 @@
                         "name": "Family"
                     },
                     {
+                        "datatype": "string",
+                        "name": "abbr"
+                    },
+                    {
                         "datatype": "boolean",
                         "name": "is_proto"
                     }
@@ -365,6 +369,7 @@
                         "name": "ID"
                     },
                     {
+                        "dc:description": "The reconstructed meaning.",
                         "datatype": "string",
                         "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#description",
                         "required": false,
@@ -376,6 +381,11 @@
                         "required": false,
                         "separator": ";",
                         "name": "Source"
+                    },
+                    {
+                        "dc:description": "The reconstructed proto-form(s).",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#name",
+                        "name": "Name"
                     },
                     {
                         "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#languageReference",
@@ -390,6 +400,7 @@
                         "name": "Comment"
                     },
                     {
+                        "dc:description": "Flag indicating (un)certainty of the reconstruction.",
                         "datatype": "boolean",
                         "name": "doubt"
                     }
@@ -425,6 +436,7 @@
             "url": "cognatesets.csv"
         },
         {
+            "dc:description": "MCD does not categorize items which were considered but eventually excluded as witness for a reconstruction as ACD does (into loans, \"noise\" and \"near\" cognates). Instead, MCD lists such forms in (a series of) tables related to a cognate set. These tables are listed in `cf.csv`.",
             "dc:extent": 595,
             "tableSchema": {
                 "columns": [
@@ -433,6 +445,7 @@
                         "name": "ID"
                     },
                     {
+                        "dc:description": "The title of a table of related forms.",
                         "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#name",
                         "name": "Name"
                     },
@@ -465,6 +478,7 @@
             "url": "cf.csv"
         },
         {
+            "dc:description": "Items in tables related to cognate sets are listed here.",
             "dc:extent": 1310,
             "tableSchema": {
                 "columns": [

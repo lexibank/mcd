@@ -12,7 +12,7 @@ property | value
 [dc:conformsTo](http://purl.org/dc/terms/conformsTo) | [CLDF Wordlist](http://cldf.clld.org/v1.0/terms.rdf#Wordlist)
 [dc:license](http://purl.org/dc/terms/license) | https://creativecommons.org/licenses/by/4.0/
 [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL) | https://github.com/lexibank/mcd
-[prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) | <ol><li><a href="https://github.com/lexibank/mcd/tree/0fee2ef">lexibank/mcd 0fee2ef</a></li><li><a href="https://github.com/glottolog/glottolog/tree/v4.7">Glottolog v4.7</a></li><li><a href="https://github.com/concepticon/concepticon-data/tree/v3.1.0">Concepticon v3.1.0</a></li><li><a href="https://github.com/cldf-clts/clts/tree/6e60c1d">CLTS v2.2.0-11-g6e60c1d</a></li></ol>
+[prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) | <ol><li><a href="https://github.com/lexibank/mcd/tree/df01944">lexibank/mcd df01944</a></li><li><a href="https://github.com/glottolog/glottolog/tree/v4.7">Glottolog v4.7</a></li><li><a href="https://github.com/concepticon/concepticon-data/tree/v3.1.0">Concepticon v3.1.0</a></li><li><a href="https://github.com/cldf-clts/clts/tree/6e60c1d">CLTS v2.2.0-11-g6e60c1d</a></li></ol>
 [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy) | <ol><li><strong>lingpy-rcParams</strong>: <a href="./lingpy-rcParams.json">lingpy-rcParams.json</a></li><li><strong>python</strong>: 3.10.6</li><li><strong>python-packages</strong>: <a href="./requirements.txt">requirements.txt</a></li></ol>
 [rdf:ID](http://www.w3.org/1999/02/22-rdf-syntax-ns#ID) | mcd
 [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type) | http://www.w3.org/ns/dcat#Distribution
@@ -65,6 +65,7 @@ Name/Property | Datatype | Description
 [Latitude](http://cldf.clld.org/v1.0/terms.rdf#latitude) | `decimal` | 
 [Longitude](http://cldf.clld.org/v1.0/terms.rdf#longitude) | `decimal` | 
 `Family` | `string` | 
+`abbr` | `string` | 
 `is_proto` | `boolean` | 
 
 ## <a name="table-parameterscsv"></a>Table [parameters.csv](./parameters.csv)
@@ -122,14 +123,17 @@ property | value
 Name/Property | Datatype | Description
  --- | --- | --- 
 [ID](http://cldf.clld.org/v1.0/terms.rdf#id) | `string` | Primary key
-[Description](http://cldf.clld.org/v1.0/terms.rdf#description) | `string` | 
+[Description](http://cldf.clld.org/v1.0/terms.rdf#description) | `string` | The reconstructed meaning.
 [Source](http://cldf.clld.org/v1.0/terms.rdf#source) | list of `string` (separated by `;`) | References [sources.bib::BibTeX-key](./sources.bib)
+[Name](http://cldf.clld.org/v1.0/terms.rdf#name) | `string` | The reconstructed proto-form(s).
 [Language_ID](http://cldf.clld.org/v1.0/terms.rdf#languageReference) | `string` | References [languages.csv::ID](#table-languagescsv)
 [Form_ID](http://cldf.clld.org/v1.0/terms.rdf#formReference) | `string` | References [forms.csv::ID](#table-formscsv)
 [Comment](http://cldf.clld.org/v1.0/terms.rdf#comment) | `string` | 
-`doubt` | `boolean` | 
+`doubt` | `boolean` | Flag indicating (un)certainty of the reconstruction.
 
 ## <a name="table-cfcsv"></a>Table [cf.csv](./cf.csv)
+
+MCD does not categorize items which were considered but eventually excluded as witness for a reconstruction as ACD does (into loans, "noise" and "near" cognates). Instead, MCD lists such forms in (a series of) tables related to a cognate set. These tables are listed in `cf.csv`.
 
 property | value
  --- | ---
@@ -141,11 +145,13 @@ property | value
 Name/Property | Datatype | Description
  --- | --- | --- 
 [ID](http://cldf.clld.org/v1.0/terms.rdf#id) | `string` | Primary key
-[Name](http://cldf.clld.org/v1.0/terms.rdf#name) | `string` | 
+[Name](http://cldf.clld.org/v1.0/terms.rdf#name) | `string` | The title of a table of related forms.
 [Comment](http://cldf.clld.org/v1.0/terms.rdf#comment) | `string` | 
 [Cognateset_ID](http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference) | `string` | References [cognatesets.csv::ID](#table-cognatesetscsv)
 
 ## <a name="table-cfitemscsv"></a>Table [cfitems.csv](./cfitems.csv)
+
+Items in tables related to cognate sets are listed here.
 
 property | value
  --- | ---
