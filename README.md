@@ -17,6 +17,8 @@ This dataset is licensed under a CC-BY-4.0 license
 The purpose of this dataset is to serve as longterm-accessible, machine readable version of the
 Micronesian Comparative Dictionary as published at https://www.trussel2.com/MCD/ (in April 2023).
 
+![](map.svg)
+
 The following introductory paragraphs are taken verbatim from the MCD website.
 
 
@@ -37,8 +39,6 @@ Hsu (1976) was especially helpful in cognate searches. This early activity culmi
 identified as Bender et al. 1984. Preliminary findings and some of the computer programs being used 
 in the comparative work are summarized in Bender and Wang 1985. More recent work and the initial 
 compilation of this presentation of the data have been done primarily by the second author.
-
-![](map.png)
 
 
 ## CLASSIFICATION OF SUBGROUPINGS IN NUCLEAR MICRONESIAN
