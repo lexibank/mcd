@@ -4,7 +4,11 @@
 
 If you use these data please cite
 - the original source
-  > Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions—1. Oceanic Linguistics Vol. 42, Num. 1, pp. 1-110
+  > Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, & Judith W. Wang. 2003. Proto-Micronesian Reconstructions—1. _Oceanic Linguistics_, 42(1), 1-110. doi: [10.2307/3623449](https://doi.org/10.2307/3623449)
+  >
+  > Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, & Judith W. Wang. 2003b. Proto-Micronesian Reconstructions—2. _Oceanic Linguistics_, 42(2), 271-358. doi: [10.2307/3623243](https://doi.org/10.2307/3623243)
+
+
 - the derived dataset using the DOI of the [particular released version](../../releases/) you were using
 
 ## Description
