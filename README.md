@@ -92,17 +92,17 @@ In order to facilitate comparison, the velar nasal symbol (ŋ ) is used in the p
 
 - **Varieties:** 56 (linked to 48 different Glottocodes)
 - **Concepts:** 8,144 (linked to 0 different Concepticon concept sets)
-- **Lexemes:** 14,321
+- **Lexemes:** 14,340
 - **Sources:** 216
 - **Synonymy:** 1.01
-- **Cognacy:** 13,039 cognates in 991 cognate sets (26 singletons)
-- **Cognate Diversity:** -1.16
+- **Cognacy:** 13,057 cognates in 991 cognate sets (26 singletons)
+- **Cognate Diversity:** -1.15
 
 ## Possible Improvements:
 
 
 
-- Entries missing sources: 1590/14321 (11.10%)
+- Entries missing sources: 1590/14340 (11.09%)
 
 # Contributors
 

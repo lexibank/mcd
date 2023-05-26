@@ -1,21 +1,21 @@
 ID,Name,Glottocode,Glottolog_Name,ISO639P3code,Macroarea,Latitude,Longitude,Family,abbr,is_proto,Local_ID
-protonakanai,Proto-Nakanai,,,,,,,,PNk,true,protonakanai
-protoaustronesian,Proto-Austronesian,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,PAN,true,protoaustronesian
-protolakalai,Proto-Lakalai,,,,,,,,,true,protolakalai
-protowesternmicronesian,Proto-Western Micronesian,west2844,Western Micronesian,,,6.965277411000045,158.27662194100003,Austronesian,PWMc,true,protowesternmicronesian
-protowesternmalayopolynesian,Proto-Western-Malayo-Polynesian,,,,,,,,PWMP,true,protowesternmalayopolynesian
-protopohnpeic,Proto-Pohnpeic,pona1248,Ponapeic,,,6.869086005000042,158.33863366000003,Austronesian,PPon,true,protopohnpeic
-protooceanic,Proto-Oceanic,ocea1241,Oceanic,,,-7.59343840899993,158.75171959700003,Austronesian,POc,true,protooceanic
-uraustronesisch,Uraustronesisch,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,,true,uraustronesisch
-protopolynesian,Proto-Polynesian,poly1242,Polynesian,,,-16.676853122999944,177.56072024800005,Austronesian,,true,protopolynesian
-protopohnpeicchuukic,Proto-Pohnpeic-Chuukic,pona1247,Chuukic-Ponapeic,,,7.38117096600007,149.18083743600005,Austronesian,,true,protopohnpeicchuukic
-protocentralmicronesian,Proto-Central Micronesian,cent2276,Central Micronesian,,,4.573797919000071,168.68539472700002,Austronesian,PCMc,true,protocentralmicronesian
-protomicronesian,Proto-Micronesian,micr1243,Micronesian,,,5.599310614000046,168.10108483200008,Austronesian,PMc,true,protomicronesian
 protoeasternoceanic,Proto-Eastern Oceanic,,,,,,,,PEO,true,protoeasternoceanic
 protowillaumez,Proto-Willaumez,will1243,Willaumez linkage,,,-5.472179224730346,150.56670596620697,Austronesian,,true,protowillaumez
-protomalayopolynesian,Proto-Malayo-Polynesian,mala1545,Malayo-Polynesian,,,6.029445705000057,121.93775475400003,Austronesian,,true,protomalayopolynesian
+protoaustronesian,Proto-Austronesian,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,PAN,true,protoaustronesian
+protowesternmalayopolynesian,Proto-Western-Malayo-Polynesian,,,,,,,,PWMP,true,protowesternmalayopolynesian
+protopohnpeicchuukic,Proto-Pohnpeic-Chuukic,pona1247,Chuukic-Ponapeic,,,7.38117096600007,149.18083743600005,Austronesian,,true,protopohnpeicchuukic
+protopolynesian,Proto-Polynesian,poly1242,Polynesian,,,-16.676853122999944,177.56072024800005,Austronesian,,true,protopolynesian
+protowesternmicronesian,Proto-Western Micronesian,west2844,Western Micronesian,,,6.965277411000045,158.27662194100003,Austronesian,PWMc,true,protowesternmicronesian
+protooceanic,Proto-Oceanic,ocea1241,Oceanic,,,-7.59343840899993,158.75171959700003,Austronesian,POc,true,protooceanic
+protolakalai,Proto-Lakalai,,,,,,,,,true,protolakalai
+protocentralmicronesian,Proto-Central Micronesian,cent2276,Central Micronesian,,,4.573797919000071,168.68539472700002,Austronesian,PCMc,true,protocentralmicronesian
+uraustronesisch,Uraustronesisch,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,,true,uraustronesisch
 protokimbe,Proto-Kimbe,,,,,,,,,true,protokimbe
 protochuukic,Proto-Chuukic,truk1243,Trukic,,,9.412054755000042,138.06812584700003,Austronesian,PCk,true,protochuukic
+protomalayopolynesian,Proto-Malayo-Polynesian,mala1545,Malayo-Polynesian,,,6.029445705000057,121.93775475400003,Austronesian,,true,protomalayopolynesian
+protonakanai,Proto-Nakanai,,,,,,,,PNk,true,protonakanai
+protopohnpeic,Proto-Pohnpeic,pona1248,Ponapeic,,,6.869086005000042,158.33863366000003,Austronesian,PPon,true,protopohnpeic
+protomicronesian,Proto-Micronesian,micr1243,Micronesian,,,5.599310614000046,168.10108483200008,Austronesian,PMc,true,protomicronesian
 areare,'Āre'āre,area1240,'Are'are,alu,Papunesia,-9.20699,161.158,Austronesian,,false,1
 arosi,Arosi,aros1241,Arosi,aia,Papunesia,-10.2441,161.432,Austronesian,,false,2
 bugotu,Bugotu,bugh1239,Bughotu,bgt,Papunesia,-8.47948,159.802,Austronesian,,false,3
