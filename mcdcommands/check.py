@@ -5,12 +5,30 @@ import re
 
 from lexibank_mcd import Dataset
 
+SQUOTE = '‘'
+EQUOTE = '’'
+
+
+def forms_and_comment(forms):
+    fs, comment = [], None
+    if forms.endswith(')'):
+        comment = forms.split('(')[-1][:-1].strip()
+        forms = '('.join(forms.split('(')[:-1])
+
+    rem = forms
+    while SQUOTE in rem:
+        form, _, rem = forms.partition(SQUOTE)
+        gloss, _, rem = rem.partition(EQUOTE)
+        fs.append((form, gloss))
+    assert not rem.strip()
+    return fs, comment
+
 
 def run(args):
     from csvw.dsv import reader
     import re
 
-    cogp = re.compile(r'[A-Z][a-zA-Z]{2}\s+([^‘]+)(‘([^’]+)’)?(,\s*([^‘]+)‘([^’]+)’)*')  # Gloss is optional (take over from reconstruction if missing)
+    cogp = re.compile(r'(?P<lg>[A-Z][a-zA-Z]{2})\s+([^‘]+)(‘([^’]+)’)?(,\s*([^‘]+)‘([^’]+)’)*(\s*\([^)]+\))?')  # Gloss is optional (take over from reconstruction if missing)
 
     header = [
         'Language',  # PCk PPC PPon
@@ -21,7 +39,8 @@ def run(args):
         'Seealso',  # "see also"-like notes with cross-references to other protoforms in the MCD itself,
         'Notes',  # notes
     ]
-    for row in reader(Dataset().dir / 'MCD_2_2023-04-27.csv', delimiter='\t'):
+    for i, row in enumerate(reader(Dataset().raw_dir / 'MCD_2_2023-04-27.csv', delimiter='\t'), start=1):
+        if i > 396: break
         row = dict(zip(header, row))
         cogs = row['Cognates'].strip()
         if cogs.endswith('.'):
@@ -29,8 +48,23 @@ def run(args):
         for cog in cogs.split(';'):
             if not cogp.fullmatch(cog.strip()):
                 print(row['Cognates'])
-                print(cog)
+                print(i, cog)
                 break
+            else:
+                cog = cog.strip()
+                lg, forms = cog.split(maxsplit=1)
+                forms, comment = forms_and_comment(forms)
+                for form, gloss in forms:
+                    gloss = gloss or row['Gloss']
+                    #re.sub('(^|[^a-zA-Z])([a-z])\.', lambda m: m, gloss)
+
+
+        #
+        # FIXME: replace abbreviations in glosses!
+        # 's.o.': 'someone'
+        # 's.t.': 'something'
+        # 'x.': <first word starting with x in row['Gloss']>
+        #
 
 
 def run2(args):

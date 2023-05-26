@@ -4,7 +4,7 @@
 
 If you use these data please cite
 - the original source
-  > Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions—1. Oceanic Linguistics Vol. 42, Num. 1, pp. 1-110
+  > Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions—1. Oceanic Linguistics Vol. 42(1), 1-110, DOI: 10.2307/3623449
 - the derived dataset using the DOI of the [particular released version](../../releases/) you were using
 
 ## Description
@@ -47,7 +47,7 @@ In this etymological dictionary we attribute to Proto-Micronesian (PMc) an inher
 
 Work for the future includes a careful review of evidence of loanwords from Marshallese and Kiribati not only in Kosraean but also in the Pohnpeic and Chuukic languages (see Rehg and Bender 1990). The seafaring atoll dwellers of the Marshall and Kiribati islands were frequent voyagers to the high islands of Kosrae and Pohnpei to their west. There were Polynesian-speaking settlers there as well—or at least there were Polynesian contacts—attested to by loanwords such as Pohnpeian sakaw (‘kava’ < Pn ta-kawa) and Sangaro (‘a god’ < Pn Tangaroa). There has been, moreover, massive borrowing into Kiribati from Samoan and to a lesser extent, more recently, from Tuvaluan. Kiribati speakers have expanded their settlements both southward into northern Tuvalu and northward into the southern Marshall Islands in the past few hundred years. Marshallese shows what are clearly loanwords from Kiribati (Bender 1981). Marck (1994) has reconstructed some Proto-Chuukic and even a few Proto-Micronesian forms where irregularities of sound correspondences raise the possibility that they result from a chain of borrowings rather than being inherited cognates. Such differences are noted under the forms in question. Complicating the problem are some forms that appear to be preserved as inherited cognates in some Micronesian languages and to have been reintroduced from them as loans into other Micronesian languages. Doublets, related forms such that one of them fits the pattern of sound correspondences in the inherited vocabulary and the other does not, attest to such internal borrowing as well. 
 
-![](tree.jpg)
+![](etc/tree.jpg)
 
 
 ## ORTHOGRAPHIC SYMBOLS USED
@@ -78,8 +78,8 @@ In order to facilitate comparison, the velar nasal symbol (ŋ ) is used in the p
 </tbody>
 </table>
 
-![](consonant_correspondences.jpg)
-![](consonant_correspondences_2.jpg)
+![](etc/consonant_correspondences.jpg)
+![](etc/consonant_correspondences_2.jpg)
 
 
 ## Statistics
@@ -117,6 +117,7 @@ Ho-min Sohn | | author
 Stephen Trussel | | author
 Judith W. Wang | | author
 Robert Forkel | @xrotwang | DataCurator
+Lev Blumenfeld | @lvblum | DataCurator
 
 
 

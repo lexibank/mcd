@@ -7,8 +7,8 @@ from clldutils.misc import slug
 from clldutils.markup import MarkdownLink
 from pycldf.sources import Sources
 
-from crawler import crawl
-from parser import EtymonParser, LanguageParser, LANGS, UNKNOWN_LANGS, is_proto
+from lib.crawler import crawl
+from lib.parser import EtymonParser, LanguageParser, LANGS, UNKNOWN_LANGS, is_proto
 
 
 @attr.s
@@ -33,6 +33,7 @@ class Language(pylexibank.Language):
         default=False,
         metadata=dict(datatype='boolean')
     )
+    Local_ID = attr.ib(default=None)
 
 
 class Dataset(pylexibank.Dataset):
@@ -46,10 +47,12 @@ class Dataset(pylexibank.Dataset):
 
     # define the way in which forms should be handled
     form_spec = pylexibank.FormSpec(
-        brackets={"(": ")"},  # characters that function as brackets
+        brackets={"(": ")", "[": "]"},  # characters that function as brackets
         separators=";/,",  # characters that split forms e.g. "a, b".
         missing_data=('?', '-'),  # characters that denote missing data.
-        strip_inside_brackets=True   # do you want data removed in brackets or not?
+        strip_inside_brackets=False,   # do you want data removed in brackets or not?
+        first_form_only=True,
+        replacements=[('[sic]', ''), ('(', ''), (')', '')],
     )
 
     def cmd_download(self, args):
@@ -101,7 +104,7 @@ class Dataset(pylexibank.Dataset):
         cognates, langs = list(EtymonParser(self.raw_dir)), list(LanguageParser(self.raw_dir))
         args.writer.cldf.sources = Sources.from_file(self.etc_dir / 'sources.bib')
         smap = set(args.writer.cldf.sources.keys())
-        l2gl = {l['ID']: l for l in self.languages}
+        l2gl = {l['Local_ID']: l for l in self.languages}
 
         concepts = set()
 
@@ -112,11 +115,13 @@ class Dataset(pylexibank.Dataset):
 
         lmap = {}
         forms = collections.defaultdict(dict)
-        for lang, abbr, _ in LANGS:
+        for lang, abbr, alias in LANGS:
             if abbr:
                 for l in l2gl.values():
                     if l['Name'] == lang:
                         l['abbr'] = abbr
+            if alias:
+                lmap[alias] = slug(lang)
             if is_proto(lang):
                 d = l2gl[slug(lang)]
                 d['is_proto'] = True
@@ -126,18 +131,17 @@ class Dataset(pylexibank.Dataset):
         for lang in langs:
             assert all(ref.key in smap for ref in lang.refs)
             args.writer.add_language(**l2gl[str(lang.id)])
-            lmap[lang.name] = str(lang.id)
+            lmap[lang.name] = l2gl[str(lang.id)]['ID']
             for form in lang.forms:
                 add_concept(form)
                 assert not form.gloss.comment
-                lex = args.writer.add_form(
-                    Language_ID=lang.id,
+                lex = args.writer.add_lexemes(
+                    Language_ID=l2gl[str(lang.id)]['ID'],
                     Parameter_ID=form.gloss.cid,
                     Value=form.form,
-                    Form=form.form,
                     Comment=form.comment,
                     Source=[str(ref) for ref in lang.refs],
-                )
+                )[0]
                 forms[lang.name][form.form, form.gloss.lookup] = lex
 
         for cset in cognates:
@@ -146,13 +150,12 @@ class Dataset(pylexibank.Dataset):
                 args.writer.add_concept(ID=cid, Name=cset.gloss)
                 concepts.add(cid)
             # Add the reconstruction as form of the proto language:
-            pform = args.writer.add_form(
+            pform = args.writer.add_lexemes(
                 Language_ID=lmap[cset.proto_lang],
                 Parameter_ID=cid,
                 Value=cset.key,
-                Form=cset.key,
                 Source=['mcd']
-            )
+            )[0]
             forms[cset.proto_lang][cset.key, cid] = pform
             # And add this reconstruction to the cognate set:
             args.writer.add_cognate(lexeme=pform, Cognateset_ID=cset.id, Doubt=cset.doubt)
@@ -167,19 +170,18 @@ class Dataset(pylexibank.Dataset):
                 Source=['mcd'],
                 doubt=cset.doubt,
             ))
-            for form in cset.forms:
+            for form in cset.forms:  # Now we lookup forms making up the cognate set.
                 if form.language in UNKNOWN_LANGS:
                     continue
                 if form.is_proto:
                     add_concept(form)
-                    lex = args.writer.add_form(
+                    lex = args.writer.add_lexemes(
                         Language_ID=lmap[form.language],
                         Parameter_ID=form.gloss.cid,
                         Value=form.form,
-                        Form=form.form,
                         Comment=form.comment,
                         Source=[str(ref) for ref in form.gloss.refs],
-                    )
+                    )[0]
                     forms[form.language][form.form, form.gloss.lookup] = lex
                 try:
                     cid = form.gloss.lookup
@@ -200,7 +202,6 @@ class Dataset(pylexibank.Dataset):
                     # If gloss contains brackets, try to match without brackets!
                     cid = slug(form.gloss.markdown.partition('(')[0].strip()) or 'none'
                     if (form.form, cid) in forms[form.language]:
-                        print('***', 'yay')
                         args.writer.add_cognate(
                             lexeme=forms[form.language][form.form, cid],
                             Cognateset_ID=cset.id,
@@ -208,7 +209,9 @@ class Dataset(pylexibank.Dataset):
                             Comment=form.gloss.markdown.partition('(')[2].replace(')', '').strip(),
                         )
                     else:
-                        print('---', form.language, form.form, form.gloss.markdown, form.gloss.lookup)
+                        args.log.warning(
+                            'Missing witness form: {}\t{}\t{}\t{}'.format(
+                                form.language, form.form, form.gloss.markdown, form.gloss.lookup))
             for j, (header, comment, fs) in enumerate(cset.cf_forms):
                 cfid = '{}-{}'.format(cset.id, j + 1)
                 args.writer.objects['cf.csv'].append((dict(
@@ -220,15 +223,17 @@ class Dataset(pylexibank.Dataset):
                 for idx, form in enumerate(fs):
                     if form.is_proto:
                         add_concept(form)
-                        lex = args.writer.add_form(
+                        lex = args.writer.add_lexemes(
                             Language_ID=lmap[form.language],
                             Parameter_ID=form.gloss.cid,
                             Value=form.form,
-                            Form=form.form,
-                        )
+                        )[0]
                         forms[form.language][form.form, form.gloss.lookup] = lex
                     if (form.form, form.gloss.lookup) not in forms[form.language]:
-                        print('+++', form.language, form.form, form.gloss.markdown, slug(form.gloss.markdown) or 'none')
+                        args.log.warning(
+                            'Missing cf form: {}\t{}\t{}\t{}'.format(
+                                form.language, form.form, form.gloss.markdown,
+                                slug(form.gloss.markdown) or 'none'))
                     else:
                         args.writer.objects['cfitems.csv'].append((dict(
                             ID='{}-{}'.format(cfid, idx + 1),
@@ -275,9 +280,10 @@ def cldf_markdown(s, lmap, forms, sources):
             if m.group('content').startswith(lname):
                 res += '[{}](LanguageTable#cldf:{})'.format(lname, lid)
                 rem = m.group('content')[len(lname):].strip().replace('&ast;', '').replace('*', '')
-                doubt = rem.startswith('(?)')
+                doubt = rem.startswith('(?)') or rem.startswith('?')
                 if doubt:
                     form = rem.replace('(?)', '').strip()
+                    form = form[1:].strip() if form.startswith('?') else form
                 else:
                     form = rem
                 if (lname, form) in forms:
@@ -290,10 +296,12 @@ def cldf_markdown(s, lmap, forms, sources):
                         forms[lname, form][0],
                     )
                 elif rem:
-                    print(m.group('content'))
+                    #print(m.group('content'))
+                    #print(form, rem)
                     res += m.group('content')[len(lname):]
                 break
         else:
+            #print(m.group('content'))
             res = m.group('content')
         return res
 
@@ -302,9 +310,7 @@ def cldf_markdown(s, lmap, forms, sources):
     def bib(md):
         if md.url.startswith('bib-'):
             bid = md.url.partition('-')[2]
-            if bid not in sources:
-                print('Missing source: {}; {}'.format(bid, md.label))
-                return md.label
+            assert bid in sources, 'Missing source: {}; {}'.format(bid, md.label)
             md.url = 'Sources#cldf:{}'.format(bid)
         return md
 

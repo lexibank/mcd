@@ -8,17 +8,22 @@ to Concepticon) or updates in linked catalogs such as new Glottolog releases.
    ```shell
    cldfbench lexibank.makecldf lexibank_mcd.py --glottolog-version v4.7
    ```
-2. Recreate the map:
+2. Make sure the result is valid:
+   ```shell
+   pytest
+   ```
+3. Recreate the map:
    ```shell
    cldfbench cldfviz.map --output map.svg --format svg cldf/cldf-metadata.json --no-legend --pacific-centered --height 10 --width 15 --extent '"-40",50,20,-25' --language-labels --with-ocean
    ```
-3. Recreate the CLDF README:
+4. Recreate the CLDF README and Zenodo metadata:
    ```shell
    cldfbench cldfreadme lexibank_mcd.py
+   cldfbench zenodo lexibank_mcd.py
    ```
-4. Recreate the SQLite db:
+5. Recreate the SQLite db:
    ```shell
    rm -f mcd.sqlite
    cldf createdb cldf/ mcd.sqlite
    ```
-4. Commit, tag, push.
+6. Commit, tag, push.

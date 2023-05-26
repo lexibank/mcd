@@ -8,11 +8,11 @@
 
 property | value
  --- | ---
-[dc:bibliographicCitation](http://purl.org/dc/terms/bibliographicCitation) | Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions—1. Oceanic Linguistics Vol. 42, Num. 1, pp. 1-110
+[dc:bibliographicCitation](http://purl.org/dc/terms/bibliographicCitation) | Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions—1. Oceanic Linguistics Vol. 42(1), 1-110, DOI: 10.2307/3623449
 [dc:conformsTo](http://purl.org/dc/terms/conformsTo) | [CLDF Wordlist](http://cldf.clld.org/v1.0/terms.rdf#Wordlist)
 [dc:license](http://purl.org/dc/terms/license) | https://creativecommons.org/licenses/by/4.0/
 [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL) | https://github.com/lexibank/mcd
-[prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) | <ol><li><a href="https://github.com/lexibank/mcd/tree/73c949d">lexibank/mcd 73c949d</a></li><li><a href="https://github.com/glottolog/glottolog/tree/v4.7">Glottolog v4.7</a></li><li><a href="https://github.com/concepticon/concepticon-data/tree/v3.1.0">Concepticon v3.1.0</a></li><li><a href="https://github.com/cldf-clts/clts/tree/6e60c1d">CLTS v2.2.0-11-g6e60c1d</a></li></ol>
+[prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) | <ol><li><a href="https://github.com/lexibank/mcd/tree/32fbe66">lexibank/mcd 32fbe66</a></li><li><a href="https://github.com/glottolog/glottolog/tree/v4.7">Glottolog v4.7</a></li><li><a href="https://github.com/concepticon/concepticon-data/tree/ca097344">Concepticon v3.1.0-18-gca097344</a></li><li><a href="https://github.com/cldf-clts/clts/tree/6e60c1d">CLTS v2.2.0-11-g6e60c1d</a></li></ol>
 [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy) | <ol><li><strong>lingpy-rcParams</strong>: <a href="./lingpy-rcParams.json">lingpy-rcParams.json</a></li><li><strong>python</strong>: 3.10.6</li><li><strong>python-packages</strong>: <a href="./requirements.txt">requirements.txt</a></li></ol>
 [rdf:ID](http://www.w3.org/1999/02/22-rdf-syntax-ns#ID) | mcd
 [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type) | http://www.w3.org/ns/dcat#Distribution
@@ -67,6 +67,7 @@ Name/Property | Datatype | Description
 `Family` | `string` | 
 `abbr` | `string` | 
 `is_proto` | `boolean` | 
+`Local_ID` | `string` | 
 
 ## <a name="table-parameterscsv"></a>Table [parameters.csv](./parameters.csv)
 

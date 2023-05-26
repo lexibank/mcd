@@ -1,7 +1,7 @@
 {
     "@context": "http://www.w3.org/ns/csvw",
     "aboutUrl": null,
-    "dc:bibliographicCitation": "Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions\u20141. Oceanic Linguistics Vol. 42, Num. 1, pp. 1-110",
+    "dc:bibliographicCitation": "Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions\u20141. Oceanic Linguistics Vol. 42(1), 1-110, DOI: 10.2307/3623449",
     "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#Wordlist",
     "dc:isVersionOf": null,
     "dc:license": "https://creativecommons.org/licenses/by/4.0/",
@@ -13,7 +13,7 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "73c949d",
+            "dc:created": "32fbe66",
             "dc:title": "Repository"
         },
         {
@@ -25,7 +25,7 @@
         {
             "rdf:about": "https://github.com/concepticon/concepticon-data",
             "rdf:type": "prov:Entity",
-            "dc:created": "v3.1.0",
+            "dc:created": "v3.1.0-18-gca097344",
             "dc:title": "Concepticon"
         },
         {
@@ -221,6 +221,10 @@
                     {
                         "datatype": "boolean",
                         "name": "is_proto"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Local_ID"
                     }
                 ],
                 "primaryKey": [

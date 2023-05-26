@@ -1,57 +1,57 @@
-ID,Name,Glottocode,Glottolog_Name,ISO639P3code,Latitude,Longitude
-protochuukic,Proto-Chuukic,truk1243,Trukic,,9.412054755000042,138.06812584700003
-protomalayopolynesian,Proto-Malayo-Polynesian,mala1545,Malayo-Polynesian,,6.029445705000057,121.93775475400003
-protooceanic,Proto-Oceanic,ocea1241,Oceanic,,-7.59343840899993,158.75171959700003
-protowillaumez,Proto-Willaumez,will1243,Willaumez linkage,,-5.472179224730346,150.56670596620697
-protomicronesian,Proto-Micronesian,micr1243,Micronesian,,5.599310614000046,168.10108483200008
-protowesternmicronesian,Proto-Western Micronesian,west2844,Western Micronesian,,6.965277411000045,158.27662194100003
-protopolynesian,Proto-Polynesian,poly1242,Polynesian,,-16.676853122999944,177.56072024800005
-protoaustronesian,Proto-Austronesian,aust1307,Austronesian,,18.12555332428153,121.33504738058596
-uraustronesisch,Uraustronesisch,aust1307,Austronesian,,18.12555332428153,121.33504738058596
-protocentralmicronesian,Proto-Central Micronesian,cent2276,Central Micronesian,,4.573797919000071,168.68539472700002
-protopohnpeicchuukic,Proto-Pohnpeic-Chuukic,pona1247,Chuukic-Ponapeic,,7.38117096600007,149.18083743600005
-protopohnpeic,Proto-Pohnpeic,pona1248,Ponapeic,,6.869086005000042,158.33863366000003
-protoeasternoceanic,Proto-Eastern Oceanic,,,,,
-protonakanai,Proto-Nakanai,,,,,
-protokimbe,Proto-Kimbe,,,,,
-protolakalai,Proto-Lakalai,,,,,
-protowesternmalayopolynesian,Proto-Western-Malayo-Polynesian,,,,,
-1,'Āre'āre,area1240,'Are'are,alu,-9.20699,161.158
-2,Arosi,aros1241,Arosi,aia,-10.2441,161.432
-3,Bugotu,bugh1239,Bughotu,bgt,-8.47948,159.802
-5,Chamorro,cham1312,Chamorro,cha,13.438011,144.74474
-4,Chuukese,chuu1238,Chuukese,chk,7.346993,151.598607
-8,Fijian,fiji1243,Fijian,fij,-18.0,178.33
-10,Gilbertese,gilb1244,Gilbertese,gil,0.179,173.64
-9,Jabêm,yabe1254,Yabem,jae,-6.67052,147.81
-11,Kosraean,kosr1238,Kosraean,kos,5.31,162.98
-12,Kwaio,kwai1243,Kwaio,kwd,-8.93744,160.965
-13,Lakalai,naka1262,Nakanai,nak,-5.59931,150.888
-14,Lau,lauu1247,Lau,llu,-8.51018,160.872
-17,Marshallese,mars1254,Marshallese,mah,8.72,167.73
-16,Mokilese,moki1238,Mokilese,mkj,6.65651,159.776
-18,Mortlockese,mort1237,Mortlockese,mrl,5.50735,153.710778
-19,Nggela,gela1263,Gela,nlg,-9.04587,160.186
-20,Ngatchikese,,,,,
-15,Old Mapian,mapi1250,Mapia,mpy,0.908889,134.304722
-21,Palauan,pala1344,Palauan,pau,7.34138,134.476678
-31,Pingilapese,ping1243,Pingelapese,pif,6.20743,160.711
-33,Pohnpeian,pohn1238,Pohnpeian,pon,6.87212,158.223
-38,Pulo-Annan,pulo1240,Pulo Anna,,5.328596,132.221282
-39,Puluwatese,pulu1242,Puluwatese,puw,7.35695,149.2005
-42,Rotuman,rotu1241,Rotuman,rtm,-12.5008,177.066
-43,Roviana,rovi1238,Roviana,rug,-8.20493,157.408
-44,Sa’a,saaa1240,Sa'a,apb,-9.60258,161.467
-6,Saipan Carolinian,caro1242,Carolinian,cal,15.205,145.765
-7,Saipan Carolinian·T,tana1281,Tanapag,tpv,15.24,145.76
-45,Samoan,samo1305,Samoan,smo,-13.92,-171.83
-47,Satawalese,sata1237,Satawalese,stw,7.36084,147.038
-46,Sonsorolese,sons1243,Sonsorolese,,5.328596,132.221282
-48,Tagalog,taga1270,Tagalog,tgl,14.06,121.747
-49,Tobi,tobi1238,Tobian,tox,3.004528,131.171295
-50,Tokelau,toke1240,Tokelau,tkl,-9.227642,-171.780833
-51,Tongan,tong1325,Tonga (Tonga Islands),ton,-21.17,-175.25
-53,Ulawan,,,,,
-54,Ulithian,ulit1238,Ulithian,uli,9.961388,139.603611
-55,Woleaian,wole1240,Woleaian,woe,7.37957,143.916
-56,Yapese,yape1248,Yapese,yap,9.55811,138.125
+Local_ID,ID,Name,Glottocode,Glottolog_Name,ISO639P3code,Latitude,Longitude
+protochuukic,protochuukic,Proto-Chuukic,truk1243,Trukic,,9.412054755000042,138.06812584700003
+protomalayopolynesian,protomalayopolynesian,Proto-Malayo-Polynesian,mala1545,Malayo-Polynesian,,6.029445705000057,121.93775475400003
+protooceanic,protooceanic,Proto-Oceanic,ocea1241,Oceanic,,-7.59343840899993,158.75171959700003
+protowillaumez,protowillaumez,Proto-Willaumez,will1243,Willaumez linkage,,-5.472179224730346,150.56670596620697
+protomicronesian,protomicronesian,Proto-Micronesian,micr1243,Micronesian,,5.599310614000046,168.10108483200008
+protowesternmicronesian,protowesternmicronesian,Proto-Western Micronesian,west2844,Western Micronesian,,6.965277411000045,158.27662194100003
+protopolynesian,protopolynesian,Proto-Polynesian,poly1242,Polynesian,,-16.676853122999944,177.56072024800005
+protoaustronesian,protoaustronesian,Proto-Austronesian,aust1307,Austronesian,,18.12555332428153,121.33504738058596
+uraustronesisch,uraustronesisch,Uraustronesisch,aust1307,Austronesian,,18.12555332428153,121.33504738058596
+protocentralmicronesian,protocentralmicronesian,Proto-Central Micronesian,cent2276,Central Micronesian,,4.573797919000071,168.68539472700002
+protopohnpeicchuukic,protopohnpeicchuukic,Proto-Pohnpeic-Chuukic,pona1247,Chuukic-Ponapeic,,7.38117096600007,149.18083743600005
+protopohnpeic,protopohnpeic,Proto-Pohnpeic,pona1248,Ponapeic,,6.869086005000042,158.33863366000003
+protoeasternoceanic,protoeasternoceanic,Proto-Eastern Oceanic,,,,,
+protonakanai,protonakanai,Proto-Nakanai,,,,,
+protokimbe,protokimbe,Proto-Kimbe,,,,,
+protolakalai,protolakalai,Proto-Lakalai,,,,,
+protowesternmalayopolynesian,protowesternmalayopolynesian,Proto-Western-Malayo-Polynesian,,,,,
+1,areare,'Āre'āre,area1240,'Are'are,alu,-9.20699,161.158
+2,arosi,Arosi,aros1241,Arosi,aia,-10.2441,161.432
+3,bugotu,Bugotu,bugh1239,Bughotu,bgt,-8.47948,159.802
+5,chamorro,Chamorro,cham1312,Chamorro,cha,13.438011,144.74474
+4,chuukese,Chuukese,chuu1238,Chuukese,chk,7.346993,151.598607
+8,fijian,Fijian,fiji1243,Fijian,fij,-18.0,178.33
+10,gilbertese,Gilbertese,gilb1244,Gilbertese,gil,0.179,173.64
+9,jabem,Jabêm,yabe1254,Yabem,jae,-6.67052,147.81
+11,kosraean,Kosraean,kosr1238,Kosraean,kos,5.31,162.98
+12,kwaio,Kwaio,kwai1243,Kwaio,kwd,-8.93744,160.965
+13,lakalai,Lakalai,naka1262,Nakanai,nak,-5.59931,150.888
+14,lau,Lau,lauu1247,Lau,llu,-8.51018,160.872
+17,marshallese,Marshallese,mars1254,Marshallese,mah,8.72,167.73
+16,mokilese,Mokilese,moki1238,Mokilese,mkj,6.65651,159.776
+18,mortlockese,Mortlockese,mort1237,Mortlockese,mrl,5.50735,153.710778
+19,nggela,Nggela,gela1263,Gela,nlg,-9.04587,160.186
+20,ngatchikese,Ngatchikese,,,,,
+15,oldmapian,Old Mapian,mapi1250,Mapia,mpy,0.908889,134.304722
+21,palauan,Palauan,pala1344,Palauan,pau,7.34138,134.476678
+31,pingilapese,Pingilapese,ping1243,Pingelapese,pif,6.20743,160.711
+33,pohnpeian,Pohnpeian,pohn1238,Pohnpeian,pon,6.87212,158.223
+38,puloannan,Pulo-Annan,pulo1240,Pulo Anna,,5.328596,132.221282
+39,puluwatese,Puluwatese,pulu1242,Puluwatese,puw,7.35695,149.2005
+42,rotuman,Rotuman,rotu1241,Rotuman,rtm,-12.5008,177.066
+43,roviana,Roviana,rovi1238,Roviana,rug,-8.20493,157.408
+44,saa,Sa’a,saaa1240,Sa'a,apb,-9.60258,161.467
+6,saipancarolinian,Saipan Carolinian,caro1242,Carolinian,cal,15.205,145.765
+7,saipancaroliniant,Saipan Carolinian·T,tana1281,Tanapag,tpv,15.24,145.76
+45,samoan,Samoan,samo1305,Samoan,smo,-13.92,-171.83
+47,satawalese,Satawalese,sata1237,Satawalese,stw,7.36084,147.038
+46,sonsorolese,Sonsorolese,sons1243,Sonsorolese,,5.328596,132.221282
+48,tagalog,Tagalog,taga1270,Tagalog,tgl,14.06,121.747
+49,tobi,Tobi,tobi1238,Tobian,tox,3.004528,131.171295
+50,tokelau,Tokelau,toke1240,Tokelau,tkl,-9.227642,-171.780833
+51,tongan,Tongan,tong1325,Tonga (Tonga Islands),ton,-21.17,-175.25
+53,ulawan,Ulawan,,,,,
+54,ulithian,Ulithian,ulit1238,Ulithian,uli,9.961388,139.603611
+55,woleaian,Woleaian,wole1240,Woleaian,woe,7.37957,143.916
+56,yapese,Yapese,yape1248,Yapese,yap,9.55811,138.125
