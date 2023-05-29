@@ -95,7 +95,7 @@ In order to facilitate comparison, the velar nasal symbol (ŋ ) is used in the p
 - **Lexemes:** 14,340
 - **Sources:** 216
 - **Synonymy:** 1.01
-- **Cognacy:** 13,057 cognates in 991 cognate sets (26 singletons)
+- **Cognacy:** 13,058 cognates in 991 cognate sets (26 singletons)
 - **Cognate Diversity:** -1.15
 
 ## Possible Improvements:

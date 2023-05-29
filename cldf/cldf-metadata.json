@@ -13,7 +13,7 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "aacdea3",
+            "dc:created": "81a5887",
             "dc:title": "Repository"
         },
         {
@@ -271,7 +271,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#CognateTable",
-            "dc:extent": 13057,
+            "dc:extent": 13058,
             "tableSchema": {
                 "columns": [
                     {
@@ -483,7 +483,7 @@
         },
         {
             "dc:description": "Items in tables related to cognate sets are listed here.",
-            "dc:extent": 1310,
+            "dc:extent": 1309,
             "tableSchema": {
                 "columns": [
                     {
