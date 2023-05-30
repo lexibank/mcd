@@ -130,6 +130,7 @@ ID,Cfset_ID,Form_ID,Source
 3086-1-4,3086-1,kwaio-underunderneath-1,
 3086-1-5,3086-1,protoaustronesian-underside-1,
 3086-2-1,3086-2,protooceanic-thighlegstem-1,ross1988
+3086-2-2,3086-2,protooceanic-thigh-1,
 3086-2-3,3086-2,fijian-footleg-1,
 3086-2-4,3086-2,lakalai-legfoot-1,
 3086-2-5,3086-2,uraustronesisch-legstem-1,
@@ -536,7 +537,7 @@ ID,Cfset_ID,Form_ID,Source
 3434-1-2,3434-1,mokilese-tokisssomeoneoncheekorhand-1,
 3434-1-3,3434-1,protopolynesian-sucklick-1,pollex[miti.3]
 3434-1-4,3434-1,lau-totaste-1,
-3434-1-5,3434-1,protoeasternoceanic-prepocminsiasaprenasalizedvariant-1,
+3434-1-5,3434-1,protoeasternoceanic-preprotooceanicminsiasaprenasalizedvariant-1,
 3434-2-1,3434-2,protopohnpeic-tokissmakeasuckingsound-1,
 3437-1-1,3437-1,uraustronesisch-manmale-1,
 3437-1-2,3437-1,protoaustronesian-commanderwarleader-1,wolff1993
@@ -564,7 +565,7 @@ ID,Cfset_ID,Form_ID,Source
 3456-3-1,3456-3,saa-belistlessfaint-1,
 3456-3-2,3456-3,lau-tomendpatch-1,
 3456-3-3,3456-3,kwaio-pandanusmatumbrella-1,
-3456-3-4,3456-3,protooceanic-prepocmonze-1,
+3456-3-4,3456-3,protooceanic-preprotooceanicmonze-1,
 3458-1-1,3458-1,lakalai-afish-2,
 3464-1-1,3464-1,pohnpeian-firewood-1,
 3464-1-2,3464-1,mokilese-firewood-1,
@@ -715,6 +716,7 @@ ID,Cfset_ID,Form_ID,Source
 3565-1-2,3565-1,protopolynesian-gumsapdischargeasfromeyesexudation-1,pollex[pia.2a]
 3566-1-1,3566-1,protonakanai-tothrowsomethingaway-1,
 3567-1-1,3567-1,marshallese-slipdownoutofposition-1,
+3567-1-2,3567-1,kosraean-asequenceofquickmovementstobeatjerktwitchsquirm-1,
 3569-1-1,3569-1,protomalayopolynesian-soundofpattingortapping-1,blust198384[95]
 3570-1-1,3570-1,pohnpeian-confuseddisorderedmessypiipiconfusiondisordermess-1,
 3570-1-2,3570-1,pohnpeian-confusiondisordermess-1,
@@ -746,8 +748,8 @@ ID,Cfset_ID,Form_ID,Source
 3600-2-3,3600-2,fijian-nose-1,
 3600-2-4,3600-2,bugotu-nose-1,
 3600-2-5,3600-2,arosi-noseornament-1,
-3600-2-7,3600-2,protokimbe-nose-1,
-3600-2-8,3600-2,uraustronesisch-nose-1,
+3600-2-6,3600-2,protokimbe-nose-1,
+3600-2-7,3600-2,uraustronesisch-nose-1,
 3601-1-1,3601-1,yapese-fishingpole-1,
 3601-1-2,3601-1,kosraean-fishforwithapoleatnight-1,
 3603-1-1,3603-1,yapese-limewhite-1,
@@ -1275,6 +1277,8 @@ ID,Cfset_ID,Form_ID,Source
 3946-1-4,3946-1,protokimbe-toblow-1,
 3946-1-5,3946-1,uraustronesisch-toblow-1,
 3946-2-1,3946-2,chuukese-beblownasatrumpet-1,
+3946-2-2,3946-2,preprotomicronesian-toblow-1,
+3946-2-3,3946-2,preprotooceanic-beblownasatrumpet-1,
 3946-2-4,3946-2,tongan-tosoundasaconchshellwhenblowntowhistle-1,
 3946-2-5,3946-2,protopolynesian-whistleblowhard-1,pollex[mapu]
 3946-2-6,3946-2,lakalai-toblowasaconchshelltoblowsomethingoutofthemouth-1,

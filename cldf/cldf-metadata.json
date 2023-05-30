@@ -13,7 +13,7 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "81a5887",
+            "dc:created": "c0143f3",
             "dc:title": "Repository"
         },
         {
@@ -54,7 +54,7 @@
     "tables": [
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#FormTable",
-            "dc:extent": 14340,
+            "dc:extent": 14348,
             "tableSchema": {
                 "columns": [
                     {
@@ -157,7 +157,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#LanguageTable",
-            "dc:extent": 56,
+            "dc:extent": 58,
             "tableSchema": {
                 "columns": [
                     {
@@ -235,7 +235,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ParameterTable",
-            "dc:extent": 8144,
+            "dc:extent": 8145,
             "tableSchema": {
                 "columns": [
                     {
@@ -271,7 +271,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#CognateTable",
-            "dc:extent": 13058,
+            "dc:extent": 13065,
             "tableSchema": {
                 "columns": [
                     {
@@ -483,7 +483,7 @@
         },
         {
             "dc:description": "Items in tables related to cognate sets are listed here.",
-            "dc:extent": 1309,
+            "dc:extent": 1313,
             "tableSchema": {
                 "columns": [
                     {

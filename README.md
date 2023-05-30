@@ -90,19 +90,19 @@ In order to facilitate comparison, the velar nasal symbol (ŋ ) is used in the p
 ![Concepticon: 0%](https://img.shields.io/badge/Concepticon-0%25-red.svg "Concepticon: 0%")
 ![Source: 89%](https://img.shields.io/badge/Source-89%25-yellowgreen.svg "Source: 89%")
 
-- **Varieties:** 56 (linked to 48 different Glottocodes)
-- **Concepts:** 8,144 (linked to 0 different Concepticon concept sets)
-- **Lexemes:** 14,340
+- **Varieties:** 58 (linked to 48 different Glottocodes)
+- **Concepts:** 8,145 (linked to 0 different Concepticon concept sets)
+- **Lexemes:** 14,348
 - **Sources:** 216
 - **Synonymy:** 1.01
-- **Cognacy:** 13,058 cognates in 991 cognate sets (26 singletons)
+- **Cognacy:** 13,065 cognates in 991 cognate sets (26 singletons)
 - **Cognate Diversity:** -1.15
 
 ## Possible Improvements:
 
 
 
-- Entries missing sources: 1590/14340 (11.09%)
+- Entries missing sources: 1597/14348 (11.13%)
 
 # Contributors
 

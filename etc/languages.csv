@@ -2,8 +2,10 @@ Local_ID,ID,Name,Glottocode,Glottolog_Name,ISO639P3code,Latitude,Longitude
 protochuukic,protochuukic,Proto-Chuukic,truk1243,Trukic,,9.412054755000042,138.06812584700003
 protomalayopolynesian,protomalayopolynesian,Proto-Malayo-Polynesian,mala1545,Malayo-Polynesian,,6.029445705000057,121.93775475400003
 protooceanic,protooceanic,Proto-Oceanic,ocea1241,Oceanic,,-7.59343840899993,158.75171959700003
+preprotooceanic,preprotooceanic,Pre-Proto-Oceanic,,,,,
 protowillaumez,protowillaumez,Proto-Willaumez,will1243,Willaumez linkage,,-5.472179224730346,150.56670596620697
 protomicronesian,protomicronesian,Proto-Micronesian,micr1243,Micronesian,,5.599310614000046,168.10108483200008
+preprotomicronesian,preprotomicronesian,Pre-Proto-Micronesian,,,,,
 protowesternmicronesian,protowesternmicronesian,Proto-Western Micronesian,west2844,Western Micronesian,,6.965277411000045,158.27662194100003
 protopolynesian,protopolynesian,Proto-Polynesian,poly1242,Polynesian,,-16.676853122999944,177.56072024800005
 protoaustronesian,protoaustronesian,Proto-Austronesian,aust1307,Austronesian,,18.12555332428153,121.33504738058596
