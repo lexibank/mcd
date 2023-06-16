@@ -32,6 +32,7 @@ LANGS = {
     "Saa": "saa",  # 2
     "Kwa": "kwaio",  # 2
     "Fij": "fijian",  # 2
+    "Fiji": "fijian",
     "Map": "oldmapian",  # 2
     "Mrs": "marshallese",  # 1
     "Ula": "ulawan",  # 1
@@ -40,39 +41,27 @@ LANGS = {
     "PAn": "protoaustronesian",  # 1
     "PPC": "protopohnpeicchuukic",
     "PPon": "protopohnpeic",
+    "Kir": "gilbertese",
+    "Yap": "yapese",
+    "Sam": "samoan",
+    "Chm": "chamorro",
+    "Cham": "chamorro",
+    "Pal": "palauan",
+    "PPn": "protopolynesian",
+    "Rot": "rotuman",
+    "Tbi": "tobi",
+    "Aro": "arosi",
+    "PKb": "protokimbe",
+    "Lau": "lau",
+    "PMP": "protomalayopolynesian",
+    "Tonga": "tongan",
+    "Ton": "tongan",
+    "PWMP": "protowesternmalayopolynesian",
+    "Gedaged": "gedaged",
+    "Nguna": "nguna",
+    "PMc": "protomicronesian",
+    "PLk": "protolakalai",
 }
-
-
-def forms_and_comment(forms):
-    fs, comment = [], None
-    if forms.endswith(')'):
-        #
-        # FIXME: If only one character is between braces, that's part of the form!
-        #
-        comment = forms.split('(')[-1][:-1].strip()
-        forms = '('.join(forms.split('(')[:-1])
-
-    form, gloss, in_gloss = '', '', False
-    for c in forms:
-        if c == SQUOTE:
-            in_gloss = True
-            continue
-        elif c == EQUOTE:
-            in_gloss = False
-            continue
-        if in_gloss:
-            gloss += c
-        else:
-            if c == ',':
-                if form.strip():
-                    fs.append((form.strip().replace('*', ''), gloss.strip() or None))
-                form, gloss = '', ''
-            else:
-                form += c
-    if form.strip():
-        fs.append((form.strip().replace('*', ''), gloss.strip() or None))
-
-    return fs, comment
 
 
 def norm_gloss(g):
@@ -100,9 +89,13 @@ def run(args):
         'Seealso',  # "see also"-like notes with cross-references to other protoforms in the MCD itself,
         'Notes',  # notes
     ]
-    fc = collections.Counter()
+    fc, cogsets = collections.Counter(), []
     for i, row in tqdm(enumerate(reader(Dataset().raw_dir / 'MCD_2_2023-04-27.csv', delimiter='\t'), start=1)):
         row = dict(zip(header, row))
+        cmt = row['Seealso']
+        if row['Notes']:
+            cmt = '{}\n{}'.format(cmt, row['Notes']) if cmt else row['Notes']
+        row['Comment'] = cmt
         row['Gloss'] = norm_gloss(row['Gloss'])
         row['Language'] = LANGS[row['Language']]
         row['Form'] = row['Form'].replace('*', '')
@@ -110,7 +103,6 @@ def run(args):
         if cogs.endswith('.'):
             cogs = cogs[:-1].strip()
         if 1:
-            #print('\n{}\t{}\t{}'.format(row['Language'], row['Form'], row['Gloss']))
             cognates = collections.OrderedDict()
             bylang = {}
             for cog in cogs.split(';'):
@@ -122,28 +114,38 @@ def run(args):
                     assert bylang[lg] == forms, cogs
                 else:
                     bylang[lg] = forms
+                #
+                # FIXME: handle doubt!!!
+                #
                 cognates[LANGS[lg]] = []
-                #print('\t{}'.format(lg))
                 for m in re.finditer(wordp, forms):
                     form, gloss, wcomment = m.groups()
                     form = form.strip().lstrip(',').strip()
-                    #
-                    # FIXME: check for lcomment in form, e.g. "uwwele |(<*wewele)"
-                    #
-                    #print('\t\t{}\t{}\t{}'.format(form, gloss, wcomment))
-                    cognates[LANGS[lg]].append((form, gloss or row['Gloss'], wcomment))
+                    assert form
+                    mm = re.search(lcomment, form)
+                    if mm:
+                        nform = form[:mm.start()].strip()
+                        assert not wcomment
+                        wcomment = mm.groups()[0]
+                        form = nform
+                    assert '|' not in form, form
+                    cognates[LANGS[lg]].append([form, gloss or row['Gloss'], wcomment])
 
                 m = re.search(lcomment, forms)
                 if m:
                     comment = m.groups()[0]
-                    #print(comment)
+                    if cognates[LANGS[lg]][-1][2]:
+                        cognates[LANGS[lg]][-1][2] = '{}; {}'.format(cognates[LANGS[lg]][-1][2], comment)
+                    else:
+                        cognates[LANGS[lg]][-1][2] = comment
 
-            #yield row, cognates
-
+        cftables = []
         if 1:
             cfs = row['Cftable']
             if cfs and cfs != '.':
                 for t in cfs.split('@'):
+                    items, comment = collections.OrderedDict(), None
+                    bylang = {}
                     type_ = 'Cf.'
                     m = re.match('\s*(Cf\.|See|Note|cf\.)( also)?', t)
                     if not m:
@@ -166,6 +168,27 @@ def run(args):
                         #
                         tt = tt.strip()
                         assert cogp.fullmatch(tt)
+                        cog = tt.strip()
+                        lg, forms = cog.split(maxsplit=1)
+                        fc.update([lg])
+                        if lg in bylang:
+                            assert bylang[lg] == forms, tt
+                        else:
+                            bylang[lg] = forms
+                        items[LANGS[lg]] = [[], None]
+                        #print('\t{}'.format(lg))
+                        for m in re.finditer(wordp, forms):
+                            form, gloss, wcomment = m.groups()
+                            form = form.strip().lstrip(',').strip()
+                            items[LANGS[lg]][0].append((form, gloss or row['Gloss'], wcomment))
+
+                        m = re.search(lcomment, forms)
+                        if m:
+                            comment = m.groups()[0]
+                            items[LANGS[lg]][1] = comment
+                    cftables.append((type_, items, comment))
+
+        cogsets.append((row, cognates, cftables))
 
         #
         # FIXME: replace abbreviations in glosses!
@@ -173,8 +196,13 @@ def run(args):
         # 's.t.': 'something'
         # 'x.': <first word starting with x in row['Gloss']>
         #
+    loans = []
+    #
+    # FIXME: add BorrowingsTable. target, but no source.
+    #
     for i, row in tqdm(enumerate(reader(Dataset().raw_dir / 'MCD_2_loans.tsv', delimiter='\t'), start=1)):
         cogs, comment = row[1:]
+        forms = collections.OrderedDict()
         for cog in cogs.split(';'):
             if not cog.strip():
                 continue
@@ -182,10 +210,30 @@ def run(args):
             if cog.strip().startswith('Cf.'):
                 cog = cog.replace('Cf.', '').strip()
                 cf = True
-            assert cogp.fullmatch(cog.strip()), cog
+            m = cogp.fullmatch(cog.strip())
+            assert m, cog
+            assert m.group('lg') in LANGS
+            lid = LANGS[m.group('lg')]
+            forms[lid] = []
+            for m in re.finditer(wordp, cog):
+                form, gloss, wcomment = m.groups()
+                form = form.strip().lstrip(',').strip()
+                assert form
+                mm = re.search(lcomment, form)
+                if mm:
+                    nform = form[:mm.start()].strip()
+                    assert not wcomment
+                    wcomment = mm.groups()[0]
+                    form = nform
+                assert '|' not in form, form
+                forms[lid].append([form, gloss, wcomment])
 
-    #for k, v in fc.most_common():
-    #    print(k, v)
+            #
+            # FIXME: handle doubt! cog.startswith('?')!
+            #
+        loans.append((row[0], forms, comment))
+
+    return cogsets, loans
 
 
 def run2(args):

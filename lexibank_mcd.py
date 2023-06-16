@@ -10,6 +10,9 @@ from pycldf.sources import Sources
 from lib.crawler import crawl
 from lib.parser import EtymonParser, LanguageParser, LANGS, UNKNOWN_LANGS, is_proto
 
+# Disambiguation markers for homonyms:
+DIS = {'₁': '1', '₂': '2', '₃': '3'}
+
 
 @attr.s
 class Witness(pylexibank.Cognate):
@@ -52,66 +55,36 @@ class Dataset(pylexibank.Dataset):
         missing_data=('?', '-'),  # characters that denote missing data.
         strip_inside_brackets=False,   # do you want data removed in brackets or not?
         first_form_only=True,
-        replacements=[('[sic]', ''), ('(', ''), (')', '')],
+        replacements=[('[sic]', ''), ('(', ''), (')', '')] + [(m, '') for m in DIS],
     )
 
     def cmd_download(self, args):
         crawl(self.raw_dir)
 
     def cmd_makecldf(self, args):
-        args.writer.cldf.add_component(
-            'CognatesetTable',
-            # Description: gloss
-            # reconstruction
-            {
-                'name': 'Name',
-                'dc:description': 'The reconstructed proto-form(s).',
-                'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#name'},
-            {'name': 'Language_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#languageReference'},
-            {'name': 'Form_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#formReference'},
-            {'name': 'Comment', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#comment'},
-            {
-                'name': 'doubt',
-                'dc:description': 'Flag indicating (un)certainty of the reconstruction.',
-                'datatype': 'boolean'},
-        )
-        args.writer.cldf['CognatesetTable', 'Description'].common_props['dc:description'] = \
-            'The reconstructed meaning.'
-        t = args.writer.cldf.add_table(
-            'cf.csv',
-            {'name': 'ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#id'},
-            {
-                'name': 'Name',
-                'dc:description': 'The title of a table of related forms.',
-                'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#name'},
-            {'name': 'Comment', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#comment'},
-            {'name': 'Cognateset_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference'},
-        )
-        t.common_props['dc:description'] = \
-            'MCD does not categorize items which were considered but eventually excluded as witness ' \
-            'for a reconstruction as ACD does (into loans, "noise" and "near" cognates). Instead, MCD ' \
-            'lists such forms in (a series of) tables related to a cognate set. These tables are listed ' \
-            'in `cf.csv`.'
-        t = args.writer.cldf.add_table(
-            'cfitems.csv',
-            {'name': 'ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#id'},
-            {'name': 'Cfset_ID'},
-            {'name': 'Form_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#formReference'},
-            {'name': 'Source', 'separator': ';', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#source'},
-        )
-        t.common_props['dc:description'] = \
-            'Items in tables related to cognate sets are listed here.'
-        cognates, langs = list(EtymonParser(self.raw_dir)), list(LanguageParser(self.raw_dir))
+        from mcdcommands.check import run
+
+        self.schema(args)
+
         args.writer.cldf.sources = Sources.from_file(self.etc_dir / 'sources.bib')
         smap = set(args.writer.cldf.sources.keys())
         l2gl = {l['Local_ID']: l for l in self.languages}
 
-        concepts = set()
-
         def add_concept(form):
-            if form.gloss.cid not in concepts:
-                args.writer.add_concept(ID=form.gloss.cid, Name=form.gloss.markdown)
-                concepts.add(form.gloss.cid)
+            if isinstance(form, str):
+                cid = slug(form) or 'none'
+                name = form
+            else:
+                cid = form.gloss.cid
+                name = form.gloss.markdown
+            if cid not in concepts:
+                args.writer.add_concept(ID=cid, Name=name)
+                concepts.add(cid)
+            return cid
+
+        # Parse data of part 1 from HTML:
+        cognates, langs = list(EtymonParser(self.raw_dir)), list(LanguageParser(self.raw_dir))
+        concepts = set()
 
         lmap = {}
         forms = collections.defaultdict(dict)
@@ -242,6 +215,73 @@ class Dataset(pylexibank.Dataset):
                             Source=[str(ref) for ref in form.gloss.refs if ref.key in smap],
                         )))
 
+        # Parse data of part 2 from CSV:
+        cogsets, loans = run(None)
+        for i, (cs, cogs, cfs) in enumerate(cogsets, start=1):
+            csid = 'P2-{}'.format(i)
+            #print(csid, cs['Language'], cs['Form'])
+
+            pform, doubt = cs['Form'].strip(), False
+            if pform.startswith('?'):
+                pform = pform[1:].strip()
+                doubt = True
+            pform = args.writer.add_lexemes(
+                Language_ID=cs['Language'],
+                Parameter_ID=add_concept(cs['Gloss']),
+                Value=pform,
+                Source=['mcd2']
+            )[0]
+
+            args.writer.objects['CognatesetTable'].append(dict(
+                ID=csid,
+                Language_ID=cs['Language'],
+                Form_ID=pform['ID'],
+                Name=cs['Form'],
+                Description=cs['Gloss'],
+                Source=['mcd2'],
+                Comment=cs['Comment'],
+                doubt=doubt,
+            ))
+
+            for lid, cognates in cogs.items():
+                for form, gloss, wcomment in cognates:
+                    f = args.writer.add_lexemes(
+                        Language_ID=lid,
+                        Parameter_ID=add_concept(gloss),
+                        Value=form,
+                        Source=['mcd2']
+                    )[0]
+                    args.writer.add_cognate(
+                        lexeme=f,
+                        Cognateset_ID=csid,
+                        Source=['mcd2'],#[str(ref) for ref in form.gloss.refs if ref.key in smap],
+                        Comment=wcomment,
+                    )
+            #
+            # FIXME: process cfs
+            #
+
+        #
+        # FIXME: process loans
+        #
+        for lid, items, comment in loans:
+            args.writer.objects['loansets.csv'].append(dict(ID=lid, Description=comment))
+            i = 1
+            for langid, lforms in items.items():
+                for form, gloss, cmt in lforms:
+                    f = args.writer.add_lexemes(
+                        Language_ID=langid,
+                        Parameter_ID=add_concept(gloss or ''),
+                        Value=form,
+                        Source=['mcd2']
+                    )[0]
+                    args.writer.objects['BorrowingTable'].append(dict(
+                        ID='{}-{}'.format(lid, i),
+                        Target_Form_ID=f['ID'],
+                        Source=['mcd2'],
+                    ))
+                    i += 1
+
         form2id = collections.defaultdict(list)
         for lname, data in forms.items():
             for (form, _), lex in data.items():
@@ -258,6 +298,59 @@ class Dataset(pylexibank.Dataset):
             if cs['Comment']:
                 cs['Comment'] = cldf_markdown(cs['Comment'], lmap, form2id, smap)
 
+    def schema(self, args):
+        args.writer.cldf.add_component(
+            'CognatesetTable',
+            # Description: gloss
+            # reconstruction
+            {
+                'name': 'Name',
+                'dc:description': 'The reconstructed proto-form(s).',
+                'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#name'},
+            {'name': 'Language_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#languageReference'},
+            {'name': 'Form_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#formReference'},
+            {'name': 'Comment', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#comment'},
+            {
+                'name': 'doubt',
+                'dc:description': 'Flag indicating (un)certainty of the reconstruction.',
+                'datatype': 'boolean'},
+        )
+        args.writer.cldf['CognatesetTable', 'Description'].common_props['dc:description'] = \
+            'The reconstructed meaning.'
+        t = args.writer.cldf.add_table(
+            'cf.csv',
+            {'name': 'ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#id'},
+            {
+                'name': 'Name',
+                'dc:description': 'The title of a table of related forms.',
+                'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#name'},
+            {'name': 'Comment', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#comment'},
+            {'name': 'Cognateset_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference'},
+        )
+        t.common_props['dc:description'] = \
+            'MCD does not categorize items which were considered but eventually excluded as witness ' \
+            'for a reconstruction as ACD does (into loans, "noise" and "near" cognates). Instead, MCD ' \
+            'lists such forms in (a series of) tables related to a cognate set. These tables are listed ' \
+            'in `cf.csv`.'
+        t = args.writer.cldf.add_table(
+            'cfitems.csv',
+            {'name': 'ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#id'},
+            {'name': 'Cfset_ID'},
+            {'name': 'Form_ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#formReference'},
+            {'name': 'Source', 'separator': ';', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#source'},
+        )
+        t.common_props['dc:description'] = \
+            'Items in tables related to cognate sets are listed here.'
+        args.writer.cldf.add_component(
+            'BorrowingTable',
+            'Loanset_ID',
+        )
+        args.writer.cldf.add_table(
+            'loansets.csv',
+            {'name': 'ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#id'},
+            {'name': 'Description', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#description'},
+        )
+        args.writer.cldf.add_foreign_key('BorrowingTable', 'Loanset_ID', 'loansets.csv', 'ID')
 
 
 def cldf_markdown(s, lmap, forms, sources):
@@ -273,6 +366,12 @@ def cldf_markdown(s, lmap, forms, sources):
     [Marck (1994:308)](bib-Marck (1994)
     """
     import re
+
+    #
+    # FIXME: Must also detect plain text refs like "Ksr", "PMc *afaŋi", "Marck (1994:323)".
+    # "Ksr ɛir, glossed as ‘north’ in dictionary, is a probable loan (see PMc *afaŋi ‘north’).
+    # Marck (1994:323) reconstructs PMc *auru, including the Ksr forms whose r is unexpected.
+    #
 
     def repl(m):
         res = ''
