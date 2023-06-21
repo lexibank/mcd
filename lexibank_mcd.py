@@ -1,5 +1,6 @@
 import pathlib
 import collections
+import re
 
 import attr
 import pylexibank
@@ -221,9 +222,20 @@ class Dataset(pylexibank.Dataset):
 
         # Parse data of part 2 from CSV:
         def add_form(form, gloss, lid):
-            forms.setdefault(lid, {})
             comment = None
+            bibcomment = re.compile('\|?\(([^0-9]+[0-9]{4}[^)]*)\)')
+            m = bibcomment.search(form)
+            if m:
+                form = re.sub(r'\s+', ' ', (form[:m.start()] + form[m.end():]).strip())
+                comment = m.groups()[0]
+            form = form.replace(' and ', ', ')
+            dis = {v: k for k, v in DIS.items()}
+            if any(c in form for c in dis):
+                for k, v in dis.items():
+                    form = form.replace(k, v)
+            forms.setdefault(lid, {})
             if '(lit.' in gloss:
+                assert not comment
                 gloss, _, comment = gloss.partition('(')
                 gloss, comment = gloss.strip(), comment.strip()
             cid = add_concept(gloss)
@@ -242,7 +254,6 @@ class Dataset(pylexibank.Dataset):
         cogsets, loans = part2.parse(self.raw_dir)
         for i, (cs, cogs, cfs) in enumerate(cogsets, start=1):
             csid = 'P2-{}'.format(i)
-
             pform, doubt = cs['Form'].strip(), False
             if pform.startswith('?'):
                 pform = pform[1:].strip()
