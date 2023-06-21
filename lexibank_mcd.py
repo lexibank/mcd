@@ -122,15 +122,13 @@ class Dataset(pylexibank.Dataset):
                 args.writer.add_language(**l)
 
         for cset in cognates:
-            cid = slug(cset.gloss) or 'none'
-            if cid not in concepts:
-                args.writer.add_concept(ID=cid, Name=cset.gloss)
-                concepts.add(cid)
+            cid = add_concept(cset)
             # Add the reconstruction as form of the proto language:
             pform = args.writer.add_lexemes(
                 Language_ID=lmap[cset.proto_lang],
                 Parameter_ID=cid,
                 Value=cset.key,
+                Comment=cset.gloss.comment or None,
                 Source=['mcd']
             )[0]
             forms[cset.proto_lang][cset.key, cid] = pform
@@ -222,9 +220,24 @@ class Dataset(pylexibank.Dataset):
         forms = {lmap[lang]: items for lang, items in forms.items()}
 
         # Parse data of part 2 from CSV:
-        #
-        # FIXME: must check/populate forms!
-        #
+        def add_form(form, gloss, lid):
+            forms.setdefault(lid, {})
+            comment = None
+            if '(lit.' in gloss:
+                gloss, _, comment = gloss.partition('(')
+                gloss, comment = gloss.strip(), comment.strip()
+            cid = add_concept(gloss)
+            if (form, cid) in forms[lid]:
+                f = forms[lid][(form, cid)]
+            else:
+                forms[lid][(form, cid)] = f = args.writer.add_lexemes(
+                    Language_ID=lid,
+                    Parameter_ID=cid,
+                    Value=form,
+                    Comment=comment,
+                    Source=['mcd2']
+                )[0]
+            return f
 
         cogsets, loans = part2.parse(self.raw_dir)
         for i, (cs, cogs, cfs) in enumerate(cogsets, start=1):
@@ -234,24 +247,10 @@ class Dataset(pylexibank.Dataset):
             if pform.startswith('?'):
                 pform = pform[1:].strip()
                 doubt = True
-            #
-            # FIXME: must split "lit." stuff from gloss, e.g. " (lit. ‘bloody eye or face’)"
-            #
-            cid = add_concept(cs['Gloss'])
-            if (pform, cid) in forms[cs['Language']]:
-                f = forms[cs['Language']][(pform, cid)]
-            else:
-                forms[cs['Language']][(pform, cid)] = f = args.writer.add_lexemes(
-                    Language_ID=cs['Language'],
-                    Parameter_ID=cid,
-                    Value=pform,
-                    Source=['mcd2']
-                )[0]
-
             args.writer.objects['CognatesetTable'].append(dict(
                 ID=csid,
                 Language_ID=cs['Language'],
-                Form_ID=f['ID'],
+                Form_ID=add_form(pform, cs['Gloss'], cs['Language'])['ID'],
                 Name=cs['Form'],
                 Description=cs['Gloss'],
                 Source=['mcd2'],
@@ -261,19 +260,8 @@ class Dataset(pylexibank.Dataset):
 
             for lid, cognates in cogs.items():
                 for form, gloss, wcomment in cognates:
-                    cid = add_concept(gloss)
-                    forms.setdefault(lid, {})
-                    if (form, cid) in forms[lid]:
-                        f = forms[lid][(form, cid)]
-                    else:
-                        forms[lid][(form, cid)] = f = args.writer.add_lexemes(
-                            Language_ID=lid,
-                            Parameter_ID=cid,
-                            Value=form,
-                            Source=['mcd2']
-                        )[0]
                     args.writer.add_cognate(
-                        lexeme=f,
+                        lexeme=add_form(form, gloss, lid),
                         Cognateset_ID=csid,
                         Source=['mcd2'],#[str(ref) for ref in form.gloss.refs if ref.key in smap],
                         Comment=wcomment,
@@ -290,21 +278,10 @@ class Dataset(pylexibank.Dataset):
                 wc = 0
                 for lg, litems in items.items():
                     for form, gloss, wcomment in litems:
-                        cid = add_concept(gloss)
-                        forms.setdefault(lg, {})
-                        if (form, cid) in forms[lg]:
-                            f = forms[lg][(form, cid)]
-                        else:
-                            forms[lg][(form, cid)] = f = args.writer.add_lexemes(
-                                Language_ID=lg,
-                                Parameter_ID=cid,
-                                Value=form,
-                                Source=['mcd2']
-                            )[0]
                         wc += 1
                         args.writer.objects['cfitems.csv'].append(dict(
                             ID='{}-{}'.format(cfid, wc),
-                            Form_ID=f['ID'],
+                            Form_ID=add_form(form, gloss, lg)['ID'],
                             Cfset_ID=cfid,
                             Source=['mcd2'],#[str(ref) for ref in form.gloss.refs if ref.key in smap],
                             Comment=wcomment,
@@ -315,20 +292,9 @@ class Dataset(pylexibank.Dataset):
             i = 1
             for langid, lforms in items.items():
                 for form, gloss, cmt in lforms:
-                    cid = add_concept(gloss or '')
-                    forms.setdefault(langid, {})
-                    if (form, cid) in forms[langid]:
-                        f = forms[langid][(form, cid)]
-                    else:
-                        forms[langid][(form, cid)] = f = args.writer.add_lexemes(
-                            Language_ID=langid,
-                            Parameter_ID=cid,
-                            Value=form,
-                            Source=['mcd2']
-                        )[0]
                     args.writer.objects['BorrowingTable'].append(dict(
                         ID='{}-{}'.format(lid, i),
-                        Target_Form_ID=f['ID'],
+                        Target_Form_ID=add_form(form, gloss or '', langid)['ID'],
                         Source=['mcd2'],
                     ))
                     i += 1
