@@ -5,6 +5,8 @@
 If you use these data please cite
 - the original source
   > Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions—1. Oceanic Linguistics Vol. 42(1), 1-110, DOI: 10.2307/3623449
+  > 
+  > Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Kenneth L. Rehg, Ho-min Sohn, Stephen Trussel, and Judith W. Wang. 2003. Proto-Micronesian Reconstructions—2. Oceanic Linguistics Vol. 42(2), 271-358, DOI: 10.2307/3623243
 - the derived dataset using the DOI of the [particular released version](../../releases/) you were using
 
 ## Description
@@ -14,12 +16,14 @@ This dataset is licensed under a CC-BY-4.0 license
 
 ## Notes
 
-The purpose of this dataset is to serve as longterm-accessible, machine readable version of the
-Micronesian Comparative Dictionary as published at https://www.trussel2.com/MCD/ (in April 2023).
+The purpose of this dataset is to serve as longterm-accessible, machine readable and update-able version of the
+Micronesian Comparative Dictionary, i.e. the data published as "Proto-Micronesian Reconstructions" in
+Oceanic Linguistics in 2003.
 
 ![](map.svg)
 
-The following introductory paragraphs are taken verbatim from the MCD website.
+The following introductory paragraphs are taken verbatim from the [MCD website](https://www.trussel2.com/MCD), where
+Part 1 of the reconstructions was published online.
 
 
 ## INTRODUCTION
@@ -86,23 +90,23 @@ In order to facilitate comparison, the velar nasal symbol (ŋ ) is used in the p
 
 
 [![CLDF validation](https://github.com/lexibank/mcd/workflows/CLDF-validation/badge.svg)](https://github.com/lexibank/mcd/actions?query=workflow%3ACLDF-validation)
-![Glottolog: 96%](https://img.shields.io/badge/Glottolog-96%25-green.svg "Glottolog: 96%")
+![Glottolog: 97%](https://img.shields.io/badge/Glottolog-97%25-green.svg "Glottolog: 97%")
 ![Concepticon: 0%](https://img.shields.io/badge/Concepticon-0%25-red.svg "Concepticon: 0%")
-![Source: 89%](https://img.shields.io/badge/Source-89%25-yellowgreen.svg "Source: 89%")
+![Source: 92%](https://img.shields.io/badge/Source-92%25-green.svg "Source: 92%")
 
-- **Varieties:** 58 (linked to 48 different Glottocodes)
-- **Concepts:** 8,145 (linked to 0 different Concepticon concept sets)
-- **Lexemes:** 14,348
-- **Sources:** 216
-- **Synonymy:** 1.01
-- **Cognacy:** 13,065 cognates in 991 cognate sets (26 singletons)
-- **Cognate Diversity:** -1.15
+- **Varieties:** 60 (linked to 50 different Glottocodes)
+- **Concepts:** 12,211 (linked to 0 different Concepticon concept sets)
+- **Lexemes:** 20,676
+- **Sources:** 217
+- **Synonymy:** 1.02
+- **Cognacy:** 17,572 cognates in 1,706 cognate sets (26 singletons)
+- **Cognate Diversity:** -1.24
 
 ## Possible Improvements:
 
 
 
-- Entries missing sources: 1597/14348 (11.13%)
+- Entries missing sources: 1599/20676 (7.73%)
 
 # Contributors
 

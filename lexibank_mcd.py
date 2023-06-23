@@ -245,13 +245,17 @@ class Dataset(pylexibank.Dataset):
             if (form, cid) in forms[lid]:
                 f = forms[lid][(form, cid)]
             else:
-                forms[lid][(form, cid)] = f = args.writer.add_lexemes(
-                    Language_ID=lid,
-                    Parameter_ID=cid,
-                    Value=form,
-                    Comment=comment,
-                    Source=['mcd2']
-                )[0]
+                try:
+                    forms[lid][(form, cid)] = f = args.writer.add_lexemes(
+                        Language_ID=lid,
+                        Parameter_ID=cid,
+                        Value=form,
+                        Comment=comment,
+                        Source=['mcd2']
+                    )[0]
+                except IndexError:
+                    print(lid, cid, form)
+                    raise
             return f
 
         cogsets, loans = part2.parse(self.raw_dir)

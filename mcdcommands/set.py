@@ -30,7 +30,7 @@ def run(args):
         if cs['ID'] == args.cset or cs['Name'] == args.cset or cs['Name'] == args.cset.replace('*', ''):
             print('\n{}\t{}\t{}\n'.format(
                 colored(langs[cs['Language_ID']]['Name'] + (' (?)' if cs['doubt'] else ''), 'blue', attrs=['bold']),
-                colored('*' + forms[cs['Form_ID']]['Form'].replace(' or ', ' or *'), 'red', attrs=['bold']),
+                colored('*' + forms[cs['Form_ID']]['Value'].replace(' or ', ' or *'), 'red', attrs=['bold']),
                 colored(glosses[forms[cs['Form_ID']]['Parameter_ID']]['Name'], 'black')
             ))
             break
@@ -45,7 +45,7 @@ def run(args):
                 if form['Language_ID'] != cs['Language_ID']:
                     witnesses.append([
                         colored(langs[form['Language_ID']]['Name'], 'red' if is_proto else 'green'),
-                        colored(('*' if is_proto else '') + form['Form'], 'red' if is_proto else 'blue'),
+                        colored(('*' if is_proto else '') + form['Value'], 'red' if is_proto else 'blue'),
                         glosses[form['Parameter_ID']]['Name'],
                         unmarkdown(form['Comment'] or ''),
                         '; '.join(cldf.sources[src.split('[')[0]].refkey(year_brackets=None) for src in form['Source'] + cog['Source']),
@@ -64,7 +64,7 @@ def run(args):
                     if form['Language_ID'] != cs['Language_ID']:
                         witnesses.append([
                             langs[form['Language_ID']]['Name'],
-                            form['Form'],
+                            form['Value'],
                             glosses[form['Parameter_ID']]['Name'],
                             cldf.sources[cfitem['Source'][0].split('[')[0]].refkey(year_brackets=None) if cfitem['Source'] else ''
                         ])

@@ -6,7 +6,7 @@ Cartopy==0.21.1
 certifi==2022.12.7
 cffi==1.15.1
 chardet==5.1.0
-cldfbench==1.13.0
+-e git+https://github.com/cldf/cldfbench@9e8569a348780910af61cd3f8a8bfc12bb9d6eb2#egg=cldfbench
 cldfcatalog==1.5.1
 -e git+https://github.com/cldf/cldfviz@cc5879950a1abf0fd0397d4cf5d38956c756dab2#egg=cldfviz
 cldfzenodo==1.1.0
@@ -34,7 +34,7 @@ matplotlib==3.6.3
 multipledispatch==0.6.0
 nameparser==1.1.2
 networkx==3.0
-newick==1.6.0
+newick==1.9.0
 numpy==1.24.1
 openpyxl==3.0.10
 packaging==23.0

@@ -1,9 +1,11 @@
-The purpose of this dataset is to serve as longterm-accessible, machine readable version of the
-Micronesian Comparative Dictionary as published at https://www.trussel2.com/MCD/ (in April 2023).
+The purpose of this dataset is to serve as longterm-accessible, machine readable and update-able version of the
+Micronesian Comparative Dictionary, i.e. the data published as "Proto-Micronesian Reconstructions" in
+Oceanic Linguistics in 2003.
 
 ![](map.svg)
 
-The following introductory paragraphs are taken verbatim from the MCD website.
+The following introductory paragraphs are taken verbatim from the [MCD website](https://www.trussel2.com/MCD), where
+Part 1 of the reconstructions was published online.
 
 
 ## INTRODUCTION
