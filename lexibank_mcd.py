@@ -222,6 +222,9 @@ class Dataset(pylexibank.Dataset):
 
         # Parse data of part 2 from CSV:
         def add_form(form, gloss, lid):
+            #
+            # FIXME: handle "(sic)|[sic]"!
+            #
             comment = None
             bibcomment = re.compile('\|?\(([^0-9]+[0-9]{4}[^)]*)\)')
             m = bibcomment.search(form)
