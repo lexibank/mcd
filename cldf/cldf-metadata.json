@@ -13,7 +13,7 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "50c2cc7",
+            "dc:created": "d8a83e7",
             "dc:title": "Repository"
         },
         {
@@ -54,7 +54,7 @@
     "tables": [
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#FormTable",
-            "dc:extent": 20676,
+            "dc:extent": 20677,
             "tableSchema": {
                 "columns": [
                     {
@@ -216,7 +216,13 @@
                     },
                     {
                         "datatype": "string",
-                        "name": "abbr"
+                        "name": "Abbr"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#source",
+                        "separator": ";",
+                        "name": "Source"
                     },
                     {
                         "datatype": "boolean",
@@ -235,7 +241,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ParameterTable",
-            "dc:extent": 12211,
+            "dc:extent": 12212,
             "tableSchema": {
                 "columns": [
                     {
@@ -518,6 +524,17 @@
                                 "ID"
                             ]
                         }
+                    },
+                    {
+                        "columnReference": [
+                            "Cfset_ID"
+                        ],
+                        "reference": {
+                            "resource": "cf.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
                     }
                 ],
                 "primaryKey": [
@@ -614,6 +631,7 @@
             "url": "borrowings.csv"
         },
         {
+            "dc:description": "Part 2 of the Micronesian Reconstructions contains a list of (sets of) loanwords. Individual loanwords are listed in the BorrowingTable, linked to the 91 groups listed in this table.",
             "dc:extent": 91,
             "tableSchema": {
                 "columns": [

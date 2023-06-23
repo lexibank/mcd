@@ -1,6 +1,6 @@
+import re
 import pathlib
 import collections
-import re
 
 import attr
 import pylexibank
@@ -33,7 +33,11 @@ class Gloss(pylexibank.Concept):
 
 @attr.s
 class Language(pylexibank.Language):
-    abbr = attr.ib(default=None)
+    Abbr = attr.ib(default=None)
+    Source = attr.ib(
+        default=attr.Factory(list),
+        metadata=dict(separator=';', propertyUrl="http://cldf.clld.org/v1.0/terms.rdf#source")
+    )
     is_proto = attr.ib(
         default=False,
         metadata=dict(datatype='boolean')
@@ -69,6 +73,8 @@ class Dataset(pylexibank.Dataset):
         args.writer.cldf.sources = Sources.from_file(self.etc_dir / 'sources.bib')
         smap = set(args.writer.cldf.sources.keys())
         l2gl = {l['Local_ID']: l for l in self.languages}
+        for v in l2gl.values():
+            v['Source'] = v['Source'].split(';')
 
         def add_concept(form):
             if isinstance(form, str):
@@ -88,11 +94,29 @@ class Dataset(pylexibank.Dataset):
 
         lmap = {}
         forms = collections.defaultdict(dict)
+
+        def add_form_part1(form=None, lid=None, pid=None, value=None, comment=None, source=None):
+            if form:
+                add_concept(form)
+                lex = args.writer.add_lexemes(
+                    Language_ID=lmap[form.language],
+                    Parameter_ID=form.gloss.cid,
+                    Value=form.form,
+                    Comment=form.comment,
+                    Source=[str(ref) for ref in form.gloss.refs],
+                )[0]
+                forms[form.language][form.form, form.gloss.lookup] = lex
+            else:
+                lex = args.writer.add_lexemes(
+                    Language_ID=lid,
+                    Parameter_ID=pid,
+                    Value=value,
+                    Comment=comment,
+                    Source=source or [],
+                )[0]
+            return lex
+
         for lang, abbr, alias in LANGS:
-            if abbr:
-                for l in l2gl.values():
-                    if l['Name'] == lang:
-                        l['abbr'] = abbr
             if alias:
                 lmap[alias] = slug(lang)
             if is_proto(lang):
@@ -125,13 +149,13 @@ class Dataset(pylexibank.Dataset):
         for cset in cognates:
             cid = add_concept(cset)
             # Add the reconstruction as form of the proto language:
-            pform = args.writer.add_lexemes(
-                Language_ID=lmap[cset.proto_lang],
-                Parameter_ID=cid,
-                Value=cset.key,
-                Comment=cset.gloss.comment or None,
-                Source=['mcd']
-            )[0]
+            pform = add_form_part1(
+                lid=lmap[cset.proto_lang],
+                pid=cid,
+                value=cset.key,
+                comment=cset.gloss.comment or None,
+                source=['mcd']
+            )
             forms[cset.proto_lang][cset.key, cid] = pform
             # And add this reconstruction to the cognate set:
             args.writer.add_cognate(lexeme=pform, Cognateset_ID=cset.id, Doubt=cset.doubt)
@@ -150,44 +174,13 @@ class Dataset(pylexibank.Dataset):
                 if form.language in UNKNOWN_LANGS:
                     continue
                 if form.is_proto:
-                    add_concept(form)
-                    lex = args.writer.add_lexemes(
-                        Language_ID=lmap[form.language],
-                        Parameter_ID=form.gloss.cid,
-                        Value=form.form,
-                        Comment=form.comment,
-                        Source=[str(ref) for ref in form.gloss.refs],
-                    )[0]
-                    forms[form.language][form.form, form.gloss.lookup] = lex
-                try:
-                    cid = form.gloss.lookup
-                    cid = {
-                        'protonakanaimadiditoshakeasinepilepsycfsaaariritremblebugotuaririshakelauariribeshakenarosiariritremblekwaioalilitremble':
-                            'protonakanaimadiditoshakeasinepilepsy',
-                        'actofstrugglingasachildgreatactivityinworktostruggletofreeoneselftobeinspasmstostrikeagainandagainonashoaltopoundshowinglossoftbeforek':
-                            'actofstrugglingasachildgreatactivityinworktostruggletofreeoneselftobeinspasmstostrikeagainandagainonashoaltopound',
-                    }.get(cid, cid)
-                    args.writer.add_cognate(
-                        lexeme=forms[form.language][form.form, cid],
-                        Cognateset_ID=cset.id,
-                        Source=[str(ref) for ref in form.gloss.refs],
-                        Doubt=form.doubt,
-                        # Comment?
-                    )
-                except KeyError:
-                    # If gloss contains brackets, try to match without brackets!
-                    cid = slug(form.gloss.markdown.partition('(')[0].strip()) or 'none'
-                    if (form.form, cid) in forms[form.language]:
-                        args.writer.add_cognate(
-                            lexeme=forms[form.language][form.form, cid],
-                            Cognateset_ID=cset.id,
-                            Source=[str(ref) for ref in form.gloss.refs if ref.key in smap],
-                            Comment=form.gloss.markdown.partition('(')[2].replace(')', '').strip(),
-                        )
-                    else:
-                        args.log.warning(
-                            'Missing witness form: {}\t{}\t{}\t{}'.format(
-                                form.language, form.form, form.gloss.markdown, form.gloss.lookup))
+                    add_form_part1(form=form)
+                args.writer.add_cognate(
+                    lexeme=forms[form.language][form.form, form.gloss.lookup],
+                    Cognateset_ID=cset.id,
+                    Source=[str(ref) for ref in form.gloss.refs],
+                    Doubt=form.doubt,
+                )
             for j, (header, comment, fs) in enumerate(cset.cf_forms):
                 cfid = '{}-{}'.format(cset.id, j + 1)
                 args.writer.objects['cf.csv'].append((dict(
@@ -198,38 +191,26 @@ class Dataset(pylexibank.Dataset):
                 )))
                 for idx, form in enumerate(fs):
                     if form.is_proto:
-                        add_concept(form)
-                        lex = args.writer.add_lexemes(
-                            Language_ID=lmap[form.language],
-                            Parameter_ID=form.gloss.cid,
-                            Value=form.form,
-                        )[0]
-                        forms[form.language][form.form, form.gloss.lookup] = lex
-                    if (form.form, form.gloss.lookup) not in forms[form.language]:
-                        args.log.warning(
-                            'Missing cf form: {}\t{}\t{}\t{}'.format(
-                                form.language, form.form, form.gloss.markdown,
-                                slug(form.gloss.markdown) or 'none'))
-                    else:
-                        args.writer.objects['cfitems.csv'].append((dict(
-                            ID='{}-{}'.format(cfid, idx + 1),
-                            Cfset_ID=cfid,
-                            Form_ID=forms[form.language][form.form, form.gloss.lookup]['ID'],
-                            Source=[str(ref) for ref in form.gloss.refs if ref.key in smap],
-                        )))
+                        add_form_part1(form=form)
+                    args.writer.objects['cfitems.csv'].append((dict(
+                        ID='{}-{}'.format(cfid, idx + 1),
+                        Cfset_ID=cfid,
+                        Form_ID=forms[form.language][form.form, form.gloss.lookup]['ID'],
+                        Source=[str(ref) for ref in form.gloss.refs if ref.key in smap],
+                    )))
 
         forms = {lmap[lang]: items for lang, items in forms.items()}
 
         # Parse data of part 2 from CSV:
-        def add_form(form, gloss, lid):
+        def add_form_part2(form, gloss, lid, comment=None):
             #
             # FIXME: handle "(sic)|[sic]"!
             #
-            comment = None
             bibcomment = re.compile('\|?\(([^0-9]+[0-9]{4}[^)]*)\)')
             m = bibcomment.search(form)
             if m:
                 form = re.sub(r'\s+', ' ', (form[:m.start()] + form[m.end():]).strip())
+                assert not comment
                 comment = m.groups()[0]
             form = form.replace(' and ', ', ')
             dis = {v: k for k, v in DIS.items()}
@@ -245,17 +226,13 @@ class Dataset(pylexibank.Dataset):
             if (form, cid) in forms[lid]:
                 f = forms[lid][(form, cid)]
             else:
-                try:
-                    forms[lid][(form, cid)] = f = args.writer.add_lexemes(
-                        Language_ID=lid,
-                        Parameter_ID=cid,
-                        Value=form,
-                        Comment=comment,
-                        Source=['mcd2']
-                    )[0]
-                except IndexError:
-                    print(lid, cid, form)
-                    raise
+                forms[lid][(form, cid)] = f = args.writer.add_lexemes(
+                    Language_ID=lid,
+                    Parameter_ID=cid,
+                    Value=form,
+                    Comment=comment,
+                    Source=['mcd2']
+                )[0]
             return f
 
         cogsets, loans = part2.parse(self.raw_dir)
@@ -268,7 +245,7 @@ class Dataset(pylexibank.Dataset):
             args.writer.objects['CognatesetTable'].append(dict(
                 ID=csid,
                 Language_ID=cs['Language'],
-                Form_ID=add_form(pform, cs['Gloss'], cs['Language'])['ID'],
+                Form_ID=add_form_part2(pform, cs['Gloss'], cs['Language'])['ID'],
                 Name=cs['Form'],
                 Description=cs['Gloss'],
                 Source=['mcd2'],
@@ -279,10 +256,9 @@ class Dataset(pylexibank.Dataset):
             for lid, cognates in cogs.items():
                 for form, gloss, wcomment in cognates:
                     args.writer.add_cognate(
-                        lexeme=add_form(form, gloss, lid),
+                        lexeme=add_form_part2(form, gloss, lid, wcomment),
                         Cognateset_ID=csid,
                         Source=['mcd2'],#[str(ref) for ref in form.gloss.refs if ref.key in smap],
-                        Comment=wcomment,
                     )
             # process cfs
             for i, (type, items, comment) in enumerate(cfs, start=1):
@@ -299,10 +275,9 @@ class Dataset(pylexibank.Dataset):
                         wc += 1
                         args.writer.objects['cfitems.csv'].append(dict(
                             ID='{}-{}'.format(cfid, wc),
-                            Form_ID=add_form(form, gloss, lg)['ID'],
+                            Form_ID=add_form_part2(form, gloss, lg, wcomment)['ID'],
                             Cfset_ID=cfid,
                             Source=['mcd2'],#[str(ref) for ref in form.gloss.refs if ref.key in smap],
-                            Comment=wcomment,
                         ))
 
         for lid, items, comment in loans:
@@ -312,7 +287,7 @@ class Dataset(pylexibank.Dataset):
                 for form, gloss, cmt in lforms:
                     args.writer.objects['BorrowingTable'].append(dict(
                         ID='{}-{}'.format(lid, i),
-                        Target_Form_ID=add_form(form, gloss or '', langid)['ID'],
+                        Target_Form_ID=add_form_part2(form, gloss or '', langid, cmt)['ID'],
                         Source=['mcd2'],
                     ))
                     i += 1
@@ -375,17 +350,22 @@ class Dataset(pylexibank.Dataset):
             {'name': 'Comment', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#comment'},
             {'name': 'Source', 'separator': ';', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#source'},
         )
+        args.writer.cldf.add_foreign_key('cfitems.csv', 'Cfset_ID', 'cf.csv', 'ID')
         t.common_props['dc:description'] = \
             'Items in tables related to cognate sets are listed here.'
         args.writer.cldf.add_component(
             'BorrowingTable',
             'Loanset_ID',
         )
-        args.writer.cldf.add_table(
+        t = args.writer.cldf.add_table(
             'loansets.csv',
             {'name': 'ID', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#id'},
             {'name': 'Description', 'propertyUrl': 'http://cldf.clld.org/v1.0/terms.rdf#description'},
         )
+        t.common_props['dc:description'] = \
+            "Part 2 of the Micronesian Reconstructions contains a list of (sets of) loanwords. " \
+            "Individual loanwords are listed in the BorrowingTable, linked to the 91 groups listed " \
+            "in this table."
         args.writer.cldf.add_foreign_key('BorrowingTable', 'Loanset_ID', 'loansets.csv', 'ID')
 
 
@@ -400,9 +380,10 @@ def cldf_markdown(s, lmap, forms, sources):
     __language__Proto-Micronesian &ast;watu__
     __language__Proto-Micronesian (?) &ast;u[sS]a, u[sS]a-ni, u[sS]a-na__
     [Marck (1994:308)](bib-Marck (1994)
-    """
-    import re
 
+    "Cf. PCk *dili ‘a small fish’, PMc *mwonu ‘squirrel fish’."
+    "Cf. PMc *ma-[sS]aLu, ma-[sS]aLu[sS]aLu ‘smooth (of surface) ’ posited by Goodenough (1995:77)"
+    """
     #
     # FIXME: Must also detect plain text refs like "Ksr", "PMc *afaŋi", "Marck (1994:323)".
     # "Ksr ɛir, glossed as ‘north’ in dictionary, is a probable loan (see PMc *afaŋi ‘north’).
@@ -449,4 +430,8 @@ def cldf_markdown(s, lmap, forms, sources):
             md.url = 'Sources#cldf:{}'.format(bid)
         return md
 
-    return MarkdownLink.replace(res, bib)
+    try:
+        return MarkdownLink.replace(res, bib)
+    except:
+        print(s)
+        raise

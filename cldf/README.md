@@ -14,7 +14,7 @@ Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Ken
 [dc:conformsTo](http://purl.org/dc/terms/conformsTo) | [CLDF Wordlist](http://cldf.clld.org/v1.0/terms.rdf#Wordlist)
 [dc:license](http://purl.org/dc/terms/license) | https://creativecommons.org/licenses/by/4.0/
 [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL) | https://github.com/lexibank/mcd
-[prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) | <ol><li><a href="https://github.com/lexibank/mcd/tree/50c2cc7">lexibank/mcd 50c2cc7</a></li><li><a href="https://github.com/glottolog/glottolog/tree/v4.6">Glottolog v4.6</a></li><li><a href="https://github.com/concepticon/concepticon-data/tree/ca097344">Concepticon v3.1.0-18-gca097344</a></li><li><a href="https://github.com/cldf-clts/clts/tree/6e60c1d">CLTS v2.2.0-11-g6e60c1d</a></li></ol>
+[prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) | <ol><li><a href="https://github.com/lexibank/mcd/tree/d8a83e7">lexibank/mcd d8a83e7</a></li><li><a href="https://github.com/glottolog/glottolog/tree/v4.6">Glottolog v4.6</a></li><li><a href="https://github.com/concepticon/concepticon-data/tree/ca097344">Concepticon v3.1.0-18-gca097344</a></li><li><a href="https://github.com/cldf-clts/clts/tree/6e60c1d">CLTS v2.2.0-11-g6e60c1d</a></li></ol>
 [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy) | <ol><li><strong>lingpy-rcParams</strong>: <a href="./lingpy-rcParams.json">lingpy-rcParams.json</a></li><li><strong>python</strong>: 3.10.6</li><li><strong>python-packages</strong>: <a href="./requirements.txt">requirements.txt</a></li></ol>
 [rdf:ID](http://www.w3.org/1999/02/22-rdf-syntax-ns#ID) | mcd
 [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type) | http://www.w3.org/ns/dcat#Distribution
@@ -25,7 +25,7 @@ Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Ken
 property | value
  --- | ---
 [dc:conformsTo](http://purl.org/dc/terms/conformsTo) | [CLDF FormTable](http://cldf.clld.org/v1.0/terms.rdf#FormTable)
-[dc:extent](http://purl.org/dc/terms/extent) | 20676
+[dc:extent](http://purl.org/dc/terms/extent) | 20677
 
 
 ### Columns
@@ -67,7 +67,8 @@ Name/Property | Datatype | Description
 [Latitude](http://cldf.clld.org/v1.0/terms.rdf#latitude) | `decimal` | 
 [Longitude](http://cldf.clld.org/v1.0/terms.rdf#longitude) | `decimal` | 
 `Family` | `string` | 
-`abbr` | `string` | 
+`Abbr` | `string` | 
+[Source](http://cldf.clld.org/v1.0/terms.rdf#source) | list of `string` (separated by `;`) | References [sources.bib::BibTeX-key](./sources.bib)
 `is_proto` | `boolean` | 
 `Local_ID` | `string` | 
 
@@ -76,7 +77,7 @@ Name/Property | Datatype | Description
 property | value
  --- | ---
 [dc:conformsTo](http://purl.org/dc/terms/conformsTo) | [CLDF ParameterTable](http://cldf.clld.org/v1.0/terms.rdf#ParameterTable)
-[dc:extent](http://purl.org/dc/terms/extent) | 12211
+[dc:extent](http://purl.org/dc/terms/extent) | 12212
 
 
 ### Columns
@@ -166,7 +167,7 @@ property | value
 Name/Property | Datatype | Description
  --- | --- | --- 
 [ID](http://cldf.clld.org/v1.0/terms.rdf#id) | `string` | Primary key
-`Cfset_ID` | `string` | 
+`Cfset_ID` | `string` | References [cf.csv::ID](#table-cfcsv)
 [Form_ID](http://cldf.clld.org/v1.0/terms.rdf#formReference) | `string` | References [forms.csv::ID](#table-formscsv)
 [Comment](http://cldf.clld.org/v1.0/terms.rdf#comment) | `string` | 
 [Source](http://cldf.clld.org/v1.0/terms.rdf#source) | list of `string` (separated by `;`) | References [sources.bib::BibTeX-key](./sources.bib)
@@ -191,6 +192,8 @@ Name/Property | Datatype | Description
 `Loanset_ID` | `string` | References [loansets.csv::ID](#table-loansetscsv)
 
 ## <a name="table-loansetscsv"></a>Table [loansets.csv](./loansets.csv)
+
+Part 2 of the Micronesian Reconstructions contains a list of (sets of) loanwords. Individual loanwords are listed in the BorrowingTable, linked to the 91 groups listed in this table.
 
 property | value
  --- | ---

@@ -82,7 +82,7 @@ MULTIREFS = {
         dict(label='Blust and Trussel 2010/14'),
     ],
     "Blust 1989:160, Blust and Trussel 2010/14": [
-        dict(label='lust 1989:160'),
+        dict(label='Blust 1989:160'),
         dict(label='Blust and Trussel 2010/14'),
     ],
     "Blust 1983/84:93, Blust and Trussel 2010/14": [
@@ -201,8 +201,9 @@ class Ref(Item):
             self.year = m.group('year')
         if self.label.startswith('(') and self.label.endswith(')'):
             self.label = self.label[1:-1].strip()
-        self.label = self.label\
+        self.label = self.label \
             .replace('2010-12', '2010/14') \
+            .replace('1983-4', '1983/84') \
             .replace('Ross 1983', 'Ross 1988')\
             .replace('-', '/')\
             .replace('–', '/')\
