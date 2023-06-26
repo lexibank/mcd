@@ -15620,8 +15620,8 @@ marshallese-builduperectpileupbuild-1,,marshallese,builduperectpileupbuild,yejye
 kosraean-pileupstones-2,,kosraean,pileupstones,etoat,etoat,,,mcd2,,,,,False
 kosraean-pileupstones-3,,kosraean,pileupstones,yetoe,yetoe,,,mcd2,,,,,False
 protopohnpeicchuukic-carryitconveyittransportit-1,,protopohnpeicchuukic,carryitconveyittransportit,waa,waa,,,mcd2,,,,,False
-chuukese-carryitconveyittransportit-1,,chuukese,carryitconveyittransportit,waa- (with directional suffixes),waa- with directional suffixes,,,mcd2,,,,,False
-saipancarolinian-carryitconveyittransportit-1,,saipancarolinian,carryitconveyittransportit,waa- (with directional suffixes),waa- with directional suffixes,,,mcd2,,,,,False
+chuukese-carryitconveyittransportit-1,,chuukese,carryitconveyittransportit,waa-,waa-,,with directional suffixes,mcd2,,,,,False
+saipancarolinian-carryitconveyittransportit-1,,saipancarolinian,carryitconveyittransportit,waa-,waa-,,with directional suffixes,mcd2,,,,,False
 pohnpeian-carryitconveyittransportit-1,,pohnpeian,carryitconveyittransportit,wa,wa,,,mcd2,,,,,False
 mokilese-carryitconveyittransportit-1,,mokilese,carryitconveyittransportit,wa,wa,,,mcd2,,,,,False
 arosi-tobringcarrytakesomething-1,,arosi,tobringcarrytakesomething,wa-i,wa-i,,,mcd2,,,,,False
@@ -19265,7 +19265,7 @@ puloannan-hightide-1,,puloannan,hightide,"pwuulo, pwulo-",pwuulo,,,mcd2,,,,,Fals
 puloannan-bubblesfoam-1,,puloannan,bubblesfoam,pulopulo,pulopulo,,,mcd2,,,,,False
 pohnpeian-bubble-1,,pohnpeian,bubble,pwolol,pwolol,,,mcd2,,,,,False
 protochuukic-flowgomove-1,,protochuukic,flowgomove,pwuyu,pwuyu,,,mcd2,,,,,False
-chuukese-flowofwater-1,,chuukese,flowofwater,pwuu- (with directional suffixes),pwuu- with directional suffixes,,,mcd2,,,,,False
+chuukese-flowofwater-1,,chuukese,flowofwater,pwuu-,pwuu-,,with directional suffixes,mcd2,,,,,False
 chuukese-flowofastream-1,,chuukese,flowofastream,pwuupwu,pwuupwu,,,mcd2,,,,,False
 chuukese-carryorwashitalonginflowofastream-1,,chuukese,carryorwashitalonginflowofastream,pwuu-ri,pwuu-ri,,,mcd2,,,,,False
 puluwatese-flowasblood-1,,puluwatese,flowasblood,pwu,pwu,,,mcd2,,,,,False
@@ -20418,7 +20418,7 @@ chuukese-mudskipperfish-1,,chuukese,mudskipperfish,nusu-paat,nusu-paat,,lit. ‘
 puluwatese-akindofsmalldarkleapingfish-1,,puluwatese,akindofsmalldarkleapingfish,luhu-ppat,luhu-ppat,,"i.e., mud skipper",mcd2,,,,,False
 saipancarolinian-spofinediblerockfish-1,,saipancarolinian,spofinediblerockfish,lusu-fat,lusu-fat,,,mcd2,,,,,False
 chuukese-nameofeauripikislandandatollcentralcarolines-1,,chuukese,nameofeauripikislandandatollcentralcarolines,owuru-pik,owuru-pik,,,mcd2,,,,,False
-puluwatese-nameofeauripikislandandatollcentralcarolines-1,,puluwatese,nameofeauripikislandandatollcentralcarolines,Yoru-pik (we expect *yoorupik),Yoru-pik we expect *yoorupik,,,mcd2,,,,,False
+puluwatese-nameofeauripikislandandatollcentralcarolines-1,,puluwatese,nameofeauripikislandandatollcentralcarolines,Yoru-pik,Yoru-pik,,we expect *yoorupik,mcd2,,,,,False
 woleaian-nameofeauripikislandandatollcentralcarolines-1,,woleaian,nameofeauripikislandandatollcentralcarolines,yauru-pige.,yauru-pige.,,,mcd2,,,,,False
 chuukese-nameofthepalaworbelawislands-1,,chuukese,nameofthepalaworbelawislands,paanaw,paanaw,,,mcd2,,,,,False
 puluwatese-nameofthepalaworbelawislands-1,,puluwatese,nameofthepalaworbelawislands,paalawu,paalawu,,,mcd2,,,,,True

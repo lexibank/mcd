@@ -114,7 +114,7 @@ def parse(raw_dir):
                 for m in re.finditer(wordp, forms):
                     form, gloss, wcomment = m.groups()
                     form = form.strip().lstrip(',').strip()
-                    assert form
+                    assert form, forms
                     mm = re.search(lcomment, form)
                     if mm:
                         nform = form[:mm.start()].strip()
