@@ -1,23 +1,23 @@
 ID,Name,Glottocode,Glottolog_Name,ISO639P3code,Macroarea,Latitude,Longitude,Family,Abbr,Source,is_proto,Local_ID
-protochuukic,Proto-Chuukic,truk1243,Trukic,,,9.412054755000042,138.06812584700003,Austronesian,PCk,jackson1983;marck1994,true,protochuukic
-protolakalai,Proto-Lakalai,,,,,,,,PLk,goodenough1997,true,protolakalai
-protoeasternoceanic,Proto-Eastern Oceanic,,,,,,,,PEO,geraghty1983;geraghty1990,true,protoeasternoceanic
-preprotomicronesian,Pre-Proto-Micronesian,,,,,,,,,,true,preprotomicronesian
-protooceanic,Proto-Oceanic,ocea1241,Oceanic,,,-7.59343840899993,158.75171959700003,Austronesian,POc,ross1988;blust1970;blust1978,true,protooceanic
-protoaustronesian,Proto-Austronesian,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,PAn,blust1980;blust198384;blust1986;blust1989,true,protoaustronesian
-protowesternmicronesian,Proto-Western Micronesian,west2844,Western Micronesian,,,6.965277411000045,158.27662194100003,Austronesian,PWMc,jackson1983;marck1994,true,protowesternmicronesian
-preprotooceanic,Pre-Proto-Oceanic,,,,,,,,,,true,preprotooceanic
-protomalayopolynesian,Proto-Malayo-Polynesian,mala1545,Malayo-Polynesian,,,6.029445705000057,121.93775475400003,Austronesian,PMP,blust1980;blust198384;blust1986;blust1989,true,protomalayopolynesian
-protonakanai,Proto-Nakanai,,,,,,,,PNk,goodenough1997,true,protonakanai
-protomicronesian,Proto-Micronesian,micr1243,Micronesian,,,5.599310614000046,168.10108483200008,Austronesian,PMc,benderetal1984;benderandwang1985;jackson1983;marck1991;marck1994,true,protomicronesian
-protowillaumez,Proto-Willaumez,will1243,Willaumez linkage,,,-5.472179224730346,150.56670596620697,Austronesian,PWm,goodenough1997,true,protowillaumez
-protokimbe,Proto-Kimbe,,,,,,,,PKb,goodenough1997,true,protokimbe
-uraustronesisch,Uraustronesisch,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,UAn,dempwolff1938;dyen1951;dyen1953,true,uraustronesisch
 protocentralmicronesian,Proto-Central Micronesian,cent2276,Central Micronesian,,,4.573797919000071,168.68539472700002,Austronesian,PCM,jackson1983;marck1994,true,protocentralmicronesian
+protomalayopolynesian,Proto-Malayo-Polynesian,mala1545,Malayo-Polynesian,,,6.029445705000057,121.93775475400003,Austronesian,PMP,blust1980;blust198384;blust1986;blust1989,true,protomalayopolynesian
+protowesternmicronesian,Proto-Western Micronesian,west2844,Western Micronesian,,,6.965277411000045,158.27662194100003,Austronesian,PWMc,jackson1983;marck1994,true,protowesternmicronesian
+uraustronesisch,Uraustronesisch,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,UAn,dempwolff1938;dyen1951;dyen1953,true,uraustronesisch
 protopolynesian,Proto-Polynesian,poly1242,Polynesian,,,-16.676853122999944,177.56072024800005,Austronesian,PPn,walshandbiggs1966;biggswalshandwaqa1970,true,protopolynesian
-protopohnpeic,Proto-Pohnpeic,pona1248,Ponapeic,,,6.869086005000042,158.33863366000003,Austronesian,PPon,,true,protopohnpeic
+protonakanai,Proto-Nakanai,,,,,,,,PNk,goodenough1997,true,protonakanai
+preprotomicronesian,Pre-Proto-Micronesian,,,,,,,,,,true,preprotomicronesian
+protowillaumez,Proto-Willaumez,will1243,Willaumez linkage,,,-5.472179224730346,150.56670596620697,Austronesian,PWm,goodenough1997,true,protowillaumez
+protooceanic,Proto-Oceanic,ocea1241,Oceanic,,,-7.59343840899993,158.75171959700003,Austronesian,POc,ross1988;blust1970;blust1978,true,protooceanic
+protochuukic,Proto-Chuukic,truk1243,Trukic,,,9.412054755000042,138.06812584700003,Austronesian,PCk,jackson1983;marck1994,true,protochuukic
+protoeasternoceanic,Proto-Eastern Oceanic,,,,,,,,PEO,geraghty1983;geraghty1990,true,protoeasternoceanic
+protoaustronesian,Proto-Austronesian,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,PAn,blust1980;blust198384;blust1986;blust1989,true,protoaustronesian
 protopohnpeicchuukic,Proto-Pohnpeic-Chuukic,pona1247,Chuukic-Ponapeic,,,7.38117096600007,149.18083743600005,Austronesian,PPC,,true,protopohnpeicchuukic
+protomicronesian,Proto-Micronesian,micr1243,Micronesian,,,5.599310614000046,168.10108483200008,Austronesian,PMc,benderetal1984;benderandwang1985;jackson1983;marck1991;marck1994,true,protomicronesian
+protolakalai,Proto-Lakalai,,,,,,,,PLk,goodenough1997,true,protolakalai
+protopohnpeic,Proto-Pohnpeic,pona1248,Ponapeic,,,6.869086005000042,158.33863366000003,Austronesian,PPon,,true,protopohnpeic
+protokimbe,Proto-Kimbe,,,,,,,,PKb,goodenough1997,true,protokimbe
 protowesternmalayopolynesian,Proto-Western-Malayo-Polynesian,,,,,,,,,,true,protowesternmalayopolynesian
+preprotooceanic,Pre-Proto-Oceanic,,,,,,,,,,true,preprotooceanic
 areare,'Āre'āre,area1240,'Are'are,alu,Papunesia,-9.20699,161.158,Austronesian,Are,geerts1970,false,1
 arosi,Arosi,aros1241,Arosi,aia,Papunesia,-10.2441,161.432,Austronesian,Aro,fox1970,false,2
 bugotu,Bugotu,bugh1239,Bughotu,bgt,Papunesia,-8.47948,159.802,Austronesian,Bug,ivens1940,false,3
