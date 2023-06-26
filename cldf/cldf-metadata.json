@@ -13,13 +13,13 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "d8a83e7",
+            "dc:created": "7ad46ee",
             "dc:title": "Repository"
         },
         {
             "rdf:about": "https://github.com/glottolog/glottolog",
             "rdf:type": "prov:Entity",
-            "dc:created": "v4.6",
+            "dc:created": "v4.7-31-g1c49dfa0dc",
             "dc:title": "Glottolog"
         },
         {
@@ -123,6 +123,11 @@
                     {
                         "datatype": "string",
                         "name": "Profile"
+                    },
+                    {
+                        "dc:description": "For a form that differs from the expected reflex in some way this flag asserts that a copying mistake has not occurred.",
+                        "datatype": "string",
+                        "name": "sic"
                     }
                 ],
                 "foreignKeys": [

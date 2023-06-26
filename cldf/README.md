@@ -14,7 +14,7 @@ Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Ken
 [dc:conformsTo](http://purl.org/dc/terms/conformsTo) | [CLDF Wordlist](http://cldf.clld.org/v1.0/terms.rdf#Wordlist)
 [dc:license](http://purl.org/dc/terms/license) | https://creativecommons.org/licenses/by/4.0/
 [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL) | https://github.com/lexibank/mcd
-[prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) | <ol><li><a href="https://github.com/lexibank/mcd/tree/d8a83e7">lexibank/mcd d8a83e7</a></li><li><a href="https://github.com/glottolog/glottolog/tree/v4.6">Glottolog v4.6</a></li><li><a href="https://github.com/concepticon/concepticon-data/tree/ca097344">Concepticon v3.1.0-18-gca097344</a></li><li><a href="https://github.com/cldf-clts/clts/tree/6e60c1d">CLTS v2.2.0-11-g6e60c1d</a></li></ol>
+[prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) | <ol><li><a href="https://github.com/lexibank/mcd/tree/7ad46ee">lexibank/mcd 7ad46ee</a></li><li><a href="https://github.com/glottolog/glottolog/tree/1c49dfa0dc">Glottolog v4.7-31-g1c49dfa0dc</a></li><li><a href="https://github.com/concepticon/concepticon-data/tree/ca097344">Concepticon v3.1.0-18-gca097344</a></li><li><a href="https://github.com/cldf-clts/clts/tree/6e60c1d">CLTS v2.2.0-11-g6e60c1d</a></li></ol>
 [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy) | <ol><li><strong>lingpy-rcParams</strong>: <a href="./lingpy-rcParams.json">lingpy-rcParams.json</a></li><li><strong>python</strong>: 3.10.6</li><li><strong>python-packages</strong>: <a href="./requirements.txt">requirements.txt</a></li></ol>
 [rdf:ID](http://www.w3.org/1999/02/22-rdf-syntax-ns#ID) | mcd
 [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type) | http://www.w3.org/ns/dcat#Distribution
@@ -45,6 +45,7 @@ Name/Property | Datatype | Description
 `Loan` | `boolean` | 
 `Graphemes` | `string` | 
 `Profile` | `string` | 
+`sic` | `string` | For a form that differs from the expected reflex in some way this flag asserts that a copying mistake has not occurred.
 
 ## <a name="table-languagescsv"></a>Table [languages.csv](./languages.csv)
 

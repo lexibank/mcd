@@ -8,12 +8,21 @@ from clldutils.misc import slug
 from clldutils.markup import MarkdownLink
 from pycldf.sources import Sources
 
-from lib.crawler import crawl
 from lib.parser import EtymonParser, LanguageParser, LANGS, UNKNOWN_LANGS, is_proto
 from lib import part2
 
 # Disambiguation markers for homonyms:
 DIS = {'₁': '1', '₂': '2', '₃': '3'}
+SIC = re.compile(r'\s+(\[sic])|(\(sic\))')
+
+
+def extract_sic(form):
+    sic = False
+    match = SIC.search(form)
+    if match:
+        sic = True
+        form = SIC.sub('', form).strip()
+    return form, sic
 
 
 @attr.s
@@ -24,6 +33,11 @@ class Witness(pylexibank.Cognate):
 @attr.s
 class Form(pylexibank.Lexeme):
     Comment = attr.ib(default=None)
+    sic = attr.ib(
+        default=False,
+        metadata={'dc:description': "For a form that differs from the expected reflex in some way "
+                                    "this flag asserts that a copying mistake has not occurred."}
+    )
 
 
 @attr.s
@@ -65,7 +79,7 @@ class Dataset(pylexibank.Dataset):
     )
 
     def cmd_download(self, args):
-        crawl(self.raw_dir)
+        raise NotImplementedError()
 
     def cmd_makecldf(self, args):
         self.schema(args)
@@ -95,24 +109,29 @@ class Dataset(pylexibank.Dataset):
         lmap = {}
         forms = collections.defaultdict(dict)
 
-        def add_form_part1(form=None, lid=None, pid=None, value=None, comment=None, source=None):
-            if form:
+        def add_form_part1(
+                form=None, lid=None, pid=None, value=None, comment=None, source=None, lang=None):
+            if form:  # From Form instance (and possibly Language instance)
                 add_concept(form)
+                fform, sic = extract_sic(form.form)
                 lex = args.writer.add_lexemes(
-                    Language_ID=lmap[form.language],
+                    Language_ID=l2gl[str(lang.id)]['ID'] if lang else lmap[form.language],
                     Parameter_ID=form.gloss.cid,
-                    Value=form.form,
+                    Value=fform,
                     Comment=form.comment,
-                    Source=[str(ref) for ref in form.gloss.refs],
+                    Source=[str(ref) for ref in lang.refs] if lang else [str(ref) for ref in form.gloss.refs],
+                    sic=sic,
                 )[0]
-                forms[form.language][form.form, form.gloss.lookup] = lex
+                forms[lang.name if lang else form.language][form.form, form.gloss.lookup] = lex
             else:
+                value, sic = extract_sic(value)
                 lex = args.writer.add_lexemes(
                     Language_ID=lid,
                     Parameter_ID=pid,
                     Value=value,
                     Comment=comment,
                     Source=source or [],
+                    sic=sic
                 )[0]
             return lex
 
@@ -130,16 +149,8 @@ class Dataset(pylexibank.Dataset):
             args.writer.add_language(**l2gl[str(lang.id)])
             lmap[lang.name] = l2gl[str(lang.id)]['ID']
             for form in lang.forms:
-                add_concept(form)
                 assert not form.gloss.comment
-                lex = args.writer.add_lexemes(
-                    Language_ID=l2gl[str(lang.id)]['ID'],
-                    Parameter_ID=form.gloss.cid,
-                    Value=form.form,
-                    Comment=form.comment,
-                    Source=[str(ref) for ref in lang.refs],
-                )[0]
-                forms[lang.name][form.form, form.gloss.lookup] = lex
+                add_form_part1(form=form, lang=lang)
 
         lids = {lang['Local_ID'] for lang in args.writer.objects['LanguageTable']}
         for lid, l in l2gl.items():
@@ -203,9 +214,7 @@ class Dataset(pylexibank.Dataset):
 
         # Parse data of part 2 from CSV:
         def add_form_part2(form, gloss, lid, comment=None):
-            #
-            # FIXME: handle "(sic)|[sic]"!
-            #
+            form, sic = extract_sic(form)
             bibcomment = re.compile('\|?\(([^0-9]+[0-9]{4}[^)]*)\)')
             m = bibcomment.search(form)
             if m:
@@ -231,7 +240,8 @@ class Dataset(pylexibank.Dataset):
                     Parameter_ID=cid,
                     Value=form,
                     Comment=comment,
-                    Source=['mcd2']
+                    Source=['mcd2'],
+                    sic=sic,
                 )[0]
             return f
 
