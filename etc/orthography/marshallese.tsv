@@ -1,0 +1,81 @@
+Grapheme	IPA	Frequence	Codepoints
+a	a	558	U+0061
+i	i	486	U+0069
+y	y	356	U+0079
+e	e	352	U+0065
+-	NULL	326	U+002d
+j	j	277	U+006a
+k	k	258	U+006b
+é	é	230	U+00e9
+w	w	205	U+0077
+t	t	167	U+0074
+l	l	156	U+006c
+n	n	135	U+006e
+h	h	134	U+0068
+r	r	129	U+0072
+p	p	120	U+0070
+m	m	117	U+006d
+ŋ	ŋ	92	U+014b
+d	d	85	U+0064
+bʷ	bʷ	84	U+0062 U+02b7
+kʷ	kʷ	64	U+006b U+02b7
+ḷ	l̩	52	U+1e37
+mʷ	mʷ	50	U+006d U+02b7
+éw	éw	32	U+00e9 U+0077
+ŋʷ	ŋʷ	27	U+014b U+02b7
+rʷ	rʷ	20	U+0072 U+02b7
+bw	bw	17	U+0062 U+0077
+ṇ	n̩	15	U+1e47
+kk	kk	14	U+006b U+006b
+b	b	13	U+0062
+ll	ll	11	U+006c U+006c
+mw	mw	11	U+006d U+0077
+dd	dd	9	U+0064 U+0064
+jj	jj	9	U+006a U+006a
+ḷw	ḷw	9	U+1e37 U+0077
+_	_	8	U+005f
+#	_	6	U+0023
+bʷbʷ	bʷbʷ	6	U+0062 U+02b7 U+0062 U+02b7
+tt	tt	6	U+0074 U+0074
+mm	mm	6	U+006d U+006d
+ŋw	ŋw	6	U+014b U+0077
+nn	nn	5	U+006e U+006e
+ļ	ļ	5	U+013c
+rw	rw	5	U+0072 U+0077
+kʷkʷ	kʷkʷ	4	U+006b U+02b7 U+006b U+02b7
+ŋŋ	ŋŋ	4	U+014b U+014b
+hw	hw	4	U+0068 U+0077
+mʷmʷ	mʷmʷ	4	U+006d U+02b7 U+006d U+02b7
+pp	pp	4	U+0070 U+0070
+yy	yy	3	U+0079 U+0079
+o	o	3	U+006f
+g	g	3	U+0067
+kw	kʷ	3	U+006b U+0077
+th	tʰ	2	U+0074 U+0068
+nw	nw	2	U+006e U+0077
+c	c	2	U+0063
+ww	ww	2	U+0077 U+0077
+rh	rh	2	U+0072 U+0068
+lh	lh	1	U+006c U+0068
+ḷḷ	ḷḷ	1	U+1e37 U+1e37
+ṇṇ	ṇṇ	1	U+1e47 U+1e47
+aa	aa	1	U+0061 U+0061
+ṇʷ	n̩ʷ	1	U+1e47 U+02b7
+ḷwḷw	ḷwḷw	1	U+1e37 U+0077 U+1e37 U+0077
+nh	nh	1	U+006e U+0068
+rr	rr	1	U+0072 U+0072
+dw	dw	1	U+0064 U+0077
+jw	jw	1	U+006a U+0077
+lʷ	lʷ	1	U+006c U+02b7
+<	<?>	1	U+003c
+*	<?>	1	U+002a
+?	<?>	1	U+003f
+q	q	1	U+0071
+tw	tw	1	U+0074 U+0077
+'y	y	1	U+0027 U+0079
+éh	éh	1	U+00e9 U+0068
+kwkw	kʷkʷ	1	U+006b U+0077 U+006b U+0077
+mwmw	mwmw	1	U+006d U+0077 U+006d U+0077
+.	NULL	1	U+002e
+bwbw	bwbw	1	U+0062 U+0077 U+0062 U+0077
+kkéŋ [yékkéŋ, kékéŋ]	<???>	1	U+006b U+006b U+00e9 U+014b U+0020 U+005b U+0079 U+00e9 U+006b U+006b U+00e9 U+014b U+002c U+0020 U+006b U+00e9 U+006b U+00e9 U+014b U+005d

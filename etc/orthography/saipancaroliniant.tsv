@@ -1,0 +1,65 @@
+Grapheme	IPA	Frequence	Codepoints
+a	a	247	U+0061
+-	NULL	223	U+002d
+i	i	187	U+0069
+g	g	183	U+0067
+n	n	131	U+006e
+e	e	121	U+0065
+h	h	115	U+0068
+R	<?>	108	U+0052
+l	l	85	U+006c
+u	u	80	U+0075
+ú	ú	74	U+00fa
+t	t	73	U+0074
+y	y	73	U+0079
+o	o	73	U+006f
+r	r	69	U+0072
+m	m	61	U+006d
+p	p	49	U+0070
+w	w	48	U+0077
+f	f	45	U+0066
+ŋ	ŋ	45	U+014b
+é	é	36	U+00e9
+aa	aa	34	U+0061 U+0061
+ó	ó	27	U+00f3
+bʷ	bʷ	27	U+0062 U+02b7
+ii	ii	27	U+0069 U+0069
+mw	mw	23	U+006d U+0077
+oo	oo	20	U+006f U+006f
+ee	ee	20	U+0065 U+0065
+áá	áá	19	U+00e1 U+00e1
+kk	kk	17	U+006b U+006b
+á	á	17	U+00e1
+bw	bw	17	U+0062 U+0077
+ll	ll	16	U+006c U+006c
+óó	óó	14	U+00f3 U+00f3
+éé	éé	13	U+00e9 U+00e9
+nn	nn	13	U+006e U+006e
+úú	úú	12	U+00fa U+00fa
+uu	uu	11	U+0075 U+0075
+mʷ	mʷ	10	U+006d U+02b7
+tt	tt	9	U+0074 U+0074
+ch	ch	8	U+0063 U+0068
+s	s	7	U+0073
+ss	ss	5	U+0073 U+0073
+_	_	4	U+005f
+mm	mm	4	U+006d U+006d
+pp	pp	4	U+0070 U+0070
+#	_	3	U+0023
+ów	ów	3	U+00f3 U+0077
+mʷmʷ	mʷmʷ	3	U+006d U+02b7 U+006d U+02b7
+ff	ff	2	U+0066 U+0066
+pʷpʷ	pʷpʷ	2	U+0070 U+02b7 U+0070 U+02b7
+b	b	2	U+0062
+ŋŋ	ŋŋ	2	U+014b U+014b
+éh	éh	1	U+00e9 U+0068
+éw	éw	1	U+00e9 U+0077
+d	d	1	U+0064
+pʷ	pʷ	1	U+0070 U+02b7
+óh	óh	1	U+00f3 U+0068
+?	<?>	1	U+003f
+mwmw	mwmw	1	U+006d U+0077 U+006d U+0077
+pwpw	pwpw	1	U+0070 U+0077 U+0070 U+0077
+gh	gh	1	U+0067 U+0068
+chch	chch	1	U+0063 U+0068 U+0063 U+0068
+.	NULL	1	U+002e

@@ -1,0 +1,39 @@
+Grapheme	IPA	Frequence	Codepoints
+a	a	67	U+0061
+i	i	29	U+0069
+u	u	29	U+0075
+k	k	21	U+006b
+N	<?>	19	U+004e
+t	t	19	U+0074
+ŋ	ŋ	17	U+014b
+q	q	16	U+0071
+n	n	12	U+006e
+e	e	12	U+0065
+b	b	11	U+0062
+R	<?>	11	U+0052
+p	p	10	U+0070
+d	d	10	U+0064
+m	m	10	U+006d
+S	<?>	8	U+0053
+l	l	6	U+006c
+D	<?>	5	U+0044
+j	j	5	U+006a
+-	NULL	5	U+002d
+s	s	4	U+0073
+*	<?>	4	U+002a
+w	w	3	U+0077
+r	r	3	U+0072
+C	<?>	3	U+0043
+_	_	2	U+005f
+Z	<?>	1	U+005a
+c	c	1	U+0063
+pi[dDr]i[Ct]	<???>	1	U+0070 U+0069 U+005b U+0064 U+0044 U+0072 U+005d U+0069 U+005b U+0043 U+0074 U+005d
+o	o	1	U+006f
+lecu[Ct]	<???>	1	U+006c U+0065 U+0063 U+0075 U+005b U+0043 U+0074 U+005d
+ps	ps	1	U+0070 U+0073
+ee	ee	1	U+0065 U+0065
+pʷ	pʷ	1	U+0070 U+02b7
+aa	aa	1	U+0061 U+0061
+*s	<?>	1	U+002a U+0073
+g	g	1	U+0067
+*w	<?>	1	U+002a U+0077

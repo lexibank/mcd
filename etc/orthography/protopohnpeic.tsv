@@ -1,0 +1,24 @@
+Grapheme	IPA	Frequence	Codepoints
+a	a	14	U+0061
+i	i	12	U+0069
+r	r	8	U+0072
+p	p	6	U+0070
+e	e	5	U+0065
+c	c	5	U+0063
+n	n	4	U+006e
+k	k	4	U+006b
+-	NULL	4	U+002d
+V	<?>	4	U+0056
+t	t	3	U+0074
+ii	ii	3	U+0069 U+0069
+l	l	3	U+006c
+y	y	2	U+0079
+w	w	2	U+0077
+d	d	2	U+0064
+aa	aa	2	U+0061 U+0061
+uu	uu	2	U+0075 U+0075
+ee	ee	2	U+0065 U+0065
+m	m	1	U+006d
+mw	mw	1	U+006d U+0077
+ŋ	ŋ	1	U+014b
+*	<?>	1	U+002a

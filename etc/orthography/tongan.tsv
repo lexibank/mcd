@@ -1,0 +1,30 @@
+Grapheme	IPA	Frequence	Codepoints
+a	a	48	U+0061
+u	u	25	U+0075
+l	l	23	U+006c
+i	i	21	U+0069
+o	o	20	U+006f
+ŋ	ŋ	20	U+014b
+t	t	15	U+0074
+h	h	13	U+0068
+k	k	10	U+006b
+m	m	10	U+006d
+p	p	9	U+0070
+-	NULL	8	U+002d
+uu	uu	7	U+0075 U+0075
+f	f	6	U+0066
+'a	a	5	U+0027 U+0061
+e	e	5	U+0065
+n	n	5	U+006e
+oo	oo	4	U+006f U+006f
+aa	aa	3	U+0061 U+0061
+s	s	3	U+0073
+‘	<?>	3	U+2018
+'i	i	2	U+0027 U+0069
+[tuo]-ŋa'ane	<???>	1	U+005b U+0074 U+0075 U+006f U+005d U+002d U+014b U+0061 U+0027 U+0061 U+006e U+0065
+fue-si-[a]	<???>	1	U+0066 U+0075 U+0065 U+002d U+0073 U+0069 U+002d U+005b U+0061 U+005d
+w	w	1	U+0077
+mamao [? < *mamawa]	<???>	1	U+006d U+0061 U+006d U+0061 U+006f U+0020 U+005b U+003f U+0020 U+003c U+0020 U+002a U+006d U+0061 U+006d U+0061 U+0077 U+0061 U+005d
+q	q	1	U+0071
+'u	u	1	U+0027 U+0075
+[tua]-qata	<???>	1	U+005b U+0074 U+0075 U+0061 U+005d U+002d U+0071 U+0061 U+0074 U+0061

@@ -1,0 +1,36 @@
+Grapheme	IPA	Frequence	Codepoints
+a	a	1068	U+0061
+i	i	512	U+0069
+-	NULL	456	U+002d
+r	r	332	U+0072
+k	k	309	U+006b
+n	n	309	U+006e
+o	o	284	U+006f
+t	t	278	U+0074
+e	e	253	U+0065
+u	u	245	U+0075
+ŋ	ŋ	149	U+014b
+m	m	131	U+006d
+aa	aa	111	U+0061 U+0061
+b	b	105	U+0062
+bʷ	bʷ	99	U+0062 U+02b7
+mʷ	mʷ	61	U+006d U+02b7
+w	w	49	U+0077
+ii	ii	34	U+0069 U+0069
+oo	oo	28	U+006f U+006f
+uu	uu	26	U+0075 U+0075
+_	_	20	U+005f
+bw	bw	19	U+0062 U+0077
+nn	nn	15	U+006e U+006e
+ee	ee	10	U+0065 U+0065
+mw	mw	10	U+006d U+0077
+*	<?>	8	U+002a
+<	<?>	7	U+003c
+.	NULL	6	U+002e
+?	<?>	4	U+003f
+#	_	1	U+0023
+maraara sic, <*ma-araara?	<???>	1	U+006d U+0061 U+0072 U+0061 U+0061 U+0072 U+0061 U+0020 U+0073 U+0069 U+0063 U+002c U+0020 U+003c U+002a U+006d U+0061 U+002d U+0061 U+0072 U+0061 U+0061 U+0072 U+0061 U+003f
+mm	mm	1	U+006d U+006d
+nn-a <*ni-a, *nni-a	<???>	1	U+006e U+006e U+002d U+0061 U+0020 U+003c U+002a U+006e U+0069 U+002d U+0061 U+002c U+0020 U+002a U+006e U+006e U+0069 U+002d U+0061
+p	p	1	U+0070
+_|	_|	1	U+005f U+007c

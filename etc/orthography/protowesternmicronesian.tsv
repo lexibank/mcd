@@ -1,0 +1,36 @@
+Grapheme	IPA	Frequence	Codepoints
+a	a	87	U+0061
+i	i	49	U+0069
+k	k	26	U+006b
+u	u	23	U+0075
+l	l	21	U+006c
+o	o	19	U+006f
+r	r	18	U+0072
+t	t	17	U+0074
+p	p	14	U+0070
+s	s	13	U+0073
+pʷ	pʷ	11	U+0070 U+02b7
+ŋ	ŋ	11	U+014b
+-	NULL	10	U+002d
+e	e	10	U+0065
+n	n	9	U+006e
+c	c	8	U+0063
+f	f	7	U+0066
+mʷ	mʷ	7	U+006d U+02b7
+T	<?>	5	U+0054
+m	m	5	U+006d
+_	_	4	U+005f
+aa	aa	3	U+0061 U+0061
+w	w	3	U+0077
+uu	uu	2	U+0075 U+0075
+ii	ii	2	U+0069 U+0069
+y	y	2	U+0079
+ee	ee	2	U+0065 U+0065
+fiŋi-[sS]i	<???>	1	U+0066 U+0069 U+014b U+0069 U+002d U+005b U+0073 U+0053 U+005d U+0069
+ka[aØ]mami	<???>	1	U+006b U+0061 U+005b U+0061 U+00d8 U+005d U+006d U+0061 U+006d U+0069
+mʷata[ŋØ]ala	<???>	1	U+006d U+02b7 U+0061 U+0074 U+0061 U+005b U+014b U+00d8 U+005d U+0061 U+006c U+0061
+mʷool[iu]	<???>	1	U+006d U+02b7 U+006f U+006f U+006c U+005b U+0069 U+0075 U+005d
+ŋil[ai]	<???>	1	U+014b U+0069 U+006c U+005b U+0061 U+0069 U+005d
+Ter[ae]	<???>	1	U+0054 U+0065 U+0072 U+005b U+0061 U+0065 U+005d
+wiy[ae]-	<???>	1	U+0077 U+0069 U+0079 U+005b U+0061 U+0065 U+005d U+002d
+wul[ae]	<???>	1	U+0077 U+0075 U+006c U+005b U+0061 U+0065 U+005d
