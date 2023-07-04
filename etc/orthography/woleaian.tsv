@@ -3,63 +3,55 @@ e	e	1343	U+0065
 -	NULL	1153	U+002d
 i	i	941	U+0069
 a	a	930	U+0061
-g	g	711	U+0067
-l	l	710	U+006c
+g	x	711	U+0067
+l	ɾ	710	U+006c
 t	t	479	U+0074
-ú	ú	463	U+00fa
-r	r	437	U+0072
-aa	aa	402	U+0061 U+0061
+ú	ü	463	U+00fa
+r	ʐ	437	U+0072
+aa	aː	402	U+0061 U+0061
 o	o	391	U+006f
 y	y	320	U+0079
 w	w	294	U+0077
 p	p	274	U+0070
 u	u	270	U+0075
 f	f	260	U+0066
-ii	ii	257	U+0069 U+0069
+ii	iː	257	U+0069 U+0069
 ŋ	ŋ	249	U+014b
-sh	sh	241	U+0073 U+0068
+sh	ʂ	241	U+0073 U+0068
 s	s	231	U+0073
 m	m	215	U+006d
-b	b	186	U+0062
-mw	mw	89	U+006d U+0077
-éé	éé	88	U+00e9 U+00e9
-úú	úú	86	U+00fa U+00fa
-oo	oo	84	U+006f U+006f
-ee	ee	81	U+0065 U+0065
+b	ɸ	186	U+0062
+mw	mʷ	89	U+006d U+0077
+éé	øː	88	U+00e9 U+00e9
+úú	üː	86	U+00fa U+00fa
+oo	oː	84	U+006f U+006f
+ee	eː	81	U+0065 U+0065
 nn	nn	68	U+006e U+006e
 mʷ	mʷ	64	U+006d U+02b7
-uu	uu	54	U+0075 U+0075
+uu	uː	54	U+0075 U+0075
 kk	kk	46	U+006b U+006b
-chch	chch	45	U+0063 U+0068 U+0063 U+0068
+chch	tʂtʂ	45	U+0063 U+0068 U+0063 U+0068
 tt	tt	40	U+0074 U+0074
-óó	óó	39	U+00f3 U+00f3
-bb	bb	28	U+0062 U+0062
+óó	ɔː	39	U+00f3 U+00f3
+bb	pʷ	28	U+0062 U+0062
 ff	ff	20	U+0066 U+0066
 ss	ss	19	U+0073 U+0073
-é	é	18	U+00e9
+é	ø	18	U+00e9
 pp	pp	17	U+0070 U+0070
 _	_	14	U+005f
 mm	mm	12	U+006d U+006d
 .	NULL	12	U+002e
 ŋŋ	ŋŋ	10	U+014b U+014b
-mwmw	mwmw	9	U+006d U+0077 U+006d U+0077
+mwmw	mʷmʷ	9	U+006d U+0077 U+006d U+0077
 mʷmʷ	mʷmʷ	8	U+006d U+02b7 U+006d U+02b7
 n	n	6	U+006e
 <	<?>	6	U+003c
 #	_	5	U+0023
 *	<?>	5	U+002a
 k	k	5	U+006b
-bw	bw	5	U+0062 U+0077
+bw	pʷ	5	U+0062 U+0077
 pʷ	pʷ	4	U+0070 U+02b7
-bʷ	bʷ	3	U+0062 U+02b7
-ó	ó	3	U+00f3
-ósh	ósh	3	U+00f3 U+0073 U+0068
-pw	pw	3	U+0070 U+0077
-és	és	2	U+00e9 U+0073
-ch	ch	2	U+0063 U+0068
-yo-oro <*[ye]-yoro	<???>	1	U+0079 U+006f U+002d U+006f U+0072 U+006f U+0020 U+003c U+002a U+005b U+0079 U+0065 U+005d U+002d U+0079 U+006f U+0072 U+006f
-*w	<?>	1	U+002a U+0077
-ésh	ésh	1	U+00e9 U+0073 U+0068
-ww	ww	1	U+0077 U+0077
-Y	<?>	1	U+0059
-gh	gh	1	U+0067 U+0068
+bʷ	pʷ	3	U+0062 U+02b7
+ó	ɔ	3	U+00f3
+pw	pʷ	3	U+0070 U+0077
+ch	tʂ	2	U+0063 U+0068
