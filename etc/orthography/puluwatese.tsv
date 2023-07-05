@@ -1,76 +1,65 @@
 Grapheme	IPA	Frequence	Codepoints
--	NULL	942	U+002d
-y	y	651	U+0079
-i	i	542	U+0069
-a	a	507	U+0061
-w	w	379	U+0077
-l	l	379	U+006c
-n	n	333	U+006e
-e	e	333	U+0065
-t	t	327	U+0074
-r	r	304	U+0072
-k	k	286	U+006b
-á	á	254	U+00e1
-ú	ú	241	U+00fa
-o	o	224	U+006f
-h	h	220	U+0068
-ŋ	ŋ	203	U+014b
-m	m	197	U+006d
 p	p	182	U+0070
-f	f	175	U+0066
-R	<?>	161	U+0052
-ó	ó	153	U+00f3
-u	u	135	U+0075
-aa	aa	131	U+0061 U+0061
-é	é	110	U+00e9
-ii	ii	102	U+0069 U+0069
-áá	áá	90	U+00e1 U+00e1
-pw	pw	83	U+0070 U+0077
-oo	oo	72	U+006f U+006f
-mw	mw	72	U+006d U+0077
-pʷ	pʷ	66	U+0070 U+02b7
-ee	ee	65	U+0065 U+0065
-éé	éé	61	U+00e9 U+00e9
-óó	óó	57	U+00f3 U+00f3
-úú	úú	51	U+00fa U+00fa
-mʷ	mʷ	50	U+006d U+02b7
-ll	ll	43	U+006c U+006c
-kk	kk	34	U+006b U+006b
-uu	uu	33	U+0075 U+0075
-tt	tt	25	U+0074 U+0074
 pp	pp	24	U+0070 U+0070
-_	_	23	U+005f
-cc	cc	21	U+0063 U+0063
-nn	nn	16	U+006e U+006e
-s	s	16	U+0073
-ów	ów	15	U+00f3 U+0077
-c	c	8	U+0063
-éw	éw	7	U+00e9 U+0077
-mm	mm	7	U+006d U+006d
-pwpw	pwpw	7	U+0070 U+0077 U+0070 U+0077
-mʷmʷ	mʷmʷ	6	U+006d U+02b7 U+006d U+02b7
-ff	ff	6	U+0066 U+0066
-chch	chch	6	U+0063 U+0068 U+0063 U+0068
+pʷ	pʷ	66	U+0070 U+02b7
+pw	pʷ	83	U+0070 U+0077
+pwpw	pʷpʷ  7	U+0070 U+0077 U+0070 U+0077
 pʷpʷ	pʷpʷ	4	U+0070 U+02b7 U+0070 U+02b7
-ŋŋ	ŋŋ	4	U+014b U+014b
-óh	óh	4	U+00f3 U+0068
+t	t	327	U+0074
+tt	tt	25	U+0074 U+0074
+c	tʂ	8	U+0063
+cc	tʂtʂ	21	U+0063 U+0063
+ch	tʂ	1	U+0063 U+0068
+chch  tʂtʂ	6	U+0063 U+0068 U+0063 U+0068
+k	k	286	U+006b
+kk	kk	34	U+006b U+006b
+f	f	175	U+0066
+ff	ff	6	U+0066 U+0066
+s	s	16	U+0073
+ss	ss	1	U+0073 U+0073
+h	h	220	U+0068
 hh	hh	4	U+0068 U+0068
+m	m	197	U+006d
+mm	mm	7	U+006d U+006d
+mʷ	mʷ	50	U+006d U+02b7
+mw	mʷ	72	U+006d U+0077
+mʷmʷ	mʷmʷ	6	U+006d U+02b7 U+006d U+02b7
+mwmw	mʷmʷ	2	U+006d U+0077 U+006d U+0077
+n	n	333	U+006e
+nn	nn	16	U+006e U+006e
+ŋ	ŋ	203	U+014b
+ng  ŋ
+ŋŋ	ŋŋ	4	U+014b U+014b
+l	l	379	U+006c
+ll	ll	43	U+006c U+006c
+r	r	304	U+0072
+R	ɻ	161	U+0052
+RR	ɻɻ	1	U+0052 U+0052
+w	w	379	U+0077
+y	y	651	U+0079
+a	a	507	U+0061
+aa	aː	131	U+0061 U+0061
+e	e	333	U+0065
+ee	eː	65	U+0065 U+0065
+i	i	542	U+0069
+ii	iː	102	U+0069 U+0069
+o	o	224	U+006f
+oo	oː	72	U+006f U+006f
+u	u	135	U+0075
+uu	uː	33	U+0075 U+0075
+á	æ	254	U+00e1
+áá	æː	90	U+00e1 U+00e1
+é	ə	110	U+00e9
+éé	əː	61	U+00e9 U+00e9
+ó	ɔ	153	U+00f3
+óó	ɔː	57	U+00f3 U+00f3
+ú	ɨ	241	U+00fa
+úú	ɨː	51	U+00fa U+00fa
+_	_	23	U+005f
+-	NULL	942	U+002d
 #	_	3	U+0023
-éh	éh	3	U+00e9 U+0068
-g	g	2	U+0067
 .	NULL	2	U+002e
-mwmw	mwmw	2	U+006d U+0077 U+006d U+0077
-#h	_h	1	U+0023 U+0068
-#w	_w	1	U+0023 U+0077
 <	<?>	1	U+003c
 *	<?>	1	U+002a
-mʷéy also méy, méyi-ti-y	<???>	1	U+006d U+02b7 U+00e9 U+0079 U+0020 U+0061 U+006c U+0073 U+006f U+0020 U+006d U+00e9 U+0079 U+002c U+0020 U+006d U+00e9 U+0079 U+0069 U+002d U+0074 U+0069 U+002d U+0079
 ?	<?>	1	U+003f
-RR	<?>	1	U+0052 U+0052
-Ø	<?>	1	U+00d8
-ss	ss	1	U+0073 U+0073
-ch	ch	1	U+0063 U+0068
-óhh	óhh	1	U+00f3 U+0068 U+0068
-gh	gh	1	U+0067 U+0068
-Y	<?>	1	U+0059
-bw	bw	1	U+0062 U+0077
+Ø	NULL	1	U+00d8
