@@ -10,7 +10,7 @@ tt	tt	25	U+0074 U+0074
 c	tʂ	8	U+0063
 cc	tʂtʂ	21	U+0063 U+0063
 ch	tʂ	1	U+0063 U+0068
-chch  tʂtʂ	6	U+0063 U+0068 U+0063 U+0068
+chch	tʂtʂ	6	U+0063 U+0068 U+0063 U+0068
 k	k	286	U+006b
 kk	kk	34	U+006b U+006b
 f	f	175	U+0066
@@ -28,7 +28,7 @@ mwmw	mʷmʷ	2	U+006d U+0077 U+006d U+0077
 n	n	333	U+006e
 nn	nn	16	U+006e U+006e
 ŋ	ŋ	203	U+014b
-ng  ŋ
+ng	ŋ
 ŋŋ	ŋŋ	4	U+014b U+014b
 l	l	379	U+006c
 ll	ll	43	U+006c U+006c
