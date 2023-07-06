@@ -1,43 +1,42 @@
 Grapheme	IPA	Frequence	Codepoints
-a	a	89	U+0061
-i	i	49	U+0069
-f	f	43	U+0066
-e	e	28	U+0065
-t	t	27	U+0074
-o	o	25	U+006f
-ú	ɨ	23	U+00fa
-aa	aː	22	U+0061 U+0061
-ŋ	ŋ	20	U+014b
-k	k	19	U+006b
--	NULL	19	U+002d
-r	r	18	U+0072
-l	l	17	U+006c
-m	m	16	U+006d
-y	y	16	U+0079
-d	d	15	U+0064
-w	w	13	U+0077
-n	n	9	U+006e
 p	p	9	U+0070
-u	u	8	U+0075
-ii	iː	6	U+0069 U+0069
-s	s	6	U+0073
-g	g	6	U+0067
-éé	əː	3	U+00e9 U+00e9
-bʷ	bʷ	2	U+0062 U+02b7
-úú	ɨː	2	U+00fa U+00fa
-é	ə	2	U+00e9
-mʷ	mʷ	2	U+006d U+02b7
-uu	uː	2	U+0075 U+0075
-ss	ss	2	U+0073 U+0073
-á	æ	2	U+00e1
-ee	eː	2	U+0065 U+0065
-h	h	2	U+0068
-ff	ff	1	U+0066 U+0066
 pp	pp	1	U+0070 U+0070
-oo	oː	1	U+006f U+006f
-nn	nn	1	U+006e U+006e
+bw	βʷ	1	U+0062 U+0077
+bʷ	βʷ	2	U+0062 U+02b7
+t	t	27	U+0074
+k	x	19	U+006b
+g	x	6	U+0067
+f	f	43	U+0066
+ff	ff	1	U+0066 U+0066
+d	ð	15	U+0064
+s	s	6	U+0073
+ss	ss	2	U+0073 U+0073
+h	h	2	U+0068
+m	m	16	U+006d
+mʷ	mʷ	2	U+006d U+02b7
 mm	mm	1	U+006d U+006d
 mw	mʷ	1	U+006d U+0077
-bw	bʷ	1	U+0062 U+0077
-b	b	1	U+0062
+n	n	9	U+006e
+nn	nn	1	U+006e U+006e
+ŋ	ŋ	20	U+014b
+r	r	18	U+0072
+l	l	17	U+006c
+y	y	16	U+0079
+w	w	13	U+0077
+a	a	89	U+0061
+aa	aː	22	U+0061 U+0061
+e	e	28	U+0065
+ee	eː	2	U+0065 U+0065
+i	i	49	U+0069
+ii	iː	6	U+0069 U+0069
+o	o	25	U+006f
+oo	oː	1	U+006f U+006f
+u	u	8	U+0075
+uu	uː	2	U+0075 U+0075
+á	æ	2	U+00e1
+é	ə	2	U+00e9
+éé	əː	3	U+00e9 U+00e9
+ú	ɨ	23	U+00fa
+úú	ɨː	2	U+00fa U+00fa
 .	NULL	1	U+002e
+-	NULL	19	U+002d
