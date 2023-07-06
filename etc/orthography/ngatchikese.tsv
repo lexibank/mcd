@@ -1,7 +1,7 @@
 Grapheme	IPA	Frequence	Codepoints
-ɛ	ɛ	2	U+025b
-p	p	1	U+0070
-ɛɛ	ɛɛ	1	U+025b U+025b
 s	s	1	U+0073
 d	d	1	U+0064
+p	p	1	U+0070
+ɛ	ɛ	2	U+025b
+ɛɛ	ɛː	1	U+025b U+025b
 -	NULL	1	U+002d
