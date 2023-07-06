@@ -5,8 +5,8 @@ f	f	43	U+0066
 e	e	28	U+0065
 t	t	27	U+0074
 o	o	25	U+006f
-ú	ú	23	U+00fa
-aa	aa	22	U+0061 U+0061
+ú	ɨ	23	U+00fa
+aa	aː	22	U+0061 U+0061
 ŋ	ŋ	20	U+014b
 k	k	19	U+006b
 -	NULL	19	U+002d
@@ -19,26 +19,25 @@ w	w	13	U+0077
 n	n	9	U+006e
 p	p	9	U+0070
 u	u	8	U+0075
-ii	ii	6	U+0069 U+0069
+ii	iː	6	U+0069 U+0069
 s	s	6	U+0073
 g	g	6	U+0067
-éé	éé	3	U+00e9 U+00e9
+éé	əː	3	U+00e9 U+00e9
 bʷ	bʷ	2	U+0062 U+02b7
-úú	úú	2	U+00fa U+00fa
-é	é	2	U+00e9
+úú	ɨː	2	U+00fa U+00fa
+é	ə	2	U+00e9
 mʷ	mʷ	2	U+006d U+02b7
-uu	uu	2	U+0075 U+0075
+uu	uː	2	U+0075 U+0075
 ss	ss	2	U+0073 U+0073
-á	á	2	U+00e1
-ee	ee	2	U+0065 U+0065
+á	æ	2	U+00e1
+ee	eː	2	U+0065 U+0065
 h	h	2	U+0068
-éw	éw	2	U+00e9 U+0077
 ff	ff	1	U+0066 U+0066
 pp	pp	1	U+0070 U+0070
-oo	oo	1	U+006f U+006f
+oo	oː	1	U+006f U+006f
 nn	nn	1	U+006e U+006e
 mm	mm	1	U+006d U+006d
-mw	mw	1	U+006d U+0077
-bw	bw	1	U+0062 U+0077
+mw	mʷ	1	U+006d U+0077
+bw	bʷ	1	U+0062 U+0077
 b	b	1	U+0062
 .	NULL	1	U+002e
