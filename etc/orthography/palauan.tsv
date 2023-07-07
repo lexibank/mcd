@@ -1,17 +1,20 @@
 Grapheme	IPA	Frequence	Codepoints
-e	e	4	U+0065
-a	a	3	U+0061
-ŋ	ŋ	3	U+014b
-s	s	3	U+0073
-l	l	3	U+006c
-k	k	2	U+006b
-i	i	2	U+0069
-u	u	2	U+0075
+p	p		
 b	b	2	U+0062
 t	t	2	U+0074
-rs	rs	1	U+0072 U+0073
+d	d		
+k	k	2	U+006b
+ch	ʔ	1	U+0063 U+0068
+s	s	3	U+0073
 m	m	1	U+006d
-ii	ii	1	U+0069 U+0069
-ch	ch	1	U+0063 U+0068
+n	n		
+ŋ	ŋ	3	U+014b
+l	l	3	U+006c
+r	r		
+a	a	3	U+0061
+e	e	4	U+0065
+é	ə	1	U+00e9
+i	i	2	U+0069
 o	o	1	U+006f
-é	é	1	U+00e9
+u	u	2	U+0075
+ii	iː	1	U+0069 U+0069
