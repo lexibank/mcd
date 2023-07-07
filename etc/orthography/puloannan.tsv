@@ -1,52 +1,48 @@
 Grapheme	IPA	Frequence	Codepoints
-a	a	707	U+0061
-i	i	399	U+0069
--	NULL	271	U+002d
-ú	ú	257	U+00fa
-n	n	249	U+006e
-k	k	240	U+006b
-t	t	231	U+0074
-d	d	224	U+0064
-o	o	197	U+006f
-e	e	174	U+0065
-l	l	138	U+006c
-aa	aa	106	U+0061 U+0061
-m	m	104	U+006d
-ŋ	ŋ	103	U+014b
-u	u	103	U+0075
-s	s	95	U+0073
 p	p	87	U+0070
-w	w	56	U+0077
-pʷ	pʷ	55	U+0070 U+02b7
-y	y	53	U+0079
-pw	pw	37	U+0070 U+0077
-ii	ii	34	U+0069 U+0069
-mʷ	mʷ	24	U+006d U+02b7
-úú	úú	23	U+00fa U+00fa
-nn	nn	17	U+006e U+006e
-oo	oo	16	U+006f U+006f
-uu	uu	14	U+0075 U+0075
-mw	mw	14	U+006d U+0077
-kk	kk	12	U+006b U+006b
-é	é	11	U+00e9
-_	_	10	U+005f
 pp	pp	10	U+0070 U+0070
-ee	ee	10	U+0065 U+0065
-tt	tt	9	U+0074 U+0074
-mm	mm	9	U+006d U+006d
-éé	éé	7	U+00e9 U+00e9
-.	NULL	4	U+002e
-dd	dd	3	U+0064 U+0064
-ss	ss	3	U+0073 U+0073
-?	<?>	3	U+003f
-r	r	3	U+0072
-pwpw	pwpw	3	U+0070 U+0077 U+0070 U+0077
+pw	βʷ	37	U+0070 U+0077
+pʷ	βʷ	55	U+0070 U+02b7
+bʷ	βʷ	1	U+0062 U+02b7
+pwpw	pʷpʷ	3	U+0070 U+0077 U+0070 U+0077
 pʷpʷ	pʷpʷ	2	U+0070 U+02b7 U+0070 U+02b7
-ŋŋ	ŋŋ	2	U+014b U+014b
-S	<?>	2	U+0053
-ns	ns	2	U+006e U+0073
-#	_	1	U+0023
-bʷ	bʷ	1	U+0062 U+02b7
-ma-onanona sic, <*ma-onaona?	<???>	1	U+006d U+0061 U+002d U+006f U+006e U+0061 U+006e U+006f U+006e U+0061 U+0020 U+0073 U+0069 U+0063 U+002c U+0020 U+003c U+002a U+006d U+0061 U+002d U+006f U+006e U+0061 U+006f U+006e U+0061 U+003f
+t	t	231	U+0074
+tt	tt	9	U+0074 U+0074
+k	x	240	U+006b
+kk	kk	12	U+006b U+006b
+d	ð	224	U+0064
+dd	ðð	3	U+0064 U+0064
+s	s	95	U+0073
+ss	ss	3	U+0073 U+0073
+m	m	104	U+006d
+mm	mm	9	U+006d U+006d
+mʷ	mʷ	24	U+006d U+02b7
+mw	mʷ	14	U+006d U+0077
 mʷmʷ	mʷmʷ	1	U+006d U+02b7 U+006d U+02b7
-f	f	1	U+0066
+n	ɾ	249	U+006e
+nn	nn	17	U+006e U+006e
+ŋ	ŋ	103	U+014b
+ŋŋ	ŋŋ	2	U+014b U+014b
+l	l	138	U+006c
+r	r	3	U+0072
+w	w	56	U+0077
+y	y	53	U+0079
+a	a	707	U+0061
+aa	aː	106	U+0061 U+0061
+e	e	174	U+0065
+ee	eː	10	U+0065 U+0065
+i	i	399	U+0069
+ii	iː	34	U+0069 U+0069
+o	o	197	U+006f
+oo	oː	16	U+006f U+006f
+u	u	103	U+0075
+uu	uː	14	U+0075 U+0075
+é	ə	11	U+00e9
+éé	əː	7	U+00e9 U+00e9
+ú	ɨ	257	U+00fa
+úú	ɨː	23	U+00fa U+00fa
+#	_	1	U+0023
+?	<?>	3	U+003f
+.	NULL	4	U+002e
+_	_	10	U+005f
+-	NULL	271	U+002d

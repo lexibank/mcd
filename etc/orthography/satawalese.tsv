@@ -1,66 +1,57 @@
 Grapheme	IPA	Frequence	Codepoints
-a	a	218	U+0061
--	NULL	210	U+002d
-i	i	168	U+0069
-y	y	134	U+0079
-t	t	118	U+0074
-l	l	116	U+006c
-e	e	108	U+0065
-r	r	101	U+0072
-w	w	100	U+0077
-n	n	91	U+006e
-s	s	89	U+0073
-k	k	86	U+006b
-ú	ú	80	U+00fa
-m	m	80	U+006d
-ŋ	ŋ	77	U+014b
 p	p	75	U+0070
-f	f	71	U+0066
-á	á	60	U+00e1
-o	o	57	U+006f
-u	u	54	U+0075
-aa	aa	48	U+0061 U+0061
-R	<?>	44	U+0052
-ó	ó	37	U+00f3
-pʷ	pʷ	34	U+0070 U+02b7
-ii	ii	32	U+0069 U+0069
-áá	áá	31	U+00e1 U+00e1
-úú	úú	27	U+00fa U+00fa
-mʷ	mʷ	22	U+006d U+02b7
-oo	oo	19	U+006f U+006f
-óó	óó	18	U+00f3 U+00f3
-uu	uu	18	U+0075 U+0075
-éé	éé	18	U+00e9 U+00e9
-pw	pw	16	U+0070 U+0077
-é	é	14	U+00e9
-kk	kk	12	U+006b U+006b
-ee	ee	12	U+0065 U+0065
-mw	mw	12	U+006d U+0077
 pp	pp	9	U+0070 U+0070
-mm	mm	6	U+006d U+006d
-chch	chch	5	U+0063 U+0068 U+0063 U+0068
-ff	ff	5	U+0066 U+0066
-nn	nn	5	U+006e U+006e
-_	_	4	U+005f
-tt	tt	3	U+0074 U+0074
-#	_	2	U+0023
-mʷmʷ	mʷmʷ	2	U+006d U+02b7 U+006d U+02b7
-c	c	2	U+0063
-ów	ów	2	U+00f3 U+0077
-ll	ll	2	U+006c U+006c
+pʷ	pʷ	34	U+0070 U+02b7
+pw	pʷ	16	U+0070 U+0077
 pʷpʷ	pʷpʷ	2	U+0070 U+02b7 U+0070 U+02b7
-ós	ós	2	U+00f3 U+0073
-W	<?>	1	U+0057
-V	<?>	1	U+0056
-gh	gh	1	U+0067 U+0068
-kʷ	kʷ	1	U+006b U+02b7
-rr	rr	1	U+0072 U+0072
-‘	<?>	1	U+2018
-sh	sh	1	U+0073 U+0068
-g	g	1	U+0067
-th	tʰ	1	U+0074 U+0068
-cc	cc	1	U+0063 U+0063
-ŋŋ	ŋŋ	1	U+014b U+014b
-pwpw	pwpw	1	U+0070 U+0077 U+0070 U+0077
+pwpw	pʷpʷ	1	U+0070 U+0077 U+0070 U+0077
+t	t	118	U+0074
+tt	tt	3	U+0074 U+0074
+c	tʂ	2	U+0063
+chch	tʂtʂ	5	U+0063 U+0068 U+0063 U+0068
+cc	tʂtʂ	1	U+0063 U+0063
+k	k	86	U+006b
+kk	kk	12	U+006b U+006b
+f	f	71	U+0066
+ff	ff	5	U+0066 U+0066
+s	s	89	U+0073
 ss	ss	1	U+0073 U+0073
-bw	bw	1	U+0062 U+0077
+m	m	80	U+006d
+mm	mm	6	U+006d U+006d
+mʷ	mʷ	22	U+006d U+02b7
+mw	mʷ	12	U+006d U+0077
+mʷmʷ	mʷmʷ	2	U+006d U+02b7 U+006d U+02b7
+n	n	91	U+006e
+nn	nn	5	U+006e U+006e
+ŋ	ŋ	77	U+014b
+ŋŋ	ŋŋ	1	U+014b U+014b
+l	l	116	U+006c
+ll	ll	2	U+006c U+006c
+r	r	101	U+0072
+rr	rr	1	U+0072 U+0072
+R	ɻ	44	U+0052
+w	w	100	U+0077
+y	y	134	U+0079
+a	a	218	U+0061
+aa	aː	48	U+0061 U+0061
+e	e	108	U+0065
+ee	eː	12	U+0065 U+0065
+i	i	168	U+0069
+ii	iː	32	U+0069 U+0069
+o	o	57	U+006f
+oo	oː	19	U+006f U+006f
+u	u	54	U+0075
+uu	uː	18	U+0075 U+0075
+á	æ	60	U+00e1
+áá	æː	31	U+00e1 U+00e1
+é	ə	14	U+00e9
+éé	əː	18	U+00e9 U+00e9
+ó	ɔ	37	U+00f3
+óó	ɔː	18	U+00f3 U+00f3
+ú	ɨ	80	U+00fa
+úú	ɨː	27	U+00fa U+00fa
+#	_	2	U+0023
+_	_	4	U+005f
+V	V	1	U+0056
+‘	<?>	1	U+2018
+-	NULL	210	U+002d

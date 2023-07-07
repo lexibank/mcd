@@ -1,40 +1,49 @@
 Grapheme	IPA	Frequence	Codepoints
-l	l	20	U+006c
-a	a	19	U+0061
-aa	aa	17	U+0061 U+0061
-u	u	16	U+0075
-w	w	16	U+0077
-e	e	15	U+0065
-th	tʰ	11	U+0074 U+0068
-g	g	10	U+0067
-y	y	10	U+0079
-m	m	10	U+006d
-r	r	10	U+0072
-q	q	9	U+0071
-uu	uu	8	U+0075 U+0075
-n	n	7	U+006e
 p	p	7	U+0070
--	NULL	6	U+002d
-i	i	6	U+0069
-t	t	6	U+0074
-s	s	6	U+0073
-f	f	6	U+0066
-ŋ	ŋ	5	U+014b
+p'	pˀ		
 b	b	4	U+0062
-k	k	4	U+006b
-ch	ch	4	U+0063 U+0068
-ii	ii	4	U+0069 U+0069
-o	o	4	U+006f
-oo	oo	2	U+006f U+006f
+t	t	6	U+0074
+t'	tˀ		
 d	d	2	U+0064
-ee	ee	2	U+0065 U+0065
-’	<?>	2	U+2019
-'i	i	1	U+0027 U+0069
-'	<?>	1	U+0027
-ó	ó	1	U+00f3
-á	á	1	U+00e1
-'e	e	1	U+0027 U+0065
-'u	u	1	U+0027 U+0075
-rr	rr	1	U+0072 U+0072
-ws	ws	1	U+0077 U+0073
+ch	tʂ	4	U+0063 U+0068
+k	k	4	U+006b
+k'	kˀ		
+g	g	10	U+0067
+q	ʔ	9	U+0071
+f	f	6	U+0066
+f'	fˀ		
+th	θ	11	U+0074 U+0068
+th'	θˀ		
+s	s	6	U+0073
+h	h		
+m	m	10	U+006d
+m'	mˀ		
+n	n	7	U+006e
+n'	nˀ		
+ŋ	ŋ	5	U+014b
+ŋ'	ŋˀ		
+l	l	20	U+006c
+l'	lˀ		
+r	r	10	U+0072
+w	w	16	U+0077
+w'	wˀ		
+y	y	10	U+0079
+y'	yˀ		
+a	a	19	U+0061
+aa	aː	17	U+0061 U+0061
+e	e	15	U+0065
+ee	eː	2	U+0065 U+0065
+ë	ɛ		
+ea	ɛː		
+ä	æ		
+ae	æː		
+i	i	6	U+0069
+ii	iː	4	U+0069 U+0069
+o	o	4	U+006f
+oo	oː	2	U+006f U+006f
+ö	ə	1	U+00f3
+oe	əː		
+u	u	16	U+0075
+uu	uː	8	U+0075 U+0075
 .	NULL	1	U+002e
+-	NULL	6	U+002d

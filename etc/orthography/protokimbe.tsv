@@ -1,36 +1,28 @@
 Grapheme	IPA	Frequence	Codepoints
-a	a	79	U+0061
-u	u	63	U+0075
-i	i	35	U+0069
-l	l	22	U+006c
-m	m	21	U+006d
+p	p	5	U+0070
+b	b	7	U+0062
 t	t	21	U+0074
-o	o	19	U+006f
-v	v	18	U+0076
--	NULL	14	U+002d
-q	q	12	U+0071
-n	n	12	U+006e
-L	<?>	12	U+004c
-s	s	12	U+0073
-e	e	11	U+0065
 d	d	8	U+0064
 k	k	8	U+006b
-*	<?>	8	U+002a
-h	h	7	U+0068
-b	b	7	U+0062
 g	g	6	U+0067
+q	ʔ	12	U+0071
+v	v	18	U+0076
+s	s	12	U+0073
 z	z	5	U+007a
-p	p	5	U+0070
+h	h	7	U+0068
+m	m	21	U+006d
 ŋ	ŋ	4	U+014b
+n	n	12	U+006e
 r	r	2	U+0072
+l	l	22	U+006c
+L	L	12	U+004c
 w	w	2	U+0077
-[kq]apala	<???>	1	U+005b U+006b U+0071 U+005d U+0061 U+0070 U+0061 U+006c U+0061
-[i]aŋo	<???>	1	U+005b U+0069 U+005d U+0061 U+014b U+006f
+a	a	79	U+0061
+e	e	11	U+0065
+i	i	35	U+0069
+o	o	19	U+006f
+u	u	63	U+0075
 aa	aa	1	U+0061 U+0061
-[il]-ali	<???>	1	U+005b U+0069 U+006c U+005d U+002d U+0061 U+006c U+0069
-ka[rz]a	<???>	1	U+006b U+0061 U+005b U+0072 U+007a U+005d U+0061
-[la]-lima-[gu]	<???>	1	U+005b U+006c U+0061 U+005d U+002d U+006c U+0069 U+006d U+0061 U+002d U+005b U+0067 U+0075 U+005d
-tam[ou][hØ]ane	<???>	1	U+0074 U+0061 U+006d U+005b U+006f U+0075 U+005d U+005b U+0068 U+00d8 U+005d U+0061 U+006e U+0065
-ŋo[rz]o	<???>	1	U+014b U+006f U+005b U+0072 U+007a U+005d U+006f
-*s	<?>	1	U+002a U+0073
+-	NULL	14	U+002d
+*	*	8	U+002a
 _	_	1	U+005f
