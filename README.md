@@ -93,8 +93,8 @@ In order to facilitate comparison, the velar nasal symbol (ŋ ) is used in the p
 ![Glottolog: 97%](https://img.shields.io/badge/Glottolog-97%25-green.svg "Glottolog: 97%")
 ![Concepticon: 0%](https://img.shields.io/badge/Concepticon-0%25-red.svg "Concepticon: 0%")
 ![Source: 93%](https://img.shields.io/badge/Source-93%25-green.svg "Source: 93%")
-![BIPA: 46%](https://img.shields.io/badge/BIPA-46%25-red.svg "BIPA: 46%")
-![CLTS SoundClass: 46%](https://img.shields.io/badge/CLTS%20SoundClass-46%25-red.svg "CLTS SoundClass: 46%")
+![BIPA: 57%](https://img.shields.io/badge/BIPA-57%25-red.svg "BIPA: 57%")
+![CLTS SoundClass: 57%](https://img.shields.io/badge/CLTS%20SoundClass-57%25-red.svg "CLTS SoundClass: 57%")
 
 - **Varieties:** 60 (linked to 50 different Glottocodes)
 - **Concepts:** 12,212 (linked to 0 different Concepticon concept sets)
@@ -104,9 +104,9 @@ In order to facilitate comparison, the velar nasal symbol (ŋ ) is used in the p
 - **Cognacy:** 17,572 cognates in 1,706 cognate sets (26 singletons)
 - **Cognate Diversity:** -1.24
 - **Invalid lexemes:** 0
-- **Tokens:** 96,620
-- **Segments:** 201 (109 BIPA errors, 109 CLTS sound class errors, 92 CLTS modified)
-- **Inventory size (avg):** 28.68
+- **Tokens:** 98,142
+- **Segments:** 190 (82 BIPA errors, 82 CLTS sound class errors, 108 CLTS modified)
+- **Inventory size (avg):** 27.25
 
 ## Possible Improvements:
 

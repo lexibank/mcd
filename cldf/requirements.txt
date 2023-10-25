@@ -8,7 +8,7 @@ cffi==1.15.1
 chardet==5.1.0
 -e git+https://github.com/cldf/cldfbench@faf74f8780e9e675be58671847cee871985e9292#egg=cldfbench
 cldfcatalog==1.5.1
--e git+https://github.com/cldf/cldfviz@87e5b38fd88001f03c06277a78b7fcbbd37207c9#egg=cldfviz
+-e git+https://github.com/cldf/cldfviz@a72795251eb655e81dd43bb54b8c917390a7c8ec#egg=cldfviz
 cldfzenodo==1.1.0
 clldutils==3.18.1
 colorama==0.4.6

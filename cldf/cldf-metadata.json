@@ -13,13 +13,13 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "v1.0-40-g43297ac",
+            "dc:created": "v1.0-90-g3571ff1",
             "dc:title": "Repository"
         },
         {
             "rdf:about": "https://github.com/glottolog/glottolog",
             "rdf:type": "prov:Entity",
-            "dc:created": "v4.8-38-g4c159eea5a",
+            "dc:created": "v4.8-42-g910847d071",
             "dc:title": "Glottolog"
         },
         {
