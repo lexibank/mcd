@@ -5,14 +5,15 @@ bs4==0.0.1
 Cartopy==0.21.1
 certifi==2022.12.7
 cffi==1.15.1
-chardet==5.1.0
--e git+https://github.com/cldf/cldfbench@faf74f8780e9e675be58671847cee871985e9292#egg=cldfbench
+chardet==5.2.0
+-e git+https://github.com/cldf/cldfbench@669839f6b2c48e1d0385b2f7d104dbf805e7542d#egg=cldfbench
 cldfcatalog==1.5.1
--e git+https://github.com/cldf/cldfviz@a72795251eb655e81dd43bb54b8c917390a7c8ec#egg=cldfviz
+-e git+https://github.com/cldf/cldfviz@c66ad293c6bf84c075979df35721d9188015deed#egg=cldfviz
 cldfzenodo==1.1.0
 clldutils==3.18.1
 colorama==0.4.6
 colorlog==6.7.0
+commonnexus==1.3.0
 csvw==3.1.3
 cycler==0.11.0
 exceptiongroup==1.1.0
@@ -37,24 +38,23 @@ networkx==3.0
 newick==1.9.0
 numpy==1.24.1
 openpyxl==3.0.10
-packaging==23.0
-pluggy==1.0.0
+packaging==24.1
+pluggy==1.5.0
 purl==1.6
 pybtex==0.24.0
-pycldf==1.34.0
+pycldf==1.37.1
 pyclts==3.1.1
 pyconcepticon==3.0.0
 pycountry==22.3.5
 pyglottolog==3.11.0
 pylatexenc==2.10
--e git+https://github.com/lexibank/pylexibank@bc570e1c6d50e9d8fad7c8544dc07f69657f8655#egg=pylexibank
+-e git+https://github.com/lexibank/pylexibank@58a2670693d996e5f3638d424ecfa14bbf6d571f#egg=pylexibank
 pyparsing==3.0.9
 pyproj==3.4.1
 pyrsistent==0.19.3
 pytest==7.4.0
 python-dateutil==2.8.2
 python-frontmatter==1.0.0
-python-nexus==2.9.0
 pytz==2022.7.1
 rdflib==6.2.0
 regex==2022.10.31

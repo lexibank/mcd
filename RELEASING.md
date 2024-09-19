@@ -1,12 +1,12 @@
 # Releasing MCD
 
-Since the source of the data at https://www.trussel2.com/MCD/ is not expected to change anymore,
-new versions of this dataset merely represent bug fixes, additional third-party data (like links
+Since the sources of the data at https://www.trussel2.com/MCD/ and https://doi.org/10.1353/ol.2003.0014 
+will not change anymore, new versions of this dataset merely represent bug fixes, additional third-party data (like links
 to Concepticon) or updates in linked catalogs such as new Glottolog releases.
 
 1. Recreate the CLDF data:
    ```shell
-   cldfbench lexibank.makecldf lexibank_mcd.py --glottolog-version v4.7
+   cldfbench lexibank.makecldf lexibank_mcd.py --glottolog-version v5.0
    ```
 2. Make sure the result is valid:
    ```shell

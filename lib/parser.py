@@ -1,4 +1,5 @@
 import re
+import copy
 import functools
 import itertools
 
@@ -6,63 +7,10 @@ import attr
 from bs4 import Tag, NavigableString, BeautifulSoup as bs
 from clldutils.misc import slug, lazyproperty
 
-__all__ = ['LANGS', 'NORM_LANG', 'UNKNOWN_LANGS', 'EtymonParser', 'LanguageParser']
+__all__ = ['EtymonParser', 'LanguageParser']
 
 SQUOTE = '‘'
 EQUOTE = '’'
-LANGS = {
-    ("'Āre'āre", None, "’Āre’āre"),
-    ('Fijian', 'Fij', 'Bau'),  # https://github.com/lexibank/abvd/blob/161051e7de2557fbeb82365dd042ce8dfb0c461d/cldf/languages.csv#L12
-    ('Marshallese', 'Mrs', None),
-    ('Mortlockese', 'Mtk', None),
-    ('Samoan', 'Sam', None),
-    ('Gilbertese', 'Kir', 'Kiribati'),
-    ('Chuukese', 'Chk', 'Trukese'),
-    ('Kosraean', 'Ksr', 'Kusaiean'),
-    ('Pohnpeian', 'Pon', 'Ponapeian'),
-    ('Lakalai', None, 'West Nakanai'),
-    ('Pingilapese', 'Png', 'Pingelapese'),
-    ('Ngatchikese', 'Ngk', None),
-    ('Saipan Carolinian', 'Crl', None),
-    ('Saipan Carolinian·T', 'Crn', None),
-    ('Sonsorolese', 'Sns', None),
-    ('Tobi', 'Tob', None),
-    ('Sa’a', 'Saa', None),
-    ('Ulawan', 'Ula', None),
-    ('Ulithian', 'Uli', None),
-    ('Woleaian', 'Wol', None),
-    ('Proto-Austronesian', 'PAN', None),
-    ('Uraustronesisch', None, None),
-    ('Proto-Central Micronesian', 'PCMc', 'Proto–Central Micronesian'),
-    ('Proto-Western Micronesian', 'PWMc', 'Proto–Western Micronesian'),
-    ('Proto-Eastern Oceanic', 'PEO', 'Proto–Eastern Oceanic'),
-    ('Proto-Chuukic', 'PCk', None),
-    ('Proto-Eastern Oceanic', 'EOc', 'Proto–Eastern Oceanic'),
-    ('Proto-Kimbe', None, None),
-    ('Proto-Lakalai', None, None),
-    ('Proto-Micronesian', 'PMc', None),
-    ('Pre-Proto-Micronesian', 'Pre-PMc', None),
-    ('Proto-Malayo-Polynesian', None, 'Proto–Malayo-Polynesian'),
-    ('Proto-Nakanai', 'PNk', None),
-    ('Proto-Oceanic', 'POc', None),
-    ('Pre-Proto-Oceanic', 'Pre-POc', None),
-    ('Proto-Pohnpeic', 'PPon', None),
-    ('Proto-Pohnpeic-Chuukic', 'PPC', 'Proto–Pohnpeic-Chuukic'),
-    ('Proto-Polynesian', None, None),
-    ('Proto-Western-Malayo-Polynesian', 'PWMP', None),
-    ('Proto-Willaumez', None, None),
-}
-UNKNOWN_LANGS = [
-    'Tik',  # Tikopia?
-    'Haw',  # Probably Hawaiian - one form
-    'Fiji',  # Probably Fijian - one form
-    'Micronesian'
-]
-NORM_LANG = {abbr: name for name, abbr, _ in LANGS if abbr}
-for name, _, alias in LANGS:
-    NORM_LANG[name] = name
-    if alias:
-        NORM_LANG[alias] = name
 
 MULTIREFS = {
     "Blust 1980:39, Blust and Trussel 2010/14": [
@@ -113,13 +61,14 @@ MULTIREFS = {
 
 
 def normalize_string(s):
+    """
+    Normalize (clusters of) whitespace to just a single space.
+    """
     return re.sub('\s+', ' ', s.strip())
 
 
-def parse_form(s, is_proto):
+def parse_form(s):
     s = re.sub(r'\s+', ' ', s.strip()).replace('(sic)', '[sic]').replace('ε', 'ɛ')
-    if is_proto and s.startswith('*'):
-        return s[1:].strip()
     return s.replace("ʻ", "'").replace("’", "'")
 
 
@@ -135,11 +84,6 @@ def _tag(attr, e):
 
 
 next_tag = functools.partial(_tag, 'next_sibling')
-
-
-def is_proto(name):
-    name = NORM_LANG.get(name, name)
-    return name.startswith('Proto-') or name == 'Uraustronesisch' or name.startswith('Pre-')
 
 
 @attr.s
@@ -163,8 +107,8 @@ class Item:
 class FormLike:
     form = attr.ib(default=None)
     gloss = attr.ib(default=None)
-    is_proto = attr.ib(default=False)
     comment = attr.ib(default=None)
+    number = attr.ib(default=None)
 
 
 @attr.s
@@ -184,8 +128,8 @@ class Ref(Item):
     @classmethod
     def match(cls, e):
         return isinstance(e, Tag) and (
-                ((e.name in {'span', 'a'}) and ('class' in e.attrs) and e.attrs['class'][0] == 'bib') or
-                e.name == 'bib')
+            ((e.name in {'span', 'a'}) and ('class' in e.attrs) and e.attrs['class'][0] == 'bib') or
+            e.name == 'bib')
 
     def __attrs_post_init__(self):
         if self.label:
@@ -253,6 +197,10 @@ def norm_gloss(s):
 
 
 def markup(html, markdown='', refs=None):
+    """
+    We recognize a couple of HTML constructs which signal data objects and convert these into
+    suitable Markdown constructs.
+    """
     refs = [] if refs is None else refs
     skip_lg = False
     for c in html.contents:
@@ -282,14 +230,16 @@ def markup(html, markdown='', refs=None):
             elif c.name == 'b':
                 markdown += '__{}__'.format(c.get_text())
             elif (cls in ('lg', 'plg')) or c.name in ('lg', 'plg', 'plgpn'):
+                # Tag contains a language name (and optionally a form).
                 if skip_lg:
                     skip_lg = False
                     continue
-                text = ' '.join(NORM_LANG.get(t, t) for t in c.get_text().split())
+                text = ' '.join(c.get_text().split())
                 markdown += '__language__{}__'.format(text)
             elif c.name == 'span' and cls is None:
                 markdown += c.get_text()
             elif (cls in ('wd', 'pwd', 'proto')) or c.name in ('i', 'pwd', 'wd', 'ha', 'in', 'pn', 'um'):
+                # Tag contains a word form.
                 markdown += '_{}_'.format(c.text)
             else:
                 raise ValueError(str(c))
@@ -299,9 +249,13 @@ def markup(html, markdown='', refs=None):
 @attr.s
 class Gloss(Item):
     """
-    Glosses may contain markup such as refs.
+    Glosses may contain markup such as refs. Also comments and notes are often appended to the
+    gloss, typically enclosed in braces.
 
-    <span class="FormGloss">type of ocean fish (<span class="bib"><a class="bib" href="acd-bib.htm#Headland">Headland and Headland (1974)</a></span>), kind of marine eel (<span class="bib"><a class="bib" href="acd-bib.htm#Reid">Reid (1971:186)</a></span>)</span>
+    <span class="FormGloss">type of ocean fish
+    (<span class="bib"><a class="bib" href="acd-bib.htm#Headland">Headland and Headland (1974)</a></span>),
+    kind of marine eel
+    (<span class="bib"><a class="bib" href="acd-bib.htm#Reid">Reid (1971:186)</a></span>)</span>
     """
     refs = attr.ib(default=attr.Factory(list))
     markdown = attr.ib(default='')
@@ -321,7 +275,7 @@ class Gloss(Item):
         # Strip refs and markup
         self.markdown, self.refs = markup(self.html)
         self.markdown = norm_gloss(self.markdown)
-        self.lookup = slug(re.sub(r'\[[^]]+]\(bib-[^)]+\)', '', self.markdown.replace('__language_', ''))) or (self.refs[0].label if self.refs else '') or 'none'
+        self.lookup = copy.copy(self.markdown)
         metathesis_pattern = re.compile(r'\((showing\s+)?metathesis(\?)?\)$')
         loss_of = ' loss of'
         if loss_of in self.markdown and ('(' in self.markdown):
@@ -416,7 +370,6 @@ class Etymon(Item):
         if '(?)' in self.proto_lang:
             self.proto_lang = self.proto_lang.replace('(?)', '').strip()
             self.doubt = True
-        self.proto_lang = NORM_LANG[self.proto_lang]
 
         for p in self.html.find_all('p', class_=True):
             if 'note' in p.attrs['class']:
@@ -429,7 +382,7 @@ class Etymon(Item):
             self.forms.append(Form.from_html_and_language(tr, lname))
             ln = tr.find('td').get_text().strip()
             if ln:
-                lname = NORM_LANG.get(ln, ln)
+                lname = ln
 
         for forms in self.html.find_all('table', class_='cf'):
             header, comment, fs = forms.find_previous_sibling('p').get_text(), None, []
@@ -441,7 +394,7 @@ class Etymon(Item):
                     fs.append(Form.from_html_and_language(tr, lname))
                     ln = tr.find('td').get_text().strip()
                     if ln:
-                        lname = NORM_LANG.get(ln, ln)
+                        lname = ln
             self.cf_forms.append((header.replace('—', '').strip(), comment, fs))
 
         return
@@ -451,7 +404,7 @@ class Etymon(Item):
 class LForm(Item, FormLike):
     def __attrs_post_init__(self):
         link = self.html.find('a', href=True)
-        self.form = parse_form(link.text.strip(), True)
+        self.form = parse_form(link.text.strip())
         self.gloss = Gloss(self.html.find('span', class_='formdef'))
         if self.gloss.comment:
             self.comment, self.gloss.comment = self.gloss.comment, ''
@@ -464,11 +417,9 @@ class Language(Item):
     nwords = attr.ib(default=None)
     refs = attr.ib(default=attr.Factory(list))
     forms = attr.ib(default=attr.Factory(list))
-    is_proto = attr.ib(default=False)
 
     def __attrs_post_init__(self):
         self.name = self.html.find('span', class_='langname').get_text()
-        self.name = NORM_LANG.get(self.name, self.name)
         self.id = int(self.html.find('a')['name'])
         self.nwords = int(self.html.find('span', class_='langcount').text.replace('(', '').replace(')', ''))
 
@@ -477,6 +428,7 @@ class Language(Item):
             if ref:
                 self.refs.append(ref)
 
+        i = 0
         form = next_tag(self.html)
         while (len(self.forms) < self.nwords) or \
                 (form and form.name == 'p' and form['class'][0] == 'formline') or \
@@ -488,10 +440,10 @@ class Language(Item):
             if form.name != 'p':
                 break
             assert form['class'][0] == 'formline', str(form)
-            self.forms.append(LForm(html=form, is_proto=self.is_proto))
+            i += 1
+            self.forms.append(LForm(html=form, number=str(i).zfill(4)))
             form = next_tag(form)
 
-        assert self.nwords + 20 > len(self.forms) >= self.nwords - 20
         # Merge forms:
         dedup = []
         for _, forms in itertools.groupby(
@@ -505,7 +457,6 @@ class Language(Item):
             dedup.append(form)
 
         self.forms = dedup
-        self.is_proto = is_proto(self.name)
 
 
 @attr.s
@@ -520,7 +471,6 @@ class Form(Item, FormLike):
         res = cls.from_html(e)
         if lname and not res.language:
             res.language = lname
-            res.is_proto = is_proto(lname)
         return res
 
     def __attrs_post_init__(self):
@@ -534,15 +484,12 @@ class Form(Item, FormLike):
             if m:
                 self.gloss.refs.append(Ref(html=None, label='POLLEX: {}'.format(m.group('entry'))))
                 break
-        self.language = NORM_LANG.get(lg.get_text().strip(), lg.get_text().strip())
-        self.is_proto = is_proto(self.language)
-        self.form = parse_form(form.get_text(), is_proto=self.language.startswith('Pr'))
+        self.language = lg.get_text().strip()
+        self.form = parse_form(form.get_text())
         if self.form.startswith('(?)'):
             self.form, self.doubt = self.form.replace('(?)', '').strip(), True
         if self.form.startswith('*'):
             self.form = self.form[1:].strip()
-
-
 
 
 class Parser:

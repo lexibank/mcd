@@ -13,25 +13,25 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "v1.0-90-g3571ff1",
+            "dc:created": "v1.0-91-g4caf6cf",
             "dc:title": "Repository"
         },
         {
             "rdf:about": "https://github.com/glottolog/glottolog",
             "rdf:type": "prov:Entity",
-            "dc:created": "v4.8-42-g910847d071",
+            "dc:created": "v5.0",
             "dc:title": "Glottolog"
         },
         {
             "rdf:about": "https://github.com/concepticon/concepticon-data",
             "rdf:type": "prov:Entity",
-            "dc:created": "v3.1.0-18-gca097344",
+            "dc:created": "v3.2.0",
             "dc:title": "Concepticon"
         },
         {
             "rdf:about": "https://github.com/cldf-clts/clts",
             "rdf:type": "prov:Entity",
-            "dc:created": "v2.2.0-11-g6e60c1d",
+            "dc:created": "v2.3.0",
             "dc:title": "CLTS"
         }
     ],
@@ -54,7 +54,7 @@
     "tables": [
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#FormTable",
-            "dc:extent": 20677,
+            "dc:extent": 20689,
             "tableSchema": {
                 "columns": [
                     {
@@ -123,6 +123,10 @@
                     {
                         "datatype": "string",
                         "name": "Profile"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "Local_Number"
                     },
                     {
                         "dc:description": "For a form that differs from the expected reflex in some way this flag asserts that a copying mistake has not occurred.",
@@ -221,6 +225,10 @@
                     },
                     {
                         "datatype": "string",
+                        "name": "Alias"
+                    },
+                    {
+                        "datatype": "string",
                         "name": "Abbr"
                     },
                     {
@@ -231,7 +239,7 @@
                     },
                     {
                         "datatype": "boolean",
-                        "name": "is_proto"
+                        "name": "Is_Proto"
                     },
                     {
                         "datatype": "string",
@@ -246,7 +254,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ParameterTable",
-            "dc:extent": 12212,
+            "dc:extent": 12220,
             "tableSchema": {
                 "columns": [
                     {
@@ -282,7 +290,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#CognateTable",
-            "dc:extent": 17572,
+            "dc:extent": 17583,
             "tableSchema": {
                 "columns": [
                     {
@@ -371,7 +379,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#CognatesetTable",
-            "dc:extent": 1706,
+            "dc:extent": 1707,
             "tableSchema": {
                 "columns": [
                     {
