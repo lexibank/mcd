@@ -13,7 +13,7 @@
         {
             "rdf:about": "https://github.com/lexibank/mcd",
             "rdf:type": "prov:Entity",
-            "dc:created": "v1.0-93-ga940902",
+            "dc:created": "v1.0-94-g31b36c7",
             "dc:title": "Repository"
         },
         {

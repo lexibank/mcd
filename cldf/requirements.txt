@@ -40,7 +40,7 @@ openpyxl==3.1.5
 packaging==24.2
 pluggy==1.5.0
 pybtex==0.24.0
--e git+https://github.com/cldf/pycldf@f71522aebbc3aa57f6bbc6a13f8274c1196ac984#egg=pycldf
+pycldf==1.40.3
 pyclts==3.2.0
 pyconcepticon==3.1.0
 pycountry==24.6.1
