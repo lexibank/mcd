@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import json
 
 
@@ -12,15 +12,13 @@ setup(
     license=metadata.get('license', ''),
     url=metadata.get('url', ''),
     py_modules=['lexibank_mcd'],
+    packages=find_packages(where='.'),
     include_package_data=True,
     zip_safe=False,
     entry_points={
         'lexibank.dataset': [
             'mcd=lexibank_mcd:Dataset',
         ],
-        'cldfbench.commands': [
-            'mcd=mcdcommands',
-        ]
     },
     install_requires=[
         'termcolor',
@@ -30,6 +28,7 @@ setup(
         'clldutils',
         'beautifulsoup4',
         'pylexibank>=3.4.1.dev0',
+        'pyetymdict',
     ],
     extras_require={
         'test': [

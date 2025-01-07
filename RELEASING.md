@@ -6,15 +6,15 @@ to Concepticon) or updates in linked catalogs such as new Glottolog releases.
 
 1. Recreate the CLDF data:
    ```shell
-   cldfbench lexibank.makecldf lexibank_mcd.py --glottolog-version v5.0
+   cldfbench lexibank.makecldf lexibank_mcd.py --glottolog-version v5.1 --dev
    ```
 2. Make sure the result is valid:
    ```shell
-   pytest
+   cldf validate cldf --with-cldf-markdown
    ```
 3. Recreate the map:
    ```shell
-   cldfbench cldfviz.map --output map.svg --format svg cldf/cldf-metadata.json --no-legend --pacific-centered --height 10 --width 15 --extent '"-40",50,20,-25' --language-labels --with-ocean
+   cldfbench cldfviz.map --output etc/map.svg --format svg cldf/cldf-metadata.json --language-properties Group --pacific-centered --height 10 --width 15 --extent '"-40",50,20,-25' --language-labels --with-ocean --language-filters '{"Is_Proto":"False"}'
    ```
 4. Recreate the CLDF README and Zenodo metadata:
    ```shell
@@ -26,4 +26,8 @@ to Concepticon) or updates in linked catalogs such as new Glottolog releases.
    rm -f mcd.sqlite
    cldf createdb cldf/ mcd.sqlite
    ```
-6. Commit, tag, push.
+6. Recreate the ERD
+   ```shell
+   cldferd cldf --db mcd.sqlite --format compact.svg --output etc/erd.svg
+   ```
+7. Commit, tag, push.

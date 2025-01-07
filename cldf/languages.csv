@@ -1,61 +1,61 @@
-ID,Name,Glottocode,Glottolog_Name,ISO639P3code,Macroarea,Latitude,Longitude,Family,Alias,Abbr,Source,Is_Proto,Local_ID
-protochuukic,Proto-Chuukic,truk1243,Trukic,,,9.412054755000042,138.06812584700003,Austronesian,,['PCk'],jackson1983;marck1994,true,protochuukic
-protomalayopolynesian,Proto-Malayo-Polynesian,mala1545,Malayo-Polynesian,,,6.029445705000057,121.93775475400003,Austronesian,Proto–Malayo-Polynesian,['PMP'],blust1980;blust198384;blust1986;blust1989,true,protomalayopolynesian
-protooceanic,Proto-Oceanic,ocea1241,Oceanic,,,-7.59343840899993,158.75171959700003,Austronesian,,['POc'],ross1988;blust1970;blust1978,true,protooceanic
-preprotooceanic,Pre-Proto-Oceanic,ocea1241,,,,,,Austronesian,,"['Pre POc', 'Pre-POc']",,true,preprotooceanic
-protowillaumez,Proto-Willaumez,will1243,Willaumez linkage,,,-5.472179224730346,150.56670596620697,Austronesian,,['PWm'],goodenough1997,true,protowillaumez
-protomicronesian,Proto-Micronesian,micr1243,Micronesian,,,5.599310614000046,168.10108483200008,Austronesian,,['PMc'],benderetal1984;benderandwang1985;jackson1983;marck1991;marck1994,true,protomicronesian
-preprotomicronesian,Pre-Proto-Micronesian,micr1243,,,,,,Austronesian,,['Pre-PMc'],,true,preprotomicronesian
-protowesternmicronesian,Proto-Western Micronesian,west2844,Western Micronesian,,,6.965277411000045,158.27662194100003,Austronesian,Proto–Western Micronesian,['PWMc'],jackson1983;marck1994,true,protowesternmicronesian
-protopolynesian,Proto-Polynesian,poly1242,Polynesian,,,-16.676853122999944,177.56072024800005,Austronesian,,['PPn'],walshandbiggs1966;biggswalshandwaqa1970,true,protopolynesian
-protoaustronesian,Proto-Austronesian,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,,['PAn'],blust1980;blust198384;blust1986;blust1989,true,protoaustronesian
-uraustronesisch,Uraustronesisch,aust1307,Austronesian,,,18.12555332428153,121.33504738058596,Austronesian,,['UAn'],dempwolff1938;dyen1951;dyen1953,true,uraustronesisch
-protocentralmicronesian,Proto-Central Micronesian,cent2276,Central Micronesian,,,4.573797919000071,168.68539472700002,Austronesian,Proto–Central Micronesian,['PCMc'],jackson1983;marck1994,true,protocentralmicronesian
-protopohnpeicchuukic,Proto-Pohnpeic-Chuukic,pona1247,Chuukic-Ponapeic,,,7.38117096600007,149.18083743600005,Austronesian,Proto–Pohnpeic-Chuukic,['PPC'],,true,protopohnpeicchuukic
-protopohnpeic,Proto-Pohnpeic,pona1248,Ponapeic,,,6.869086005000042,158.33863366000003,Austronesian,,['PPon'],,true,protopohnpeic
-protoeasternoceanic,Proto-Eastern Oceanic,,,,,,,,Proto–Eastern Oceanic,"['PEO', 'EOc']",geraghty1983;geraghty1990,true,protoeasternoceanic
-protonakanai,Proto-Nakanai,naka1266,,,,,,Austronesian,,['PNk'],goodenough1997,true,protonakanai
-protokimbe,Proto-Kimbe,,,,,,,,,['PKb'],goodenough1997,true,protokimbe
-protolakalai,Proto-Lakalai,naka1266,,,,,,Austronesian,,['PLk'],goodenough1997,true,protolakalai
-protowesternmalayopolynesian,Proto-Western-Malayo-Polynesian,,,,,,,,,['PWMP'],,true,protowesternmalayopolynesian
-areare,'Āre'āre,area1240,'Are'are,alu,Papunesia,-9.20699,161.158,Austronesian,’Āre’āre,['Are'],geerts1970,false,1
-arosi,Arosi,aros1241,Arosi,aia,Papunesia,-10.2441,161.432,Austronesian,,['Aro'],fox1970,false,2
-bugotu,Bugotu,bugh1239,Bughotu,bgt,Papunesia,-8.47948,159.802,Austronesian,,['Bug'],ivens1940,false,3
-chamorro,Chamorro,cham1312,Chamorro,cha,Papunesia,13.438011,144.74474,Austronesian,,['Chm'],toppingogoanddungca1975,false,5
-chuukese,Chuukese,chuu1238,Chuukese,chk,Papunesia,7.346993,151.598607,Austronesian,Trukese,['Chk'],goodenough1963;goodenough1992;goodenoughandsugita1980;goodenoughandsugita1990,false,4
-fijian,Fijian,fiji1243,Fijian,fij,Papunesia,-18.0,178.33,Austronesian,Bau,['Fij'],capell1957;geraghty1983,false,8
-gilbertese,Gilbertese,gilb1244,Gilbertese,gil,Papunesia,0.179,173.64,Austronesian,Kiribati,['Kir'],bingham1908,false,10
-jabem,Jabêm,yabe1254,Yabem,jae,Papunesia,-6.67052,147.81,Austronesian,,['Jab'],,false,9
-kosraean,Kosraean,kosr1238,Kosraean,kos,Papunesia,5.31,162.98,Austronesian,Kusaiean,['Ksr'],lee1976,false,11
-kwaio,Kwaio,kwai1243,Kwaio,kwd,Papunesia,-8.93744,160.965,Austronesian,,['Kwa'],keesing1975,false,12
-lakalai,Lakalai,naka1262,Nakanai,nak,Papunesia,-5.59931,150.888,Austronesian,West Nakanai,['Lak'],chowningandgoodenoughnd,false,13
-lau,Lau,lauu1247,Lau,llu,Papunesia,-8.51018,160.872,Austronesian,,['Lau'],fox1974,false,14
-marshallese,Marshallese,mars1254,Marshallese,mah,Papunesia,8.72,167.73,Austronesian,,['Mrs'],aboetal1976,false,17
-mokilese,Mokilese,moki1238,Mokilese,mkj,Papunesia,6.65651,159.776,Austronesian,,['Mok'],harrisonandalbert1977,false,16
-mortlockese,Mortlockese,mort1237,Mortlockese,mrl,Papunesia,5.50735,153.710778,Austronesian,,['Mrt'],benderetal1984,false,18
-nggela,Nggela,gela1263,Gela,nlg,Papunesia,-9.04587,160.186,Austronesian,,['Ngg'],fox1955,false,19
-ngatchikese,Ngatchikese,sapw1237,,,Papunesia,,,Austronesian,,['Ngk'],benderetal1984,false,20
-oldmapian,Old Mapian,mapi1250,Mapia,mpy,Papunesia,0.908889,134.304722,Austronesian,,['Map'],kubary1889,false,15
-palauan,Palauan,pala1344,Palauan,pau,Papunesia,7.34138,134.476678,Austronesian,,['Pal'],,false,21
-pingilapese,Pingilapese,ping1243,Pingelapese,pif,Papunesia,6.20743,160.711,Austronesian,Pingelapese,['Png'],benderetal1984,false,31
-pohnpeian,Pohnpeian,pohn1238,Pohnpeian,pon,Papunesia,6.87212,158.223,Austronesian,Ponapeian,['Pon'],rehgandsohl1979;sohlrehgandandreasnd,false,33
-puloannan,Pulo-Annan,pulo1240,Pulo Anna,,Papunesia,5.328596,132.221282,Austronesian,,['PuA'],oda1977,false,38
-puluwatese,Puluwatese,pulu1242,Puluwatese,puw,Papunesia,7.35695,149.2005,Austronesian,,['Pul'],elbert1972,false,39
-rotuman,Rotuman,rotu1241,Rotuman,rtm,Papunesia,-12.5008,177.066,Austronesian,,['Rot'],churchward1940,false,42
-roviana,Roviana,rovi1238,Roviana,rug,Papunesia,-8.20493,157.408,Austronesian,,['Rov'],,false,43
-saa,Sa’a,saaa1240,Sa'a,apb,Papunesia,-9.60258,161.467,Austronesian,,['Saa'],ivens1918,false,44
-saipancarolinian,Saipan Carolinian,caro1242,Carolinian,cal,Papunesia,15.205,145.765,Austronesian,,['Crl'],jacksonandmarck1991,false,6
-saipancaroliniant,Saipan Carolinian·T,tana1281,Tanapag,tpv,Papunesia,15.24,145.76,Austronesian,,['Crn'],jacksonandmarck1991,false,7
-samoan,Samoan,samo1305,Samoan,smo,Papunesia,-13.92,-171.83,Austronesian,,['Sam'],milner1966,false,45
-satawalese,Satawalese,sata1237,Satawalese,stw,Papunesia,7.36084,147.038,Austronesian,,['Stw'],benderetal1984,false,47
-sonsorolese,Sonsorolese,sons1243,Sonsorolese,,Papunesia,5.328596,132.221282,Austronesian,,['Sns'],benderetal1984;oda1977,false,46
-tagalog,Tagalog,taga1270,Tagalog,tgl,Papunesia,14.06,121.747,Austronesian,,['Tag'],,false,48
-tobi,Tobi,tobi1238,Tobian,tox,Papunesia,3.004528,131.171295,Austronesian,,['Tob'],kubary1889,false,49
-tokelau,Tokelau,toke1240,Tokelau,tkl,Papunesia,-9.227642,-171.780833,Austronesian,,['Tok'],benderetal1984,false,50
-tongan,Tongan,tong1325,Tonga (Tonga Islands),ton,Papunesia,-21.17,-175.25,Austronesian,,['Ton'],churchward1959,false,51
-ulawan,Ulawan,saaa1240,,,Papunesia,,,Austronesian,,['Ula'],ivens1918,false,53
-ulithian,Ulithian,ulit1238,Ulithian,uli,Papunesia,9.961388,139.603611,Austronesian,,['Uli'],benderetal1984,false,54
-woleaian,Woleaian,wole1240,Woleaian,woe,Papunesia,7.37957,143.916,Austronesian,,['Wol'],sohnandtawerilmang1976,false,55
-yapese,Yapese,yape1248,Yapese,yap,Papunesia,9.55811,138.125,Austronesian,,['Yap'],jensen1977,false,56
-gedaged,Gedaged,geda1237,Gedaged,,Papunesia,-5.18,145.78,Austronesian,,[''],,false,57
-nguna,Nguna,ngun1274,Nguna,,Papunesia,-17.58,168.38,Austronesian,,[''],,false,58
+ID,Name,Glottocode,Glottolog_Name,ISO639P3code,Macroarea,Latitude,Longitude,Family,Abbr,Group,Source,Is_Proto
+protochuukic,Proto-Chuukic,truk1243,Trukic,,,9.412054755000042,138.06812584700003,,PCk,Micronesian,jackson1983;marck1994,true
+protomalayopolynesian,Proto-Malayo-Polynesian,mala1545,Malayo-Polynesian,,,6.186509507000039,124.24577884200005,,PMP,,blust1980;blust198384;blust1986;blust1989,true
+protooceanic,Proto-Oceanic,ocea1241,Oceanic,,,-7.59343840899993,158.75171959700003,,POc,,ross1988;blust1970;blust1978,true
+preprotooceanic,Pre-Proto-Oceanic,ocea1241,,,,-7.59343840899993,158.75171959700003,,Pre POc,,,true
+protowillaumez,Proto-Willaumez,will1243,Willaumez linkage,,,-5.472179224730346,150.56670596620697,,PWm,Western Oceanic linkage,goodenough1997,true
+protomicronesian,Proto-Micronesian,micr1243,Micronesian,,,5.599310614000046,168.10108483200008,,PMc,,benderetal1984;benderandwang1985;jackson1983;marck1991;marck1994,true
+preprotomicronesian,Pre-Proto-Micronesian,micr1243,,,,5.599310614000046,168.10108483200008,,Pre-PMc,,,true
+protowesternmicronesian,Proto-Western Micronesian,west2844,Western Micronesian,,,6.965277411000045,158.27662194100003,,PWMc,Micronesian,jackson1983;marck1994,true
+protopolynesian,Proto-Polynesian,poly1242,Polynesian,,,-16.676853122999944,177.56072024800005,,PPn,Central Pacific linkage,walshandbiggs1966;biggswalshandwaqa1970,true
+protoaustronesian,Proto-Austronesian,aust1307,Austronesian,,,18.021904113884965,122.05700483729152,,PAn,,blust1980;blust198384;blust1986;blust1989,true
+uraustronesisch,Uraustronesisch,aust1307,Austronesian,,,18.021904113884965,122.05700483729152,,UAn,,dempwolff1938;dyen1951;dyen1953,true
+protocentralmicronesian,Proto-Central Micronesian,cent2276,Central Micronesian,,,4.573797919000071,168.68539472700002,,PCMc,Micronesian,jackson1983;marck1994,true
+protopohnpeicchuukic,Proto-Pohnpeic-Chuukic,pona1247,Chuukic-Ponapeic,,,7.38117096600007,149.18083743600005,,PPC,Micronesian,,true
+protopohnpeic,Proto-Pohnpeic,pona1248,Ponapeic,,,6.869086005000042,158.33863366000003,,PPon,Micronesian,,true
+protoeasternoceanic,Proto-Eastern Oceanic,,,,,,,,PEO,,geraghty1983;geraghty1990,true
+protonakanai,Proto-Nakanai,naka1266,,,,-5.286995,151.208,,PNk,Western Oceanic linkage,goodenough1997,true
+protokimbe,Proto-Kimbe,,,,,,,,PKb,,goodenough1997,true
+protolakalai,Proto-Lakalai,naka1266,,,,-5.286995,151.208,,PLk,Western Oceanic linkage,goodenough1997,true
+protowesternmalayopolynesian,Proto-Western-Malayo-Polynesian,,,,,,,,PWMP,,,true
+areare,'Āre'āre,area1240,'Are'are,alu,,-9.20699,161.158,,Are,Southeast Solomonic,geerts1970,false
+arosi,Arosi,aros1241,Arosi,aia,,-10.2441,161.432,,Aro,Southeast Solomonic,fox1970,false
+bugotu,Bugotu,bugh1239,Bughotu,bgt,,-8.47948,159.802,,Bug,Southeast Solomonic,ivens1940,false
+chamorro,Chamorro,cham1312,Chamorro,cha,,13.438011,144.74474,,Chm,,toppingogoanddungca1975,false
+chuukese,Chuukese,chuu1238,Chuukese,chk,,7.346993,151.598607,,Chk,Micronesian,goodenough1963;goodenough1992;goodenoughandsugita1980;goodenoughandsugita1990,false
+fijian,Fijian,fiji1243,Fijian,fij,,-18.0,178.33,,Fij,Central Pacific linkage,capell1957;geraghty1983,false
+gilbertese,Gilbertese,gilb1244,Gilbertese,gil,,0.179,173.64,,Kir,Micronesian,bingham1908,false
+jabem,Jabêm,yabe1254,Yabem,jae,,-6.67052,147.81,,Jab,Western Oceanic linkage,,false
+kosraean,Kosraean,kosr1238,Kosraean,kos,,5.31,162.98,,Ksr,Micronesian,lee1976,false
+kwaio,Kwaio,kwai1243,Kwaio,kwd,,-8.93744,160.965,,Kwa,Southeast Solomonic,keesing1975,false
+lakalai,Lakalai,naka1262,Nakanai,nak,,-5.59931,150.888,,Lak,Western Oceanic linkage,chowningandgoodenoughnd,false
+lau,Lau,lauu1247,Lau,llu,,-8.51018,160.872,,Lau,Southeast Solomonic,fox1974,false
+marshallese,Marshallese,mars1254,Marshallese,mah,,8.72,167.73,,Mrs,Micronesian,aboetal1976,false
+mokilese,Mokilese,moki1238,Mokilese,mkj,,6.65651,159.776,,Mok,Micronesian,harrisonandalbert1977,false
+mortlockese,Mortlockese,mort1237,Mortlockese,mrl,,5.50735,153.710778,,Mrt,Micronesian,benderetal1984,false
+nggela,Nggela,gela1263,Gela,nlg,,-9.04587,160.186,,Ngg,Southeast Solomonic,fox1955,false
+ngatchikese,Ngatchikese,sapw1237,,,,5.78928,157.15965,,Ngk,Micronesian,benderetal1984,false
+oldmapian,Old Mapian,mapi1250,Mapia,mpy,,0.908889,134.304722,,Map,Micronesian,kubary1889,false
+palauan,Palauan,pala1344,Palauan,pau,,7.34138,134.476678,,Pal,,,false
+pingilapese,Pingilapese,ping1243,Pingelapese,pif,,6.20743,160.711,,Png,Micronesian,benderetal1984,false
+pohnpeian,Pohnpeian,pohn1238,Pohnpeian,pon,,6.87212,158.223,,Pon,Micronesian,rehgandsohl1979;sohlrehgandandreasnd,false
+puloannan,Pulo-Annan,pulo1240,Pulo Anna,,,5.328596,132.221282,,PuA,Micronesian,oda1977,false
+puluwatese,Puluwatese,pulu1242,Puluwatese,puw,,7.35695,149.2005,,Pul,Micronesian,elbert1972,false
+rotuman,Rotuman,rotu1241,Rotuman,rtm,,-12.5008,177.066,,Rot,Central Pacific linkage,churchward1940,false
+roviana,Roviana,rovi1238,Roviana,rug,,-8.20493,157.408,,Rov,Western Oceanic linkage,,false
+saa,Sa’a,saaa1240,Sa'a,apb,,-9.60258,161.467,,Saa,Southeast Solomonic,ivens1918,false
+saipancarolinian,Saipan Carolinian,caro1242,Carolinian,cal,,15.205,145.765,,Crl,Micronesian,jacksonandmarck1991,false
+saipancaroliniant,Saipan Carolinian·T,tana1281,Tanapag,tpv,,15.237,145.757,,Crn,Micronesian,jacksonandmarck1991,false
+samoan,Samoan,samo1305,Samoan,smo,,-13.92,-171.83,,Sam,Central Pacific linkage,milner1966,false
+satawalese,Satawalese,sata1237,Satawalese,stw,,7.36084,147.038,,Stw,Micronesian,benderetal1984,false
+sonsorolese,Sonsorolese,sons1243,Sonsorolese,,,5.328596,132.221282,,Sns,Micronesian,benderetal1984;oda1977,false
+tagalog,Tagalog,taga1270,Tagalog,tgl,,14.06,121.747,,Tag,,,false
+tobi,Tobi,tobi1238,Tobian,tox,,3.004528,131.171295,,Tob,Micronesian,kubary1889,false
+tokelau,Tokelau,toke1240,Tokelau,tkl,,-9.227642,-171.780833,,Tok,Central Pacific linkage,benderetal1984,false
+tongan,Tongan,tong1325,Tonga (Tonga Islands),ton,,-21.17,-175.25,,Ton,Central Pacific linkage,churchward1959,false
+ulawan,Ulawan,saaa1240,,,,-9.60258,161.467,,Ula,Southeast Solomonic,ivens1918,false
+ulithian,Ulithian,ulit1238,Ulithian,uli,,9.961388,139.603611,,Uli,Micronesian,benderetal1984,false
+woleaian,Woleaian,wole1240,Woleaian,woe,,7.37957,143.916,,Wol,Micronesian,sohnandtawerilmang1976,false
+yapese,Yapese,yape1248,Yapese,yap,,9.55811,138.125,,Yap,Yapesic,jensen1977,false
+gedaged,Gedaged,geda1237,Gedaged,,,-5.18175,145.781,,,Western Oceanic linkage,,false
+nguna,Nguna,ngun1274,Nguna,,,-17.5774,168.375,,,North and Central Vanuatu,,false

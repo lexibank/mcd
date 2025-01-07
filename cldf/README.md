@@ -14,8 +14,8 @@ Byron W. Bender, Ward H. Goodenough, Frederick H. Jackson, Jeffrey C. Marck, Ken
 [dc:conformsTo](http://purl.org/dc/terms/conformsTo) | [CLDF Wordlist](http://cldf.clld.org/v1.0/terms.rdf#Wordlist)
 [dc:license](http://purl.org/dc/terms/license) | https://creativecommons.org/licenses/by/4.0/
 [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL) | https://github.com/lexibank/mcd
-[prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) | <ol><li><a href="https://github.com/lexibank/mcd/tree/4caf6cf">lexibank/mcd v1.0-91-g4caf6cf</a></li><li><a href="https://github.com/glottolog/glottolog/tree/v5.0">Glottolog v5.0</a></li><li><a href="https://github.com/concepticon/concepticon-data/tree/v3.2.0">Concepticon v3.2.0</a></li><li><a href="https://github.com/cldf-clts/clts/tree/v2.3.0">CLTS v2.3.0</a></li></ol>
-[prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy) | <ol><li><strong>lingpy-rcParams</strong>: <a href="./lingpy-rcParams.json">lingpy-rcParams.json</a></li><li><strong>python</strong>: 3.10.12</li><li><strong>python-packages</strong>: <a href="./requirements.txt">requirements.txt</a></li></ol>
+[prov:wasDerivedFrom](http://www.w3.org/ns/prov#wasDerivedFrom) | <ol><li><a href="https://github.com/lexibank/mcd/tree/fe74e24">lexibank/mcd v1.0-92-gfe74e24</a></li><li><a href="https://github.com/glottolog/glottolog/tree/v5.1">Glottolog v5.1</a></li><li><a href="https://github.com/concepticon/concepticon-data/tree/v3.2.0">Concepticon v3.2.0</a></li><li><a href="https://github.com/cldf-clts/clts/tree/v2.3.0">CLTS v2.3.0</a></li></ol>
+[prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy) | <ol><li><strong>lingpy-rcParams</strong>: <a href="./lingpy-rcParams.json">lingpy-rcParams.json</a></li><li><strong>python</strong>: 3.12.3</li><li><strong>python-packages</strong>: <a href="./requirements.txt">requirements.txt</a></li></ol>
 [rdf:ID](http://www.w3.org/1999/02/22-rdf-syntax-ns#ID) | mcd
 [rdf:type](http://www.w3.org/1999/02/22-rdf-syntax-ns#type) | http://www.w3.org/ns/dcat#Distribution
 
@@ -45,8 +45,9 @@ Name/Property | Datatype | Description
 `Loan` | `boolean` | 
 `Graphemes` | `string` | 
 `Profile` | `string` | 
-`Local_Number` | `string` | 
-`sic` | `string` | For a form that differs from the expected reflex in some way this flag asserts that a copying mistake has not occurred.
+[Description](http://cldf.clld.org/v1.0/terms.rdf#description) | `string` | Description of the meaning of the word (possibly in language-specific terms).
+`Sic` | `boolean` | For a form that differs from the expected reflex in some way this flag asserts that a copying mistake has not occurred.
+`Doubt` | `boolean` | In particular reconstructions, i.e. proto-forms in etymological dictionaries, are often marked as being somewhat doubtful (typically displayed as proto-form prefixed with a '?' or similar).
 
 ## <a name="table-languagescsv"></a>Table [languages.csv](./languages.csv)
 
@@ -69,11 +70,10 @@ Name/Property | Datatype | Description
 [Latitude](http://cldf.clld.org/v1.0/terms.rdf#latitude) | `decimal`<br>&ge; -90<br>&le; 90 | 
 [Longitude](http://cldf.clld.org/v1.0/terms.rdf#longitude) | `decimal`<br>&ge; -180<br>&le; 180 | 
 `Family` | `string` | 
-`Alias` | `string` | 
-`Abbr` | `string` | 
-[Source](http://cldf.clld.org/v1.0/terms.rdf#source) | list of `string` (separated by `;`) | References [sources.bib::BibTeX-key](./sources.bib)
-`Is_Proto` | `boolean` | 
-`Local_ID` | `string` | 
+`Abbr` | `string` | Abbreviation for the (proto-)language name.
+`Group` | `string` | Subgroup of Oceanic - according to Glottolog - to which the language belongs.
+[Source](http://cldf.clld.org/v1.0/terms.rdf#source) | list of `string` (separated by `;`) | Etymological (or comparative) dictionaries typically compare lexical data from many source dictionaries.<br>References [sources.bib::BibTeX-key](./sources.bib)
+`Is_Proto` | `boolean` | Specifies whether a language is a proto-language (and thus its forms reconstructed proto-forms).
 
 ## <a name="table-parameterscsv"></a>Table [parameters.csv](./parameters.csv)
 
@@ -91,7 +91,6 @@ Name/Property | Datatype | Description
 [Name](http://cldf.clld.org/v1.0/terms.rdf#name) | `string` | 
 [Concepticon_ID](http://cldf.clld.org/v1.0/terms.rdf#concepticonReference) | `string` | 
 `Concepticon_Gloss` | `string` | 
-`Description` | `string` | 
 
 ## <a name="table-cognatescsv"></a>Table [cognates.csv](./cognates.csv)
 
@@ -115,7 +114,6 @@ Name/Property | Datatype | Description
 [Alignment](http://cldf.clld.org/v1.0/terms.rdf#alignment) | list of `string` (separated by ` `) | 
 `Alignment_Method` | `string` | 
 `Alignment_Source` | `string` | 
-`Comment` | `string` | 
 
 ## <a name="table-cognatesetscsv"></a>Table [cognatesets.csv](./cognatesets.csv)
 
@@ -130,21 +128,20 @@ property | value
 Name/Property | Datatype | Description
  --- | --- | --- 
 [ID](http://cldf.clld.org/v1.0/terms.rdf#id) | `string`<br>Regex: `[a-zA-Z0-9_\-]+` | Primary key
-[Description](http://cldf.clld.org/v1.0/terms.rdf#description) | `string` | The reconstructed meaning.
+[Description](http://cldf.clld.org/v1.0/terms.rdf#description) | `string` | 
 [Source](http://cldf.clld.org/v1.0/terms.rdf#source) | list of `string` (separated by `;`) | References [sources.bib::BibTeX-key](./sources.bib)
-[Name](http://cldf.clld.org/v1.0/terms.rdf#name) | `string` | The reconstructed proto-form(s).
-[Language_ID](http://cldf.clld.org/v1.0/terms.rdf#languageReference) | `string` | References [languages.csv::ID](#table-languagescsv)
-[Form_ID](http://cldf.clld.org/v1.0/terms.rdf#formReference) | `string` | References [forms.csv::ID](#table-formscsv)
+[Name](http://cldf.clld.org/v1.0/terms.rdf#name) | `string` | A recognizable label for the cognateset, typically the reconstructed proto-form and the reconstructed meaning.
+[Form_ID](http://cldf.clld.org/v1.0/terms.rdf#formReference) | `string` | Links to the reconstructed proto-form in FormTable.<br>References [forms.csv::ID](#table-formscsv)
 [Comment](http://cldf.clld.org/v1.0/terms.rdf#comment) | `string` | 
-`doubt` | `boolean` | Flag indicating (un)certainty of the reconstruction.
+`Doubt` | `boolean` | Flag indicating (un)certainty of the reconstruction.
 
 ## <a name="table-cfcsv"></a>Table [cf.csv](./cf.csv)
 
-MCD does not categorize items which were considered but eventually excluded as witness for a reconstruction as ACD does (into loans, "noise" and "near" cognates). Instead, MCD lists such forms in (a series of) tables related to a cognate set. These tables are listed in `cf.csv`.
+Etymological dictionaries sometimes mention "negative" results, e.g. groups of lexemes that appear to be cognates but are (temporarily) dismissed as proper cognates; for example the "noise" and "near" categories in the ACD. This includes the better defined category of loans where members of the group will be listed in BorrowingTable.
 
 property | value
  --- | ---
-[dc:extent](http://purl.org/dc/terms/extent) | 939
+[dc:extent](http://purl.org/dc/terms/extent) | 1030
 
 
 ### Columns
@@ -152,13 +149,15 @@ property | value
 Name/Property | Datatype | Description
  --- | --- | --- 
 [ID](http://cldf.clld.org/v1.0/terms.rdf#id) | `string` | Primary key
-[Name](http://cldf.clld.org/v1.0/terms.rdf#name) | `string` | The title of a table of related forms.
+[Name](http://cldf.clld.org/v1.0/terms.rdf#name) | `string` | The title of a table of related forms; typically hints at the type of relation between the forms or between the group of forms and an etymon.
+[Description](http://cldf.clld.org/v1.0/terms.rdf#description) | `string` | 
+`Category` | `string` | An optional category for groups of forms such as "loans".
 [Comment](http://cldf.clld.org/v1.0/terms.rdf#comment) | `string` | 
-[Cognateset_ID](http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference) | `string` | References [cognatesets.csv::ID](#table-cognatesetscsv)
+[Cognateset_ID](http://cldf.clld.org/v1.0/terms.rdf#cognatesetReference) | `string` | Links to an etymon, if the group of lexemes is related to one.<br>References [cognatesets.csv::ID](#table-cognatesetscsv)
 
 ## <a name="table-cfitemscsv"></a>Table [cfitems.csv](./cfitems.csv)
 
-Items in tables related to cognate sets are listed here.
+Membership of forms in a "cf" group is mediated through this association table unless more meaningful alternatives are available, like BorrowingTable for loans.
 
 property | value
  --- | ---
@@ -192,21 +191,45 @@ Name/Property | Datatype | Description
 [Source_Form_ID](http://cldf.clld.org/v1.0/terms.rdf#sourceFormReference) | `string` | References the source word of a borrowing<br>References [forms.csv::ID](#table-formscsv)
 [Comment](http://cldf.clld.org/v1.0/terms.rdf#comment) | `string` | 
 [Source](http://cldf.clld.org/v1.0/terms.rdf#source) | list of `string` (separated by `;`) | References [sources.bib::BibTeX-key](./sources.bib)
-`Loanset_ID` | `string` | References [loansets.csv::ID](#table-loansetscsv)
+`Cfset_ID` | `string` | Link to a set description.<br>References [cf.csv::ID](#table-cfcsv)
 
-## <a name="table-loansetscsv"></a>Table [loansets.csv](./loansets.csv)
-
-Part 2 of the Micronesian Reconstructions contains a list of (sets of) loanwords. Individual loanwords are listed in the BorrowingTable, linked to the 91 groups listed in this table.
+## <a name="table-treescsv"></a>Table [trees.csv](./trees.csv)
 
 property | value
  --- | ---
-[dc:extent](http://purl.org/dc/terms/extent) | 91
+[dc:conformsTo](http://purl.org/dc/terms/conformsTo) | [CLDF TreeTable](http://cldf.clld.org/v1.0/terms.rdf#TreeTable)
+[dc:extent](http://purl.org/dc/terms/extent) | 1
 
 
 ### Columns
 
 Name/Property | Datatype | Description
  --- | --- | --- 
-[ID](http://cldf.clld.org/v1.0/terms.rdf#id) | `string` | Primary key
+[ID](http://cldf.clld.org/v1.0/terms.rdf#id) | `string`<br>Regex: `[a-zA-Z0-9_\-]+` | Primary key
+[Name](http://cldf.clld.org/v1.0/terms.rdf#name) | `string` | Name of tree as used in the tree file, i.e. the tree label in a Nexus file or the 1-based index of the tree in a newick file
+[Description](http://cldf.clld.org/v1.0/terms.rdf#description) | `string` | Describe the method that was used to create the tree, etc.
+[Tree_Is_Rooted](http://cldf.clld.org/v1.0/terms.rdf#treeIsRooted) | `boolean`<br>Valid choices:<br> `Yes` `No` | Whether the tree is rooted (Yes) or unrooted (No) (or no info is available (null))
+[Tree_Type](http://cldf.clld.org/v1.0/terms.rdf#treeType) | `string`<br>Valid choices:<br> `summary` `sample` | Whether the tree is a summary (or consensus) tree, i.e. can be analysed in isolation, or whether it is a sample, resulting from a method that creates multiple trees
+[Tree_Branch_Length_Unit](http://cldf.clld.org/v1.0/terms.rdf#treeBranchLengthUnit) | `string`<br>Valid choices:<br> `change` `substitutions` `years` `centuries` `millennia` | The unit used to measure evolutionary time in phylogenetic trees.
+[Media_ID](http://cldf.clld.org/v1.0/terms.rdf#mediaReference) | `string` | References a file containing a Newick representation of the tree, labeled with identifiers as described in the LanguageTable (the [Media_Type](https://cldf.clld.org/v1.0/terms.html#mediaType) column of this table should provide enough information to chose the appropriate tool to read the newick)<br>References [media.csv::ID](#table-mediacsv)
+[Source](http://cldf.clld.org/v1.0/terms.rdf#source) | list of `string` (separated by `;`) | References [sources.bib::BibTeX-key](./sources.bib)
+
+## <a name="table-mediacsv"></a>Table [media.csv](./media.csv)
+
+property | value
+ --- | ---
+[dc:conformsTo](http://purl.org/dc/terms/conformsTo) | [CLDF MediaTable](http://cldf.clld.org/v1.0/terms.rdf#MediaTable)
+[dc:extent](http://purl.org/dc/terms/extent) | 1
+
+
+### Columns
+
+Name/Property | Datatype | Description
+ --- | --- | --- 
+[ID](http://cldf.clld.org/v1.0/terms.rdf#id) | `string`<br>Regex: `[a-zA-Z0-9_\-]+` | Primary key
+[Name](http://cldf.clld.org/v1.0/terms.rdf#name) | `string` | 
 [Description](http://cldf.clld.org/v1.0/terms.rdf#description) | `string` | 
+[Media_Type](http://cldf.clld.org/v1.0/terms.rdf#mediaType) | `string`<br>Regex: `[^/]+/.+` | 
+[Download_URL](http://cldf.clld.org/v1.0/terms.rdf#downloadUrl) | `anyURI` | 
+[Path_In_Zip](http://cldf.clld.org/v1.0/terms.rdf#pathInZip) | `string` | 
 
