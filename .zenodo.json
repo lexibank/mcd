@@ -37,8 +37,16 @@
             "type": "DataCurator"
         },
         {
+            "name": "Robert Forkel",
+            "type": "Editor"
+        },
+        {
             "name": "Lev Blumenfeld",
             "type": "DataCurator"
+        },
+        {
+            "name": "Lev Blumenfeld",
+            "type": "Editor"
         }
     ],
     "communities": [
